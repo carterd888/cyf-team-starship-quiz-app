@@ -1,7 +1,7 @@
 let QuizExample = [
     {
     id:1,
-    moduleName:'Database',
+    moduleName:['HTML5','CSS3','JavaScript-1','JavaScript-2','JavaScript-3','React','Node','SQL'],
     quizQuestion: 'This is the text of the Question',
     answerA: 'This is the first true answer',
     answerB: 'This is the second wrong answer'
@@ -9,6 +9,7 @@ let QuizExample = [
 
     {
     id:2,
+    moduleName:['HTML5','CSS3','JavaScript-1','JavaScript-2','JavaScript-3', 'React','Node','SQL'],
     moduleName:'Database',
     quizQuestion: 'This is the text of the Question',
     answerA: 'This is the first true answer',
@@ -17,7 +18,7 @@ let QuizExample = [
     
     {
     id:3,
-    moduleName:'Database',
+    moduleName:['HTML5','CSS3','JavaScript-1','JavaScript-2','JavaScript-3','React','Node','SQL'],
     quizQuestion: 'This is the text of the Question',
     answerA: 'This is the first true answer',
     answerB: 'This is the second wrong answer'
@@ -25,7 +26,7 @@ let QuizExample = [
 
     {
     id:5,
-    moduleName:'Database',
+    moduleName:['HTML5','CSS3','JavaScript-1','JavaScript-2','JavaScript-3','React','Node','SQL'],
     quizQuestion: 'This is the text of the Question',
     answerA: 'This is the first true answer',
     answerB: 'This is the second wrong answer'
@@ -33,7 +34,7 @@ let QuizExample = [
 
     {
     id:6,
-    moduleName:'Database',
+    moduleName:['HTML5','CSS3','JavaScript-1','JavaScript-2','JavaScript-3','React','Node','SQL'],
     quizQuestion: 'This is the text of the Question',
     answerA: 'This is the first true answer',
     answerB: 'This is the second wrong answer'
@@ -41,7 +42,7 @@ let QuizExample = [
 
     {
     id:7,
-    moduleName:'Database',
+    moduleName:['HTML5','CSS3','JavaScript-1','JavaScript-2','JavaScript-3','React','Node','SQL'],
     quizQuestion: 'This is the text of the Question',
     answerA: 'This is the first true answer',
     answerB: 'This is the second wrong answer'
