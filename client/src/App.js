@@ -1,23 +1,30 @@
+/* eslint-disable linebreak-style */
 import React, { useEffect, useState } from "react";
+import Header from "./Header";
+import QuizButton from "./QuizButton";
+import QuizQuestion from "./QuizQuestion";
 
 import "./App.css";
-import { getMessage } from "./service";
-import logo from "./logo.svg";
+// import { getMessage } from "./service";
+
 
 export function App() {
-	const [message, setMessage] = useState("Loading...");
+	// const [display, setDisplay] = useState(false);
 
-	useEffect(() => {
-		getMessage().then((message) => setMessage(message));
-	}, []);
+	//  function backButton() {
+	// 	setDisplay(false);
+	// }
+
+	// useEffect(() => {
+	// 	getMessage().then((message) => setMessage(message));
+	// }, []);
 
 	return (
-		<main role="main">
-			<div>
-				<img className="logo" data-qa="logo" src={logo} alt="Just the React logo" />
-				<h1 className="message" data-qa="message">{message}</h1>
-			</div>
-		</main>
+		<div>
+			<Header />
+			<QuizButton />
+			<QuizQuestion />
+		</div>
 	);
 }
 
