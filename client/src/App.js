@@ -12,6 +12,7 @@ export function App() {
 	}, []);
 
 	return (
+		<header/>
 		<main role="main">
 			<div>
 				<img className="logo" data-qa="logo" src={logo} alt="Just the React logo" />
