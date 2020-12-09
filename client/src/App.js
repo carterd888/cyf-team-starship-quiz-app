@@ -1,23 +1,23 @@
-import React, { useEffect, useState } from "react";
-
+/* eslint-disable linebreak-style */
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Header from "./Header";
+import QuizButton from "./QuizButton";
 import "./App.css";
-import { getMessage } from "./service";
-import logo from "./logo.svg";
+import QuizPage from "./QuizPage";
 
 export function App() {
-	const [message, setMessage] = useState("Loading...");
-
-	useEffect(() => {
-		getMessage().then((message) => setMessage(message));
-	}, []);
 
 	return (
-		<main role="main">
-			<div>
-				<img className="logo" data-qa="logo" src={logo} alt="Just the React logo" />
-				<h1 className="message" data-qa="message">{message}</h1>
+		<Router>
+			<div className='App'>
+				<Route path= "/" exact component={Header} />
+				<Switch>
+					<Route exact path = "/quizbutton" component={QuizButton} />
+					<Route path= "/quizpage" component ={QuizPage} />
+				</Switch>
 			</div>
-		</main>
+		</Router>
 	);
 }
 

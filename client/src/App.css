@@ -1,11 +1,72 @@
-.logo {
-    width: 100px;
+.Logo {
+    width: 15rem;
 }
 
-.message {
+.Header {
+    background-color: white;
+    display: flex;
+    padding: 1rem 5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    margin-bottom: 4px;
+}
+
+.button1 {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15rem;
+    display: flex;
+    width: 8rem;
+    background-color: red;
+    border-radius: 1rem;
+    color: white;
+    font-size: medium;
+    padding: 0.5rem;
+}
+
+/* .message {
     color: blue;
 }
 
 .message:hover {
     background-color: yellow;
+} */
+/*
+$color-primary: #ED4343;
+
+$color-gray: #f3f3f3;
+$color-gray-darker: #787878;
+
+$color-green: #28A745;
+$color-green-darker: #1C612C;
+
+$color-yellow: #E9AF01;
+$color-yellow-darker: #9C7603;
+
+$color-red: #DC3545;
+$color-red-darker: #8E0D19;
+
+$color-blue: #17A2B8;
+$color-blue-darker: #105965;
+
+$color-pink: #DC4785;
+$color-pink-darker: #60203B;
+
+$color-background-popup: rgba(0, 0, 0, 0.75);
+
+$color-white: #fff;
+$color-black: #000;
+
+
+$color-table-green: #B7E1CD;
+$color-table-red: #F4C7C3;
+$color-table-yellow: #FCE8B2;
+*/
+
+
+.true-answer{
+    background-color:#28A745;
+}
+
+.false-answer{
+    background-color:#DC3545;
 }
