@@ -5,10 +5,10 @@ const Header = () => {
 		<div className="Header">
 			<img className="Logo" src="client\src\logo.png" />
 			<ul className='header-links'>
-				<Link to ="/quizpage" >
+				<Link to="/mentorpage">
 					<li>Mentor Access</li>
 				</Link>
-				<Link>
+				<Link to="/studentpage">
 					<li>Student Access</li>
 				</Link>
 			</ul>
