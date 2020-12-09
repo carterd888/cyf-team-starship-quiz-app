@@ -13,7 +13,7 @@ export function App() {
 			<div className='App'>
 				<Route path= "/" exact component={Header} />
 				<Switch>
-					<Route exact path = "/quizbutton" component={QuizButton} />
+					<Route path = "/quizbutton" component={QuizButton} />
 					<Route path= "/quizpage" component ={QuizPage} />
 				</Switch>
 			</div>
