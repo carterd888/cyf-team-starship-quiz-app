@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
 	return (
 		<div className="Header">
-			<img className="Logo" src="client\src\logo.png" />
+			<img className="Logo" src="./client\src\logo.png" />
 			<ul className='header-links'>
 				<Link to="/mentorpage">
 					<li>Mentor Access</li>
