@@ -61,3 +61,12 @@ $color-table-green: #B7E1CD;
 $color-table-red: #F4C7C3;
 $color-table-yellow: #FCE8B2;
 */
+
+
+.true-answer{
+    background-color:#28A745;
+}
+
+.false-answer{
+    background-color:#DC3545;
+}
