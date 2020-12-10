@@ -1,5 +1,10 @@
 import React, {useState} from "react";
-let questionArray = []
+import {Link} from 'react-router-dom';
+import Button from '../GeneralPages/Button';
+
+
+
+let questionArray = [];
 
 const QuizQuestion = () => {
 
@@ -24,9 +29,13 @@ const QuizQuestion = () => {
 	function handleSubmit (e) {
 		e.preventDefault(); // has to be deleted later
 		console.log(`question is: ${question} correct answer: ${correctAnswer}, wrong answer: ${wrongAnswer} `);
-		setSubmit(questionArray.push({"Question": question, "CorrectAnswer": correctAnswer, "WrongAnswer1": wrongAnswer}))
+		setSubmit(questionArray.push({"Question": question, "CorrectAnswer": correctAnswer, "WrongAnswer1": wrongAnswer}));
 		console.log(questionArray);
-	}
+		alert('The question has been submitted.')
+		setQuestion('');
+		setCorrectAnswer('');
+		setWrongAnswer('');
+	};
 
 	return (
 		<form >
@@ -63,7 +72,14 @@ const QuizQuestion = () => {
 						onChange={handleChange} />
 				</label>
 			</div>
+			<br />
 			<button className="submit-button" type="submit" onClick = {handleSubmit}>click here to submit the quiz</button>
+			<br />
+
+			<Link to = "/mentorpage">
+			<br />
+				<Button buttontext ='Go back to Mentor Page' />
+			</Link>
 		</form>
 	);
 };

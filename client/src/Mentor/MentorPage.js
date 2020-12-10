@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Header from "./Header";
-import QuizButton from "./QuizButton";
-import QuizResultsButton from "./QuizResultsButton";
+import Header from "../GeneralPages/Header";
+
+import Button from "../GeneralPages/Button";
 import { Link } from "react-router-dom";
 
 const MentorPage = () => {
@@ -9,10 +9,10 @@ const MentorPage = () => {
         <div>
             <Header />
             <Link to = "/quizpage">
-                <QuizButton />
+                <Button buttontext = 'Click to create a Quiz'/>
             </Link>
             <Link>
-                <QuizResultsButton />
+                <Button buttontext = 'Click to see the results' />
             </Link>
 
             

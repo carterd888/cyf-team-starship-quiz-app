@@ -1,13 +1,16 @@
 import React from "react";
-import Header from "./Header";
-import QuizExample from "../../server/QuizExample.js";
-console.log(QuizExample);
+import {Link} from 'react-router-dom';
+import Header from "../GeneralPages/Header";
+import QuizExample from "../../../server/QuizExample.js";
+import Button from '../GeneralPages/Button';
+
+// console.log(QuizExample);
 
 let quizAnswers = [0];
 QuizExample.map(q => {quizAnswers.push(false)});
-console.log(quizAnswers);
+// console.log(quizAnswers);
 
-const StudentPage = () => {
+const StudentQuiz = () => {
 
     function trueAnswer(e) {
         e.preventDefault();
@@ -21,7 +24,7 @@ const StudentPage = () => {
 
     function submitFunction(e) {
         e.preventDefault();
-        console.log(quizAnswers);
+        // console.log(quizAnswers);
     }
 
     return (
@@ -38,10 +41,14 @@ const StudentPage = () => {
                         </div>
                     );
                 })}
+                <br />
                 <button onClick={submitFunction}>Submit the answers!</button>
             </form>  
+            	<Link to = "/studentpage">
+				<Button buttontext ='Go back to Student Page' />
+			</Link>
         </div>  
     );
 }
 
-export default StudentPage;
+export default StudentQuiz;

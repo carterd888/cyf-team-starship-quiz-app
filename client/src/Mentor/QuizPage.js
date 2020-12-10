@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import QuizQuestion from "./QuizQuestion";
-import Header from "./Header";
-import SubmitButton from "./SubmitButton";
+import Header from "../GeneralPages/Header";
+
 
 const QuizPage =()=> {
 
