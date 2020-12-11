@@ -44,7 +44,7 @@ const StudentQuiz = () => {
                 <br />
                 <button onClick={submitFunction}>Submit the answers!</button>
             </form>  
-            	<Link to = "/studentpage">
+            <Link to = "/studentpage">
 				<Button buttontext ='Go back to Student Page' />
 			</Link>
         </div>  
