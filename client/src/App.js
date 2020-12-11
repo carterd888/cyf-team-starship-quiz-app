@@ -7,19 +7,19 @@ import QuizPage from "./Mentor/QuizPage";
 import MentorPage from "./Mentor/MentorPage";
 import StudentPage from "./Student/StudentPage";
 import StudentQuiz from './Student/StudentQuiz';
+import StudentResults from "./Student/StudentResults";
 
 export function App() {
-
 	return (
 		<Router>
 			<div className='App'>
 				<Route path= "/" exact component={HomePage} />
 				<Switch>
-					
 					<Route path = "/mentorpage" component = {MentorPage} />
 					<Route path = "/quizpage" component = {QuizPage} />
 					<Route path = "/studentpage" component = {StudentPage} />
 					<Route path = "/studentquiz" component = {StudentQuiz} />
+					<Route path = "/studentresults" component = {StudentResults} />
 				</Switch>
 			</div>
 		</Router>

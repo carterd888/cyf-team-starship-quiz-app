@@ -24,9 +24,19 @@ router.get("/quiz", function (req, res, next) {
 			.query("SELECT * FROM quiz")
 			.then((result) => res.json(result.rows))
 			.catch((e) => console.error(e));
-		/* res.json({ message: "Hello, world!" }); */
 	});
+});
 
+router.get("/results", function (req, res, next) {
+	Connection.connect((err, pool) => {
+		if (err) {
+			return next(err);
+		}
+		pool
+			.query("SELECT quiz.quiz_name, results.score FROM results INNER JOIN quiz ON results.quiz_id = quiz.id")
+			.then((result) => res.json(result.rows))
+			.catch((e) => console.error(e));
+	});
 });
 
 export default router;
