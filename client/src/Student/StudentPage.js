@@ -12,9 +12,7 @@ const StudentPage = () => {
             </Link>
             <Link to = "/studentresults">
               <Button buttontext = 'Click to see your Quiz results'/>
-            </Link>
-
-            
+            </Link>  
         </div>
     );
 }

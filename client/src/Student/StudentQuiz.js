@@ -4,11 +4,8 @@ import Header from "../GeneralPages/Header";
 import QuizExample from "../../../server/QuizExample.js";
 import Button from '../GeneralPages/Button';
 
-// console.log(QuizExample);
-
 let quizAnswers = [0];
 QuizExample.map(q => {quizAnswers.push(false)});
-// console.log(quizAnswers);
 
 const StudentQuiz = () => {
 
@@ -24,7 +21,7 @@ const StudentQuiz = () => {
 
     function submitFunction(e) {
         e.preventDefault();
-        // console.log(quizAnswers);
+        console.log(quizAnswers);
     }
 
     return (

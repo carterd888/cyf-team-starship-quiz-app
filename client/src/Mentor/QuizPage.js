@@ -5,8 +5,6 @@ import Header from "../GeneralPages/Header";
 
 const QuizPage =()=> {
 
-
-
 	function handleSubmit (e){
 		e.preventDefault();
 	       console.log(`question is: ${question} correct answer: ${correctAnswer}, wrong answer: ${wrongAnswer} `);
@@ -19,7 +17,6 @@ const QuizPage =()=> {
 			<QuizQuestion handleSubmit={handleSubmit} />
 			{/* <SubmitButton  handleSubmit={handleSubmit} /> */}
 		</div>
-
 	);
 };
 

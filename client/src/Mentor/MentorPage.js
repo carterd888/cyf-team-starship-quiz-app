@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Header from "../GeneralPages/Header";
-
 import Button from "../GeneralPages/Button";
 import { Link } from "react-router-dom";
 
@@ -13,9 +12,7 @@ const MentorPage = () => {
             </Link>
             <Link>
                 <Button buttontext = 'Click to see the results' />
-            </Link>
-
-            
+            </Link>   
         </div>
     );
 }
