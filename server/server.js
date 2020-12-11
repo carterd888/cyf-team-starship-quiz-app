@@ -6,12 +6,7 @@ const port = parseInt(process.env.PORT || "3000");
 
 const server = http.createServer(app);
 
-app.get("/quiz", function (req, res) {
-  pool
-    .query("SELECT * FROM quiz")
-    .then((result) => res.json(result.rows))
-    .catch((e) => console.error(e));
-});
+
 
 server.listen(port);
 
