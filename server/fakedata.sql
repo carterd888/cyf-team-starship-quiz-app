@@ -19,9 +19,14 @@ CREATE TABLE quiz_questions (
 CREATE TABLE results (
   id SERIAL PRIMARY KEY,
   quiz_id INT REFERENCES quiz(id),
-  student_name VARCHAR(120) NOT NULL,
-  student_email VARCHAR(120) NOT NULL,
+  student_id INT REFERENCES students(id), 
   score INT  
+);
+
+CREATE TABLE students (
+  id SERIAL PRIMARY KEY,
+  student_name VARCHAR(120) NOT NULL,
+  student_email VARCHAR(120) NOT NULL
 );
 
 INSERT INTO quiz (quiz_name, quiz_url) VALUES ('HTML_1', 1);
@@ -29,4 +34,8 @@ INSERT INTO quiz (quiz_name, quiz_url) VALUES ('HTML_1', 1);
 INSERT INTO quiz_questions (quiz_id, question, correct_answer, wrong_answer) VALUES (1, 'What does HTML mean?', 'Hyper-Text Markup Language', 'Hyper-Text Market Language' );
 INSERT INTO quiz_questions (quiz_id, question, correct_answer, wrong_answer) VALUES (1, 'What does CSS mean?', 'Cascading Style Sheet', 'Compiled Style Sheet' );
 
-INSERT INTO results (quiz_id, student_name, student_email, score) VALUES (1, 'Joe Blogs', 'JoeBlogs@gmail.com', 10);
+INSERT INTO students (student_name, student_email) VALUES ('Daniel Carter', 'dan@gmail.com');
+INSERT INTO students (student_name, student_email) VALUES ('Gabriel Gabriewski', 'gab@gmail.com');
+INSERT INTO students (student_name, student_email) VALUES ('Ekip Kalir', 'eki@gmail.com');
+
+INSERT INTO results (quiz_id, student_id, score) VALUES (1, 1, 10);

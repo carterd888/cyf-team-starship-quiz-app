@@ -5,12 +5,14 @@ import path from "path";
 
 import router from "./api";
 import { httpsOnly, logErrors, pushStateRouting } from "./middleware";
+import cors from "cors";
 
 const apiRoot = "/api";
 const staticDir = path.join(__dirname, "static");
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 app.use(helmet());
 app.use(logErrors());

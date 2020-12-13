@@ -10,11 +10,9 @@ const StudentPage = () => {
             <Link to = "/studentquiz">
                  <Button buttontext = 'Click to take a Quiz'/>
             </Link>
-            <Link>
+            <Link to = "/studentresults">
               <Button buttontext = 'Click to see your Quiz results'/>
-            </Link>
-
-            
+            </Link>  
         </div>
     );
 }
