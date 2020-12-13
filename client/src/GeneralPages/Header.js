@@ -10,7 +10,7 @@ const Header = () => {
         <Link to="/mentorpage">
           <li>Mentor Access</li>
         </Link>
-        <Link to="/studentpage">
+        <Link to="/studentlogin">
           <li>Student Access</li>
         </Link>
       </ul>
