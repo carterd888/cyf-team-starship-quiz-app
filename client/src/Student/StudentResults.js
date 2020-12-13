@@ -4,13 +4,12 @@ import Header from "../GeneralPages/Header";
 import Button from '../GeneralPages/Button';
 
 const StudentResults = () => {
-    let [results, setResults] = useState("");
+    let [results, setResults] = useState([]);
 
     useEffect(() => {
-        fetch("https://cyf-team-starship-quiz-app.herokuapp.com/api/results")
+        fetch("http://localhost:3100/api/results") // Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/results
             .then(data => data.json())
-            .then(jsonData => console.log(jsonData))
-            // .then(jsonData => setResults(jsonData))
+            .then(jsonData => setResults(jsonData))
             .catch(e => console.log(e));
     }, []);
 
@@ -23,11 +22,16 @@ const StudentResults = () => {
                     <tr>
                         <th>Test</th>
                         <th>Score</th>
-                    </tr>
-                    <tr>
-                        {/* <td>{results.quiz_name}</td>
-                        <td>{results.score}</td> */}
-                    </tr>
+                    </tr> 
+                    {
+                        results.map(r => { 
+                            return (
+                                <tr>
+                                    <td>{r.quiz_name}</td>
+                                    <td>{r.score}</td>
+                                </tr>);
+                            })
+                    }                  
                 </table>
             </div>
             <Link to = "/studentpage">
