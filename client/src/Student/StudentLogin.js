@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import Header from "../GeneralPages/Header";
 import Button from "../GeneralPages/Button";
-import { Link, Redirect } from "react-router-dom";
-import SubmitButton from "../GeneralPages/SubmitButton";
+import { Link } from "react-router-dom";
 
 
 const StudentLogin = () => {
 
 	const [studentName, setStudentName] = useState("");
 	const [studentEmail, setStudentEmail] = useState("");
-	const [submit, setSubmit] = useState([]);
 
 	function handleChange(e) {
 		if (e.target.name === "studentName") {
@@ -21,8 +19,7 @@ const StudentLogin = () => {
 		}
 	}
 
-    	function handleSubmit (e) {
-		e.preventDefault(); // has to be deleted later
+	function handleSubmit () {
 		console.log(`Student name is: ${studentName} and student email is: ${studentEmail} `);
 
 		fetch("http://localhost:3100/api/students", {
@@ -35,28 +32,24 @@ const StudentLogin = () => {
 				"Content-Type": "application/json",
 			},
 		});
-
-		<Redirect to="/studentpage" />;
-		/* 	alert("The details have been submitted."); */
-
-	    }
-
+		alert("The details have been submitted.");
+	}
 
 	return (
 		<div>
 			<Header />
 			<div>
 				<form>
+					<br />
 					<div>
-						<br />
-                		<label>
+                	    <label>
                             Enter Your Name:
 							<br />
 							<input type="text" className="student-login-name" name="studentName"  value={studentName} onChange={handleChange} required />
-						</label>
+					    </label>
 					</div>
+					<br />
 					<div>
-						<br />
                     	<label>
                             Enter Your Email:
 							<br />
@@ -65,13 +58,14 @@ const StudentLogin = () => {
 					</div>
 					<br />
 					<div>
-						{/* 	<Link to = "/studentpage"> */}
+						{studentName && studentEmail
+                    && (
+                    	<Link to = "/studentpage">
 						   <input type="submit" value="Submit" onClick={handleSubmit} />
-						{/* 	</Link> */}
+                    	</Link>
+                    )}
 					</div>
-
 				</form>
-
 				<Link to = "/studentpage">
 					<Button buttontext = 'Log on to Student Page' />
 				</Link>
