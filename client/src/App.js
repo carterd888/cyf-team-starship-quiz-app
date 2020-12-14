@@ -10,20 +10,24 @@ import StudentQuiz from "./Student/StudentQuiz";
 import StudentResults from "./Student/StudentResults";
 import MentorResults from "./Mentor/MentorResults";
 import StudentLogin from "./Student/StudentLogin";
+import MentorLogin from "./Mentor/MentorLogin";
 
 export function App() {
+
 	return (
 		<Router>
 			<div className='App'>
 				<Route path= "/" exact component={HomePage} />
 				<Switch>
+					<Route path = "/mentorlogin" component = {MentorLogin} />
 					<Route path = "/mentorpage" component = {MentorPage} />
 					<Route path = "/quizpage" component = {QuizPage} />
+					<Route path = "/mentorresults" component = {MentorResults} />
+
 					<Route path = "/studentlogin" component = {StudentLogin} />
 					<Route path = "/studentpage" component = {StudentPage} />
 					<Route path = "/studentquiz" component = {StudentQuiz} />
 					<Route path = "/studentresults" component = {StudentResults} />
-					<Route path = "/mentorresults" component = {MentorResults} />
 				</Switch>
 			</div>
 		</Router>
