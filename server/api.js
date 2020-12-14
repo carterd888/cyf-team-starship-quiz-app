@@ -27,6 +27,35 @@ router.get("/quiz", function (req, res, next) {
 	});
 });
 
+router.post("/quiz", function (req, res, next) {
+	Connection.connect((err, pool) => {
+		if (err) {
+			return next(err);
+		}
+
+		const question = req.body.question;
+		const correctAnswer = req.body.correct_answer;
+		const wrongAnswer = req.body.wrong_answer;
+		const quizName = req.body.quiz_id;
+
+		/* pool */
+
+		/* 			.query("SELECT * FROM mentors WHERE mentor_email=$1", [mentorEmail])
+  		.then((result) => {
+      	if (result.rows.length > 0) {
+        	return res
+						.status(200).send(`There is a mentor  with that ${mentorEmail}`);
+      	} else { */
+		const query
+         = "INSERT INTO quiz_questions (quizName, question, correct_answer, wrong_answer) VALUES ($1, $2, $3, $4)";
+		pool
+			.query(query, [quizName, question, correctAnswer, wrongAnswer])
+			.then(() => res.send("Question added!"))
+			.catch((e) => console.error(e));
+	});
+});
+
+
 router.get("/studentresults", function (req, res, next) {
 	Connection.connect((err, pool) => {
 		if (err) {

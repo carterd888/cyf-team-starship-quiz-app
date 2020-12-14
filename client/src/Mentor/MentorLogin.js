@@ -29,7 +29,7 @@ const MentorLogin = () => {
 			},
 		});
 		alert("The details have been submitted.");
-	    }
+	}
 
 	return (
 		<div>

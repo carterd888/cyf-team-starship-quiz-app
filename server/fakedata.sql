@@ -36,7 +36,13 @@ CREATE TABLE mentors (
   mentor_email VARCHAR(120) NOT NULL
 );
 
-INSERT INTO quiz (quiz_name, quiz_url) VALUES ('HTML_1', 1);
+INSERT INTO quiz (quiz_name, quiz_url) VALUES ('HTML', 1);
+INSERT INTO quiz (quiz_name, quiz_url) VALUES ('CSS', 2);
+INSERT INTO quiz (quiz_name, quiz_url) VALUES ('JS', 3);
+INSERT INTO quiz (quiz_name, quiz_url) VALUES ('REACT', 4);
+INSERT INTO quiz (quiz_name, quiz_url) VALUES ('NODE', 5);
+INSERT INTO quiz (quiz_name, quiz_url) VALUES ('SQL', 6);
+
 
 INSERT INTO quiz_questions (quiz_id, question, correct_answer, wrong_answer) VALUES (1, 'What does HTML mean?', 'Hyper-Text Markup Language', 'Hyper-Text Market Language' );
 INSERT INTO quiz_questions (quiz_id, question, correct_answer, wrong_answer) VALUES (1, 'What does CSS mean?', 'Cascading Style Sheet', 'Compiled Style Sheet' );
