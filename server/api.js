@@ -47,7 +47,7 @@ router.post("/quiz", function (req, res, next) {
 						.status(200).send(`There is a mentor  with that ${mentorEmail}`);
       	} else { */
 		const query
-         = "INSERT INTO quiz_questions (quizName, question, correct_answer, wrong_answer) VALUES ($1, $2, $3, $4)";
+         = "INSERT INTO quiz_questions (quiz_id, question, correct_answer, wrong_answer) VALUES ($1, $2, $3, $4)";
 		pool
 			.query(query, [quizName, question, correctAnswer, wrongAnswer])
 			.then(() => res.send("Question added!"))
