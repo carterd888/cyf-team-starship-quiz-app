@@ -96,87 +96,78 @@ const QuizQuestion = () => {
 				{quiz.map((q) =>{
 					return (<option key={q.id} value={q.id} >{q.quiz_name}</option>);
 				})}
-
 			</select>
 			<form >
-				<label>
-          Enter the question below:
-					<br />
-					<textarea
-						id="question"
-						name="question"
-						rows="8"
-						cols="40"
-						value={question} onChange={handleChange}
-					></textarea>
-				</label>
+				<label htmlFor="question ">Enter the question below:</label>
+				<br />
+				<textarea
+					id="question"
+					name="question"
+					rows="8"
+					cols="40"
+					value={question} onChange={handleChange}
+				></textarea>
 				<br />
 				<div>
 					<br />
-					<label >
-            Answer 1 {" "} <input
-							className='true-answer'
-							type="text"
-							name="correctAnswer"
-							placeholder="Enter correct answer here"
-							value={correctAnswer}
-							onChange={handleChange} />
-					</label>
+					<label htmlFor="correctAnswer" >Answer 1 </label>
+					<input
+						className='true-answer'
+						type="text"
+						name="correctAnswer"
+						placeholder="Enter correct answer here"
+						value={correctAnswer}
+						onChange={handleChange} />
 				</div>
 				<br />
 				<div>
-					<label >
-            Answer 2 {" "} <input className='false-answer'
-							type="text"
-							name="wrongAnswer1"
-							placeholder="Enter wrong answer here"
-							value= {wrongAnswer1}
-							onChange={handleChange} />
-					</label>
+					<label htmlFor="wrongAnswer1" >Answer 2 </label>
+					<input className='false-answer'
+						type="text"
+						name="wrongAnswer1"
+						placeholder="Enter wrong answer here"
+						value= {wrongAnswer1}
+						onChange={handleChange} />
 				</div>
 				<br />
 				<div>
-					<label >
-            Answer 3 (optional) {" "} <input className='false-answer'
-							type="text"
-							name="wrongAnswer2"
-							placeholder="Enter wrong answer here"
-							value= {wrongAnswer2}
-							onChange={handleChange} />
-					</label>
+					<label htmlFor="wrongAnswer2" >Answer 3 (optional) </label>
+					<input className='false-answer'
+						type="text"
+						name="wrongAnswer2"
+						placeholder="Enter wrong answer here"
+						value= {wrongAnswer2}
+						onChange={handleChange} />
 				</div>
 				<br />
 				<div>
-					<label >
-            Answer 4 (optional) {" "} <input className='false-answer'
-							type="text"
-							name="wrongAnswer3"
-							placeholder="Enter wrong answer here"
-							value= {wrongAnswer3}
-							onChange={handleChange} />
-					</label>
+					<label htmlFor="wrongAnswer3" >Answer 4 (optional) </label>
+					<input className='false-answer'
+						type="text"
+						name="wrongAnswer3"
+						placeholder="Enter wrong answer here"
+						value= {wrongAnswer3}
+						onChange={handleChange} />
 				</div>
 				<br />
 				<div>
-					<label >
-            Answer 5 (optional) {" "} <input className='false-answer'
-							type="text"
-							name="wrongAnswer4"
-							placeholder="Enter wrong answer here"
-							value= {wrongAnswer4}
-							onChange={handleChange} />
-					</label>
+					<label htmlFor="wrongAnswer4">Answer 5 (optional) </label>
+					<input className='false-answer'
+						type="text"
+						name="wrongAnswer4"
+						placeholder="Enter wrong answer here"
+						value= {wrongAnswer4}
+						onChange={handleChange} />
 				</div>
 				<br />
 				<div>
-					<label >
-            Answer 6 (optional) {" "} <input className='false-answer'
-							type="text"
-							name="wrongAnswer5"
-							placeholder="Enter wrong answer here"
-							value= {wrongAnswer5}
-							onChange={handleChange} />
-					</label>
+					<label htmlFor="wrongAnswer5">Answer 6 (optional) </label>
+					<input className='false-answer'
+						type="text"
+						name="wrongAnswer5"
+						placeholder="Enter wrong answer here"
+						value= {wrongAnswer5}
+						onChange={handleChange} />
 				</div>
 				<br />
 				<button className="submit-button" type="submit" onClick = {handleSubmit}>click here to submit the quiz</button>

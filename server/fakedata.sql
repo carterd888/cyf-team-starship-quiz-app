@@ -51,12 +51,16 @@ INSERT INTO quiz (quiz_name, quiz_url) VALUES ('SQL', 6);
 INSERT INTO students (student_name, student_email) VALUES ('Daniel Carter', 'dan@gmail.com');
 INSERT INTO students (student_name, student_email) VALUES ('Gabriel Gabriewski', 'gab@gmail.com');
 INSERT INTO students (student_name, student_email) VALUES ('Ekip Kalir', 'eki@gmail.com');
+INSERT INTO students (student_name, student_email) VALUES ('Coronavirus', 'corona@virus.com');
 
 INSERT INTO mentors (mentor_email) VALUES ('eki@gmail.com');
 INSERT INTO mentors (mentor_email) VALUES ('den@gmail.com');
 INSERT INTO mentors (mentor_email) VALUES ('gab@gmail.com');
 
 INSERT INTO results (quiz_id, student_id, score) VALUES (1, 1, 10);
+INSERT INTO results (quiz_id, student_id, score) VALUES (1, 2, 5);
+INSERT INTO results (quiz_id, student_id, score) VALUES (1, 3, 7);
+INSERT INTO results (quiz_id, student_id, score) VALUES (1, 4, 12);
 
 INSERT INTO quiz_questions (quiz_id, question, correct_answer, wrong_answer_1) VALUES (1, 'What does HTML mean?', 'Hyper-Text Markup Language', 'Hyper-Text Market Language' );
 INSERT INTO quiz_questions (quiz_id, question, correct_answer, wrong_answer_1) VALUES (1, 'What does CSS mean?', 'Cascading Style Sheet', 'Compiled Style Sheet' );
