@@ -6,7 +6,11 @@ import Button from "../GeneralPages/Button";
 const QuizQuestion = () => {
 
 	const [correctAnswer, setCorrectAnswer]= useState("");
-	const [wrongAnswer, setWrongAnswer] = useState("");
+	const [wrongAnswer1, setWrongAnswer1] = useState("");
+	const [wrongAnswer2, setWrongAnswer2] = useState("");
+	const [wrongAnswer3, setWrongAnswer3] = useState("");
+	const [wrongAnswer4, setWrongAnswer4] = useState("");
+	const [wrongAnswer5, setWrongAnswer5] = useState("");
 	const [question, setQuestion] = useState("");
 	const [quizName, setQuizName] = useState("");
 
@@ -23,27 +27,51 @@ const QuizQuestion = () => {
 		if (e.target.name === "question") {
 			setQuestion(e.target.value);
 			//console.log(question);
-		} else if (e.target.name === "correctAnswer") {
+		} 
+		else if (e.target.name === "correctAnswer") {
 			setCorrectAnswer(e.target.value);
 			//console.log(correctAnswer);
-		} else if (e.target.name === "wrongAnswer") {
-			setWrongAnswer(e.target.value);
-			//console.log(wrongAnswer);
-		} else if (e.target.name === "id"){
+		} 
+		else if (e.target.name === "wrongAnswer1") {
+			setWrongAnswer1(e.target.value);
+			//console.log(wrongAnswer1);
+		}
+		else if (e.target.name === "wrongAnswer2") {
+			setWrongAnswer2(e.target.value);
+			//console.log(wrongAnswer2);
+		} 
+		else if (e.target.name === "wrongAnswer3") {
+			setWrongAnswer3(e.target.value);
+			//console.log(wrongAnswer3);
+		} 
+		else if (e.target.name === "wrongAnswer4") {
+			setWrongAnswer4(e.target.value);
+			//console.log(wrongAnswer4);
+		} 
+		else if (e.target.name === "wrongAnswer5") {
+			setWrongAnswer5(e.target.value);
+			//console.log(wrongAnswer5);
+		}  
+		else if (e.target.name === "id"){
 			setQuizName(e.target.value);
 		}
 	}
 
 	function handleSubmit (e) {
 		e.preventDefault();
-		console.log(`question is: ${question} correct answer: ${correctAnswer}, wrong answer: ${wrongAnswer} `);
+		console.log(`question is: ${question} correct answer: ${correctAnswer}, first wrong answer: ${wrongAnswer1} , second wrong answer: ${wrongAnswer2}, `
+			+ `, third wrong answer: ${wrongAnswer3}, , fourth wrong answer: ${wrongAnswer4}, , fifth wrong answer: ${wrongAnswer5} `);
 
 		fetch("http://localhost:3100/api/quiz", {
 			method: "POST",
 			body: JSON.stringify({
 				question: question,
 				correct_answer:correctAnswer,
-				wrong_answer: wrongAnswer,
+				wrong_answer_1: wrongAnswer1,
+				wrong_answer_2: wrongAnswer2,
+				wrong_answer_3: wrongAnswer3,
+				wrong_answer_4: wrongAnswer4,
+				wrong_answer_5: wrongAnswer5,
 				quiz_id:quizName,
 			}),
 			headers: {
@@ -54,7 +82,11 @@ const QuizQuestion = () => {
 		alert("The question has been submitted.");
 		setQuestion("");
 		setCorrectAnswer("");
-		setWrongAnswer("");
+		setWrongAnswer1("");
+		setWrongAnswer2("");
+		setWrongAnswer3("");
+		setWrongAnswer4("");
+		setWrongAnswer5("");
 	}
 
 
@@ -86,6 +118,7 @@ const QuizQuestion = () => {
 							className='true-answer'
 							type="text"
 							name="correctAnswer"
+							placeholder="Enter correct answer here"
 							value={correctAnswer}
 							onChange={handleChange} />
 					</label>
@@ -95,8 +128,53 @@ const QuizQuestion = () => {
 					<label >
             Answer 2 {" "} <input className='false-answer'
 							type="text"
-							name="wrongAnswer"
-							value= {wrongAnswer}
+							name="wrongAnswer1"
+							placeholder="Enter wrong answer here"
+							value= {wrongAnswer1}
+							onChange={handleChange} />
+					</label>
+				</div>
+				<br />
+				<div>
+					<label >
+            Answer 3 (optional) {" "} <input className='false-answer'
+							type="text"
+							name="wrongAnswer2"
+							placeholder="Enter wrong answer here"
+							value= {wrongAnswer2}
+							onChange={handleChange} />
+					</label>
+				</div>
+				<br />
+				<div>
+					<label >
+            Answer 4 (optional) {" "} <input className='false-answer'
+							type="text"
+							name="wrongAnswer3"
+							placeholder="Enter wrong answer here"
+							value= {wrongAnswer3}
+							onChange={handleChange} />
+					</label>
+				</div>
+				<br />
+				<div>
+					<label >
+            Answer 5 (optional) {" "} <input className='false-answer'
+							type="text"
+							name="wrongAnswer4"
+							placeholder="Enter wrong answer here"
+							value= {wrongAnswer4}
+							onChange={handleChange} />
+					</label>
+				</div>
+				<br />
+				<div>
+					<label >
+            Answer 6 (optional) {" "} <input className='false-answer'
+							type="text"
+							name="wrongAnswer5"
+							placeholder="Enter wrong answer here"
+							value= {wrongAnswer5}
 							onChange={handleChange} />
 					</label>
 				</div>

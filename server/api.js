@@ -1,9 +1,7 @@
-
 import { Router } from "express";
-
 import { Connection } from "./db";
-
 const router = new Router();
+
 
 router.get("/", (_, res, next) => {
 
@@ -27,6 +25,22 @@ router.get("/quiz", function (req, res, next) {
 	});
 });
 
+router.get("/questions/:id", function (req, res, next) {
+	Connection.connect((err, pool) => {
+		if (err) {
+			return next(err);
+		}
+
+		const id = req.params.id;
+
+		pool
+			.query("SELECT * FROM quiz_questions WHERE quiz_id = $1", [id])
+			.then((result) => res.json(result.rows))
+			.catch((e) => console.error(e));
+	});
+});
+
+
 router.post("/quiz", function (req, res, next) {
 	Connection.connect((err, pool) => {
 		if (err) {
@@ -35,7 +49,11 @@ router.post("/quiz", function (req, res, next) {
 
 		const question = req.body.question;
 		const correctAnswer = req.body.correct_answer;
-		const wrongAnswer = req.body.wrong_answer;
+		const wrongAnswer1 = req.body.wrong_answer_1;
+		const wrongAnswer2 = req.body.wrong_answer_2;
+		const wrongAnswer3 = req.body.wrong_answer_3;
+		const wrongAnswer4 = req.body.wrong_answer_4;
+		const wrongAnswer5 = req.body.wrong_answer_5;
 		const quizName = req.body.quiz_id;
 
 		/* pool */
@@ -46,10 +64,10 @@ router.post("/quiz", function (req, res, next) {
         	return res
 						.status(200).send(`There is a mentor  with that ${mentorEmail}`);
       	} else { */
-		const query
-         = "INSERT INTO quiz_questions (quiz_id, question, correct_answer, wrong_answer) VALUES ($1, $2, $3, $4)";
+		const query = "INSERT INTO quiz_questions (quiz_id, question, correct_answer, wrong_answer_1,"
+			+ "wrong_answer_2, wrong_answer_3, wrong_answer_4, wrong_answer_5) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)";
 		pool
-			.query(query, [quizName, question, correctAnswer, wrongAnswer])
+			.query(query, [quizName, question, correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3, wrongAnswer4, wrongAnswer5])
 			.then(() => res.send("Question added!"))
 			.catch((e) => console.error(e));
 	});
