@@ -4,27 +4,12 @@ import Header from "../GeneralPages/Header";
 import QuizExample from "../../../server/QuizExample.js";
 import Button from "../GeneralPages/Button";
 
-let quizAnswers = [0];
-QuizExample.map((q) => {
-	quizAnswers.push(false)
-	;
-});
-
-let quizQuestions = [];
-
-async function handleChange(e) {
-	console.log(e.target.value);
-	await fetch(`http://localhost:3100/api/questions/${e.target.value}`) // Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/questions/${e.target.value}
-		.then((data) => data.json())
-		.then((jsonData) => quizQuestions = jsonData)
-		.catch((e) => console.log(e));
-
-	console.log(quizQuestions);
-}
 
 const StudentQuiz = () => {
 
+	const [quizQuestions, setQuizQuestions]= useState([]);
 	const [quizList, setQuizList] = useState([]);
+
 	useEffect(() => {
 		fetch("http://localhost:3100/api/quiz") // Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/quiz
 			.then((data) => data.json())
@@ -32,32 +17,49 @@ const StudentQuiz = () => {
 			.catch((e) => console.log(e));
 	}, []);
 
-	function trueAnswer(e) {
-		e.preventDefault();
-		quizAnswers[e.target.value] = true;
+	async function handleChange(e) {
+		console.log(e.target.value);
+		await fetch(`http://localhost:3100/api/questions/${e.target.value}`) // Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/questions/${e.target.value}
+			.then((data) => data.json())
+			.then((jsonData) => setQuizQuestions(jsonData))
+			.catch((e) => console.log(e));
+
+		console.log(quizQuestions);
 	}
 
-	function falseAnswer(e) {
-		e.preventDefault();
-		quizAnswers[e.target.value] = false;
+	/* const answers = [];
+	const selectedAnswer = [];
+
+	function checkAnswer (e){
+		// console.log("This is the checkAnswer" + e.target.value);
+		// console.log(quizQuestions[0].correct_answer);
+
+		for (let i = 0; i < quizQuestions.length; i++){
+
+			if(e.target.value == quizQuestions[i].correct_answer){
+				answers.push("True");
+				selectedAnswer.push(e.target.value);
+			}else{
+				answers.push("False");
+				selectedAnswer.push(e.target.value);
+			}
+
+		}
+
 	}
+ */
+
+	/* 	const [wronanswer_1, setAnnwer_1]= useState("");
+	function checkAnswer (e){
+		(e.target.value == quizQuestions[0].wrong_answer_1);
+		setAnswer(wrong_answer_1);
+	} */
 
 	function submitFunction(e) {
 		e.preventDefault();
-		console.log(quizAnswers);
-	}
+		//console.log(answers);
 
-	// const [quizQuestions, setQuizQuestions] = useState([])
-	// function handleChange(e) {
-	//     console.log(e.target.value);
-	//     useEffect(() => {
-	//         fetch(`http://localhost:3100/api/questions/${e.target.value}`) // Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/studentresults
-	//             .then((data) => data.json())
-	//             .then((jsonData) => setQuizQuestions(jsonData))
-	//             .catch((e) => console.log(e));
-	//     }, []);
-	//     console.log("Quiz questions: ", quizQuestions);
-	// }
+	}
 
 	return (
 		<div>
@@ -77,18 +79,40 @@ const StudentQuiz = () => {
 						<div>
 							{console.log(q)}
 							<h2 >{q.question}</h2>
-							<input type="radio" id="answer1" name={q.id} value={q.id} onChange={trueAnswer} />
-							<label htmlFor="answer1">{q.correct_answer}</label>
-							<input type="radio" id="answer2" name={q.id} value={q.id} onChange={falseAnswer} />
-							<label htmlFor="answer2">{q.wrong_answer_1}</label>
-							<input type="radio" id="answer3" name={q.id} />
-							<label htmlFor="answer3">{q.wrong_answer_2}</label>
-							<input type="radio" id="answer4" name={q.id} />
-							<label htmlFor="answer4">{q.wrong_answer_3}</label>
-							<input type="radio" id="answer5" name={q.id} />
-							<label htmlFor="answer5">{q.wrong_answer_4}</label>
-							<input type="radio" id="answer6" name={q.id} />
-							<label htmlFor="answer6">{q.wrong_answer_5}</label>
+							<label htmlFor="answer1">{q.correct_answer}
+								<input type="radio" id="answer1" name={q.id} value={q.correct_answer} onChange={checkAnswer} />
+							</label>
+							<label htmlFor="answer2">{q.wrong_answer_1}
+								<input type="radio" id="answer2" name={q.id} value={q.wrong_answer_1} onChange={checkAnswer} />
+							</label>
+							<div>
+								{q.wrong_answer_2 && (
+									<label htmlFor="answer3">{q.wrong_answer_2}
+										<input type="radio" id="answer3" name={q.id} value={q.wrong_answer_2} onChange={checkAnswer} />
+									</label>
+								)}
+							</div>
+							<div>
+								{q.wrong_answer_3 &&  (
+									<label htmlFor="answer4">{q.wrong_answer_3}
+										<input type="radio" id="answer4" name={q.id} value={q.wrong_answer_3} onChange={checkAnswer} />
+									 </label>
+								)}
+							</div>
+							<div>
+								{q.wrong_answer_4 && (
+									<label htmlFor="answer5">{q.wrong_answer_4}
+										<input type="radio" id="answer5" name={q.id} value={q.wrong_answer_4} onChange={checkAnswer} />
+									</label>
+								)}
+							</div>
+							<div>
+								{q.wrong_answer_5 && (
+									<label htmlFor="answer6">{q.wrong_answer_5}
+										<input type="radio" id="answer6" name={q.id} value={q.wrong_answer_5}  onChange={checkAnswer} />
+									</label>
+								)}
+							</div>
 						</div>
 					);
 				})}

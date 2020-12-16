@@ -19,7 +19,7 @@ router.get("/quiz", function (req, res, next) {
 			return next(err);
 		}
 
-		pool.query("SELECT * FROM quiz")
+		pool.query("SELECT * FROM quiz ORDER BY id DESC ")
 			.then((result) => res.json(result.rows))
 			.catch((e) => console.error(e));
 	});
@@ -38,6 +38,22 @@ router.get("/questions/:id", function (req, res, next) {
 	});
 });
 
+
+router.post("/quizname", function (req, res, next) {
+	Connection.connect((err, pool) => {
+		if (err) {
+			return next(err);
+		}
+
+		const quizName = req.body.quiz_name;
+		const quizUrl = req.body.quiz_url;
+
+		const query = "INSERT INTO quiz (quiz_name, quiz_url) VALUES ($1, $2)";
+		pool.query(query, [quizName, quizUrl])
+			.then(() => res.send("Quiz name is added!"))
+			.catch((e) => console.error(e));
+	});
+});
 
 router.post("/quiz", function (req, res, next) {
 	Connection.connect((err, pool) => {
@@ -110,15 +126,15 @@ router.post("/students", function (req, res, next) {
 
 		pool.query("SELECT * FROM students WHERE student_email=$1", [studentEmail])
 			.then((result) => {
-		if (result.rows.length > 0)
-        	return res.status(200).send(`There is a student  with that ${studentEmail}`);
-		else {
-			const query = "INSERT INTO students (student_name, student_email) VALUES ($1, $2)";
-			pool.query(query, [studentName, studentEmail])
-				.then(() => res.send("Student details added!"))
-				.catch((e) => console.error(e));
-			}
-		});
+				if (result.rows.length > 0) {
+					return res.status(200).send(`There is a student  with that ${studentEmail}`);
+				} else {
+					const query = "INSERT INTO students (student_name, student_email) VALUES ($1, $2)";
+					pool.query(query, [studentName, studentEmail])
+						.then(() => res.send("Student details added!"))
+						.catch((e) => console.error(e));
+				}
+			});
 	});
 });
 
@@ -130,15 +146,15 @@ router.post("/mentors", function (req, res, next) {
   		const mentorEmail = req.body.mentor_email;
 		pool.query("SELECT * FROM mentors WHERE mentor_email=$1", [mentorEmail])
   			.then((result) => {
-			if (result.rows.length > 0) 
-				return res.status(200).send(`There is a mentor  with that ${mentorEmail}`);
-			else {
-				const query = "INSERT INTO mentors (mentor_email) VALUES ($1)";
-				pool.query(query, [mentorEmail])
-					.then(() => res.send("Mentor details added!"))
-					.catch((e) => console.error(e));
+				if (result.rows.length > 0) {
+					return res.status(200).send(`There is a mentor  with that ${mentorEmail}`);
+				} else {
+					const query = "INSERT INTO mentors (mentor_email) VALUES ($1)";
+					pool.query(query, [mentorEmail])
+						.then(() => res.send("Mentor details added!"))
+						.catch((e) => console.error(e));
       		}
-		});
+			});
 	});
 });
 
