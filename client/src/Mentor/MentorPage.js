@@ -7,7 +7,7 @@ const MentorPage = () => {
 	return (
 		<div>
 			<Header />
-			<Link to = "/quizpage">
+			<Link to = "/quizname">
 				<Button buttontext = 'Click to create a Quiz' />
 			</Link>
 			<Link to = "/mentorresults">
