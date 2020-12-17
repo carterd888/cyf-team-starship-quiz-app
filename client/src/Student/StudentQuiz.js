@@ -1,15 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Header from "../GeneralPages/Header";
-import QuizExample from "../../../server/QuizExample.js";
 import Button from "../GeneralPages/Button";
 
 
 const StudentQuiz = () => {
-
+	
 	const [quizQuestions, setQuizQuestions]= useState([]);
 	const [quizList, setQuizList] = useState([]);
+	const [quizId, setQuizId] = useState(0);
+	const [correctAnswer, setCorrectAnswer]= useState("");
+	const [wrongAnswer1, setWrongAnswer1] = useState("");
+	const [wrongAnswer2, setWrongAnswer2] = useState("");
+	const [wrongAnswer3, setWrongAnswer3] = useState("");
+	const [wrongAnswer4, setWrongAnswer4] = useState("");
+	const [wrongAnswer5, setWrongAnswer5] = useState("");
 
+	const [score, setScore] = useState(0);
+	
 	useEffect(() => {
 		fetch("http://localhost:3100/api/quiz") // Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/quiz
 			.then((data) => data.json())
@@ -19,52 +27,64 @@ const StudentQuiz = () => {
 
 	async function handleChange(e) {
 		console.log(e.target.value);
+		setQuizId(e.target.value);
 		await fetch(`http://localhost:3100/api/questions/${e.target.value}`) // Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/questions/${e.target.value}
 			.then((data) => data.json())
 			.then((jsonData) => setQuizQuestions(jsonData))
 			.catch((e) => console.log(e));
 
-		console.log(quizQuestions);
+		// console.log(quizQuestions);
 	}
 
-	/* const answers = [];
-	const selectedAnswer = [];
+	function checkCorrectAnswer (e){
+		setCorrectAnswer(e.target.value);
+		setScore(score+1)
+	} 
 
-	function checkAnswer (e){
-		// console.log("This is the checkAnswer" + e.target.value);
-		// console.log(quizQuestions[0].correct_answer);
-
-		for (let i = 0; i < quizQuestions.length; i++){
-
-			if(e.target.value == quizQuestions[i].correct_answer){
-				answers.push("True");
-				selectedAnswer.push(e.target.value);
-			}else{
-				answers.push("False");
-				selectedAnswer.push(e.target.value);
-			}
-
-		}
-
-	}
- */
-
-	/* 	const [wronanswer_1, setAnnwer_1]= useState("");
-	function checkAnswer (e){
-		(e.target.value == quizQuestions[0].wrong_answer_1);
-		setAnswer(wrong_answer_1);
-	} */
+		function checkWrongAnswer1(e) {
+      setWrongAnswer1(e.target.value);
+	} 
+	
+		function checkWrongAnswer2(e) {
+      setWrongAnswer2(e.target.value);
+	} 
+	
+		function checkWrongAnswer3(e) {
+      setWrongAnswer3(e.target.value);
+	} 
+	
+		function checkWrongAnswer4(e) {
+      setWrongAnswer4(e.target.value);
+	} 
+	
+		function checkWrongAnswer5(e) {
+      setWrongAnswer5(e.target.value);
+	} 
+	
 
 	function submitFunction(e) {
-		e.preventDefault();
-		//console.log(answers);
+		// e.preventDefault();
 
+		const studentScore = `your score is ${score} / ${quizQuestions.length}`;
+
+		fetch("http://localhost:3100/api/results", {
+      method: "POST",
+      body: JSON.stringify({
+        quiz_id: quizId,
+        student_id: 1,
+        score: score,
+        quiz_length: quizQuestions.length,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+	});
+	alert("The quiz has been submitted.");
 	}
 
 	return (
 		<div>
 			<Header />
-
 			<div>
 				<select name="id" onChange = {handleChange}>
 					{quizList.map((q) =>{
@@ -75,49 +95,92 @@ const StudentQuiz = () => {
 
 			<form>
 				{quizQuestions.map((q) => {
-					return(
-						<div>
-							{console.log(q)}
-							<h2 >{q.question}</h2>
-							<label htmlFor="answer1">{q.correct_answer}
-								<input type="radio" id="answer1" name={q.id} value={q.correct_answer} onChange={checkAnswer} />
-							</label>
-							<label htmlFor="answer2">{q.wrong_answer_1}
-								<input type="radio" id="answer2" name={q.id} value={q.wrong_answer_1} onChange={checkAnswer} />
-							</label>
-							<div>
-								{q.wrong_answer_2 && (
-									<label htmlFor="answer3">{q.wrong_answer_2}
-										<input type="radio" id="answer3" name={q.id} value={q.wrong_answer_2} onChange={checkAnswer} />
-									</label>
-								)}
-							</div>
-							<div>
-								{q.wrong_answer_3 &&  (
-									<label htmlFor="answer4">{q.wrong_answer_3}
-										<input type="radio" id="answer4" name={q.id} value={q.wrong_answer_3} onChange={checkAnswer} />
-									 </label>
-								)}
-							</div>
-							<div>
-								{q.wrong_answer_4 && (
-									<label htmlFor="answer5">{q.wrong_answer_4}
-										<input type="radio" id="answer5" name={q.id} value={q.wrong_answer_4} onChange={checkAnswer} />
-									</label>
-								)}
-							</div>
-							<div>
-								{q.wrong_answer_5 && (
-									<label htmlFor="answer6">{q.wrong_answer_5}
-										<input type="radio" id="answer6" name={q.id} value={q.wrong_answer_5}  onChange={checkAnswer} />
-									</label>
-								)}
-							</div>
-						</div>
-					);
+					return (
+            <div>
+              <h2>{q.question}</h2>
+              <label htmlFor="answer1">
+                {q.correct_answer}
+                <input
+                  type="radio"
+                  id="answer1"
+                  name={q.id}
+                  value={q.correct_answer}
+                  onChange={checkCorrectAnswer}
+                />
+              </label>
+              <label htmlFor="answer2">
+                {q.wrong_answer_1}
+                <input
+                  type="radio"
+                  id="answer2"
+                  name={q.id}
+                  value={q.wrong_answer_1}
+                  onChange={checkWrongAnswer1}
+                />
+              </label>
+              <div>
+                {q.wrong_answer_2 && (
+                  <label htmlFor="answer3">
+                    {q.wrong_answer_2}
+                    <input
+                      type="radio"
+                      id="answer3"
+                      name={q.id}
+                      value={q.wrong_answer_2}
+                      onChange={checkWrongAnswer2}
+                    />
+                  </label>
+                )}
+              </div>
+              <div>
+                {q.wrong_answer_3 && (
+                  <label htmlFor="answer4">
+                    {q.wrong_answer_3}
+                    <input
+                      type="radio"
+                      id="answer4"
+                      name={q.id}
+                      value={q.wrong_answer_3}
+                      onChange={checkWrongAnswer3}
+                    />
+                  </label>
+                )}
+              </div>
+              <div>
+                {q.wrong_answer_4 && (
+                  <label htmlFor="answer5">
+                    {q.wrong_answer_4}
+                    <input
+                      type="radio"
+                      id="answer5"
+                      name={q.id}
+                      value={q.wrong_answer_4}
+                      onChange={checkWrongAnswer4}
+                    />
+                  </label>
+                )}
+              </div>
+              <div>
+                {q.wrong_answer_5 && (
+                  <label htmlFor="answer6">
+                    {q.wrong_answer_5}
+                    <input
+                      type="radio"
+                      id="answer6"
+                      name={q.id}
+                      value={q.wrong_answer_5}
+                      onChange={checkWrongAnswer5}
+                    />
+                  </label>
+                )}
+              </div>
+            </div>
+          );
 				})}
 				<br />
+				<Link to = "/studentscore" params ={{ score: "test"}}>
 				<button onClick={submitFunction}>Submit the answers!</button>
+				</Link>
 			</form>
 
 			<Link to = "/studentpage">

@@ -12,28 +12,30 @@ import MentorResults from "./Mentor/MentorResults";
 import StudentLogin from "./Student/StudentLogin";
 import MentorLogin from "./Mentor/MentorLogin";
 import QuizName from "./Mentor/QuizName";
+import StudentScore from "./Student/StudentScore";
 
 export function App() {
 
 	return (
-		<Router>
-			<div className='App'>
-				<Route path= "/" exact component={HomePage} />
-				<Switch>
-					<Route path = "/mentorlogin" component = {MentorLogin} />
-					<Route path = "/mentorpage" component = {MentorPage} />
-					<Route path = "/quizname" component = {QuizName} />
-					<Route path = "/quizpage" component = {QuizPage} />
-					<Route path = "/mentorresults" component = {MentorResults} />
+    <Router>
+      <div className="App">
+        <Route path="/" exact component={HomePage} />
+        <Switch>
+          <Route path="/mentorlogin" component={MentorLogin} />
+          <Route path="/mentorpage" component={MentorPage} />
+          <Route path="/quizname" component={QuizName} />
+          <Route path="/quizpage" component={QuizPage} />
+          <Route path="/mentorresults" component={MentorResults} />
 
-					<Route path = "/studentlogin" component = {StudentLogin} />
-					<Route path = "/studentpage" component = {StudentPage} />
-					<Route path = "/studentquiz" component = {StudentQuiz} />
-					<Route path = "/studentresults" component = {StudentResults} />
-				</Switch>
-			</div>
-		</Router>
-	);
+          <Route path="/studentlogin" component={StudentLogin} />
+          <Route path="/studentpage" component={StudentPage} />
+          <Route path="/studentquiz" component={StudentQuiz} />
+          <Route path="/studentscore" component={StudentScore} />
+          <Route path="/studentresults" component={StudentResults} />
+        </Switch>
+      </div>
+    </Router>
+  );
 }
 
 export default App;
