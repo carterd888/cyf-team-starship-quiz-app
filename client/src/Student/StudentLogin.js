@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../GeneralPages/Header";
 import Button from "../GeneralPages/Button";
 import { Link } from "react-router-dom";
@@ -8,6 +8,7 @@ const StudentLogin = () => {
 
 	const [studentName, setStudentName] = useState("");
 	const [studentEmail, setStudentEmail] = useState("");
+	const [studentId, setStudentId] = useState([]);
 
 	function handleChange(e) {
 		if (e.target.name === "studentName") {
@@ -19,19 +20,33 @@ const StudentLogin = () => {
 		}
 	}
 
+	// function getID (studentEmail) {
+
+	// }
+
 	function handleSubmit () {
 		console.log(`Student name is: ${studentName} and student email is: ${studentEmail} `);
 
-		fetch("http://localhost:3100/api/students", {
-			method: "POST",
-			body: JSON.stringify({
-				student_name: studentName,
-				student_email: studentEmail,
-			}),
-			headers: {
-				"Content-Type": "application/json",
-			},
-		});
+// useEffect(() => {
+  fetch("http://localhost:3100/api/students", {
+    method: "POST",
+    body: JSON.stringify({
+      student_name: studentName,
+      student_email: studentEmail,
+    }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+// }, [])
+		
+// useEffect(() => {
+  fetch(`http://localhost:3100/api/students/${studentEmail}`)
+    .then((data) => data.json())
+    .then((jsonData) => setStudentId(jsonData))
+    .catch((e) => console.log(e));
+// }, []);
+
 		alert("The details have been submitted.");
 	}
 
