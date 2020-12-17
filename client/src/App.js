@@ -11,6 +11,7 @@ import StudentResults from "./Student/StudentResults";
 import MentorResults from "./Mentor/MentorResults";
 import StudentLogin from "./Student/StudentLogin";
 import MentorLogin from "./Mentor/MentorLogin";
+import QuizName from "./Mentor/QuizName";
 
 export function App() {
 
@@ -21,6 +22,7 @@ export function App() {
 				<Switch>
 					<Route path = "/mentorlogin" component = {MentorLogin} />
 					<Route path = "/mentorpage" component = {MentorPage} />
+					<Route path = "/quizname" component = {QuizName} />
 					<Route path = "/quizpage" component = {QuizPage} />
 					<Route path = "/mentorresults" component = {MentorResults} />
 
