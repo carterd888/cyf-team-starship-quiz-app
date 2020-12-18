@@ -4,11 +4,13 @@ import Button from "../GeneralPages/Button";
 import { Link } from "react-router-dom";
 import StudentId from "./StudentId";
 
-const StudentPage = () => {
+const StudentPage = (props) => {
+	console.log(props);
 	return (
 		<div>
 			<Header />
-			<StudentId />
+		{/* 	<StudentId studentId={studentId} /> */}
+			<h1>Student id is : {props.location.studentPageProps.id}</h1>
 			<Link to = "/studentquiz">
 				<Button buttontext = 'Click to take a Quiz' />
 			</Link>
