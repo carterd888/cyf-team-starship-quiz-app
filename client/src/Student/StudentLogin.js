@@ -20,35 +20,52 @@ const StudentLogin = () => {
 		}
 	}
 
-	// function getID (studentEmail) {
+	async function postStudentRequest (){
+		await fetch("http://localhost:3100/api/students", {
+    	method: "POST",
+    	body: JSON.stringify({
+      	student_name: studentName,
+      	student_email: studentEmail,
+			}),
+    	headers: {
+      	"Content-Type": "application/json",
+    	},
+  	});
+	}
 
-	// }
+	async function getStudentRequest (){
+		await 	fetch(`http://localhost:3100/api/students/${studentEmail}`)
+    	.then((data) => data.json())
+    	.then((jsonData) => setStudentId(jsonData))
+    	.catch((e) => console.log(e));
 
-	function handleSubmit () {
+	}
+
+	async function handleSubmit () {
 		console.log(`Student name is: ${studentName} and student email is: ${studentEmail} `);
-
-// useEffect(() => {
-  fetch("http://localhost:3100/api/students", {
-    method: "POST",
-    body: JSON.stringify({
-      student_name: studentName,
-      student_email: studentEmail,
-    }),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-// }, [])
-		
-// useEffect(() => {
-  fetch(`http://localhost:3100/api/students/${studentEmail}`)
-    .then((data) => data.json())
-    .then((jsonData) => setStudentId(jsonData))
-    .catch((e) => console.log(e));
-// }, []);
-
+		await postStudentRequest();
+		await getStudentRequest();
+		console.log(studentId);
 		alert("The details have been submitted.");
 	}
+
+
+/* 	const [state, setState] = useState({});
+
+	useEffect(() => {
+    	myFunction();
+		return () => {
+			setState({}); // This worked for me
+		};
+	}, []);
+
+	const myFunction = () => {
+		setState({
+			name: "Jhon",
+			surname: "Doe",
+		});
+	}; */
+
 
 	return (
 		<div>
@@ -75,13 +92,19 @@ const StudentLogin = () => {
 					<div>
 						{studentName && studentEmail
                     && (
-                    	<Link to = "/studentpage">
+                    	<Link to = {{
+                    		pathname:"/studentpage",
+                    		studentPageProps: { id: studentId },
+                    	}}>
 						   <input type="submit" value="Submit" onClick={handleSubmit} />
                     	</Link>
                     )}
 					</div>
 				</form>
-				<Link to = "/studentpage">
+				<Link to = {{
+                    		pathname:"/studentpage",
+                    		studentPageProps: { id: studentId },
+                    	}}>
 					<Button buttontext = 'Log on to Student Page' />
 				</Link>
 			</div>
