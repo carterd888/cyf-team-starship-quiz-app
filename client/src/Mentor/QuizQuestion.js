@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Button from "../GeneralPages/Button";
-
+import Header from "../GeneralPages/Header";
+import Footer from "../GeneralPages/Footer";
 
 const QuizQuestion = () => {
 
@@ -92,6 +93,7 @@ const QuizQuestion = () => {
 
 	return (
 		<div>
+		<Header />
 			<select name= "id" onBlur= {handleChange}>
 				{quiz.map((q) =>{
 					return (<option key={q.id} value={q.id} >{q.quiz_name}</option>);
@@ -171,13 +173,11 @@ const QuizQuestion = () => {
 				</div>
 				<br />
 				<button className="submit-button" type="submit" onClick = {handleSubmit}>click here to submit the quiz</button>
-				<br />
-
 				<Link to = "/mentorpage">
-					<br />
 					<Button buttontext ='Go back to Mentor Page' />
 				</Link>
 			</form>
+			<Footer />
 		</div>
 	);
 };

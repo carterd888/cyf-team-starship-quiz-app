@@ -4,18 +4,20 @@ import Logo from "../images/logo.png";
 
 const Header = () => {
 	return (
-		<div className="Header">
-			<img className="Logo" src={Logo} />
-			<ul className="header-links">
-				<Link to="/mentorlogin">
-					<li>Mentor Access</li>
-				</Link>
-				<Link to="/studentlogin">
-					<li>Student Access</li>
-				</Link>
-			</ul>
-		</div>
-	);
+    <div className="Header">
+    <Link to="/">
+      <img className="Logo" src={Logo} />
+    </Link>
+      <ul className="header-links">
+        <Link to="/mentorlogin">
+          <li className="header-link-item">Mentor Access</li>
+        </Link>
+        <Link to="/studentlogin">
+          <li className="header-link-item">Student Access</li>
+        </Link>
+      </ul>
+    </div>
+  );
 };
 
 export default Header;

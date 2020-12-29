@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import Header from "../GeneralPages/Header";
 import moment from "moment";
 import { Link } from "react-router-dom";
-
+import MentorStyle from "./MentorStyle";
+import Footer from "../GeneralPages/Footer";
 
 const QuizName =()=> {
 
@@ -55,6 +56,7 @@ const QuizName =()=> {
 	return (
 		<div>
 			<Header />
+			<MentorStyle />
 			<br />
 			<label htmlFor="quizName" > Enter the new Quiz name </label>
 			<textarea
@@ -69,6 +71,7 @@ const QuizName =()=> {
 			<Link to = "/quizpage" >
 				<button className="quiz-submit-button" type="submit" onClick={handleSubmit}>Click here to add questions</button>
 			</Link>
+			<Footer />
 		</div>
 	);
 };

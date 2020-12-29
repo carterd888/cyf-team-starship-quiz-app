@@ -38,6 +38,20 @@ router.get("/questions/:id", function (req, res, next) {
 	});
 });
 
+router.get("/students/:studentEmail", function (req, res, next) {
+  Connection.connect((err, pool) => {
+    if (err) {
+      return next(err);
+    }
+
+    const studentEmail = req.params.student_email;
+    pool
+      .query("SELECT id FROM students WHERE student_email = $1", [studentEmail])
+      .then((result) => res.json(result.rows))
+      .catch((e) => console.error(e));
+  });
+});
+
 
 router.post("/quizname", function (req, res, next) {
 	Connection.connect((err, pool) => {
@@ -84,6 +98,34 @@ router.post("/quiz", function (req, res, next) {
 			.then(() => res.send("Question added!"))
 			.catch((e) => console.error(e));
 	});
+});
+
+
+
+router.post("/results", function (req, res, next) {
+  Connection.connect((err, pool) => {
+    if (err) {
+      return next(err);
+    }
+
+    const quizId = req.body.quiz_id;
+    const studentId = req.body.student_id;
+    const score = req.body.score;
+    const quizLength = req.body.quiz_length;
+
+    const query =
+	  "INSERT INTO results (quiz_id, student_id, score, quiz_length) VALUES ($1, $2, $3, $4)";
+    pool
+      .query(query, [
+        quizId,
+        studentId,
+        score,
+        quizLength,
+ 
+      ])
+      .then(() => res.send("Results added!"))
+      .catch((e) => console.error(e));
+  });
 });
 
 

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Header from "../GeneralPages/Header";
 import Button from "../GeneralPages/Button";
 import { Link } from "react-router-dom";
+import Footer from "../GeneralPages/Footer";
 
 
 const MentorLogin = () => {
@@ -56,7 +57,7 @@ const MentorLogin = () => {
 					<Button buttontext = 'Log on to Mentor Page' />
 				</Link>
 			</div>
-
+			<Footer />
 		</div>
 	);
 };

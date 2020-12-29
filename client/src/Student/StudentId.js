@@ -1,10 +1,10 @@
 import React from "react";
 
 
-const StudentId = ({studentName, studentEmail}) => {
+const StudentId = ({StudentId}) => {
 	return (
     <div >
-      <p>Student Name: {studentName}</p>
+      <p>Student id: {studentId}</p>
     </div>
   );
 };
