@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Header from "../GeneralPages/Header";
 import Button from "../GeneralPages/Button";
+import StudentStyle from "./StudentStyle";
+import Footer from "../GeneralPages/Footer";
 
 const StudentResults = () => {
 	let [results, setResults] = useState([]);
@@ -16,6 +18,7 @@ const StudentResults = () => {
 	return (
 		<div>
 			<Header />
+			<StudentStyle />
 			<h2>Your quiz results:</h2>
 			<div>
 				<table>
@@ -37,6 +40,7 @@ const StudentResults = () => {
 			<Link to = "/studentpage">
 				<Button buttontext ='Go back to Student Page' />
 			</Link>
+			<Footer />
 		</div>
 	);
 };

@@ -3,6 +3,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import HomePage from "./GeneralPages/HomePage";
 import "./App.css";
+import GlobalStyle from "./GeneralPages/GlobalStyles";
 import QuizPage from "./Mentor/QuizPage";
 import MentorPage from "./Mentor/MentorPage";
 import StudentPage from "./Student/StudentPage";
@@ -19,6 +20,7 @@ export function App() {
 	return (
 		<Router>
 			<div className="App">
+				<GlobalStyle />
 				<Route path="/" exact component={HomePage} />
 				<Switch>
 					<Route path="/mentorlogin" component={MentorLogin} />
