@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import QuizQuestion from "./QuizQuestion";
-import Header from "../GeneralPages/Header";
+// import Header from "../GeneralPages/Header";
+import MentorStyle from "./MentorStyle";
+// import Footer from "../GeneralPages/Footer";
 
 
 const QuizPage =()=> {
@@ -13,7 +15,7 @@ const QuizPage =()=> {
 
 	return (
 		<div>
-			<Header />
+			<MentorStyle />
 			<QuizQuestion handleSubmit={handleSubmit} />
 			{/* <SubmitButton  handleSubmit={handleSubmit} /> */}
 		</div>

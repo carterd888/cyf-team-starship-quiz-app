@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Header from "../GeneralPages/Header";
 import Button from "../GeneralPages/Button";
+import MentorStyle from "./MentorStyle";
+import Footer from "../GeneralPages/Footer";
 
 const MentorResults = () => {
 	let [results, setResults] = useState([]);
@@ -16,6 +18,7 @@ const MentorResults = () => {
 	return (
 		<div>
 			<Header />
+			<MentorStyle />
 			<h2>Students quiz results:</h2>
 			<div>
 				<table>
@@ -39,6 +42,7 @@ const MentorResults = () => {
 			<Link to = "/mentorpage">
 				<Button buttontext ='Go back to Mentor Page' />
 			</Link>
+			<Footer />
 		</div>
 	);
 };

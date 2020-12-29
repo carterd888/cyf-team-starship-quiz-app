@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Header from "../GeneralPages/Header";
 import Button from "../GeneralPages/Button";
 import { Link } from "react-router-dom";
-
+import Footer from "../GeneralPages/Footer";
 
 const StudentLogin = () => {
 
@@ -108,7 +108,7 @@ const StudentLogin = () => {
 					<Button buttontext = 'Log on to Student Page' />
 				</Link>
 			</div>
-
+<Footer />
 		</div>
 	);
 };
