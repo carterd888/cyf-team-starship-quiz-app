@@ -10,6 +10,62 @@
     margin-bottom: 4px;
 }
 
+.Logo {
+    width: 15rem;
+}
+
+.header-links {
+    flex-grow: 2;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+.header-link-item {
+    font-family: 'Roboto', sans-serif;
+    border: 1px black;
+    background-color: #DC3545;
+    color: white;
+    border-radius: 1rem;
+    padding: 0.5rem;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+/* Home Page Component */
+.welcome-text-h1 {
+    font-weight: 800;
+    font-size: 3rem;
+    color: white;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.welcome-text {
+    align-content: flex-end;
+    margin-left: 5rem;
+    font-weight: 800;
+    font-size: 3rem;
+    color: #8E0D19;
+
+}
+
+.welcome-image {
+    height: 800px;
+    /* width: 100%; */
+    background-image: url("./images/welcome-background.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+/* Button Component */
+
 .button1 {
     margin-left: auto;
     margin-right: auto;
