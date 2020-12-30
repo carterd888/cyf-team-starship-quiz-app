@@ -3,6 +3,7 @@ import Header from "../GeneralPages/Header";
 import Button from "../GeneralPages/Button";
 import { Link } from "react-router-dom";
 import Footer from "../GeneralPages/Footer";
+import MentorStyle from "./MentorStyle";
 
 
 const MentorLogin = () => {
@@ -35,20 +36,21 @@ const MentorLogin = () => {
 	return (
 		<div>
 			<Header />
-			<div>
-				<form>
-					<div>
-						<label>
+			<MentorStyle />
+			<div className="mentor-login-form-div">
+				<form className="mentor-login-form mx-auto input-group-lg">
+					<div className="mentor-login-input-label">
+						<label className="mentor-login-label">
                             Enter Your Email:
 							<br />
-							<input type="email" className="mentor-login-email" name="mentorEmail"  value={mentorEmail} onChange={handleChange} required />
+							<input type="email" className="mentor-login-email form-control " name="mentorEmail"  value={mentorEmail} onChange={handleChange} required />
 						</label>
 					</div>
 					<br />
 					<div>
 						{mentorEmail && (
 							<Link to = "/mentorpage">
-						   <input type="submit" value="Submit" onClick={handleSubmit} />
+						   <input className="submit-button button2 btn-primary" type="submit" value="Submit" onClick={handleSubmit} />
 							</Link>
 						)}
 					</div>

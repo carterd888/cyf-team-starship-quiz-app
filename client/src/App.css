@@ -7,6 +7,7 @@
     padding: 1rem 5rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
     margin-bottom: 4px;
+    margin-top:0;
 }
 
 .Logo {
@@ -46,20 +47,33 @@ a:link {
 }
 
 .welcome-text {
-    align-content: flex-end;
-    margin-left: 5rem;
+    /* align-content: flex-end; */
+    /* margin-left: 5rem; */
     font-weight: 800;
     font-size: 3rem;
     color: #8E0D19;
 
 }
 
+.welcome-text-h2{
+    display:inline-flex;
+    flex-direction: column;
+    width:100%;
+    align-content:space-between;
+}
+
+.img-text-container{
+    display:block;
+    flex-wrap: wrap;
+}
 .welcome-image {
     height: 800px; /* need to fix this to be responsive */
     background-image: url("./images/welcome-background.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    opacity:0.4;
+  /*   overflow-x: hidden; */
 }
 
 /* Button Component */

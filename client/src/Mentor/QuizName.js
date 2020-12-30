@@ -58,19 +58,25 @@ const QuizName =()=> {
 			<Header />
 			<MentorStyle />
 			<br />
-			<label htmlFor="quizName" > Enter the new Quiz name </label>
-			<textarea
-            	rows="1"
-				cols="30"
-				className='quiz-name'
-				type="text"
-				name="quizName"
-				placeholder= {formattedDate}
-				value={quizName}
-				onChange={handleChange} />
-			<Link to = "/quizpage" >
-				<button className="quiz-submit-button" type="submit" onClick={handleSubmit}>Click here to add questions</button>
-			</Link>
+			<div className="quiz-name-form row g-3">
+				{/* <div className="col-auto"> */}
+					<label htmlFor="quizName" className="quiz-name-label" > Enter the new Quiz name: </label>
+{/* 				</div> */}
+			{/* 	<div className="col-auto"> */}
+					<input
+						className="quiz-name-input"
+						type="text"
+						name="quizName"
+						placeholder= {formattedDate}
+						value={quizName}
+						onChange={handleChange} />
+			{/* 	</div> */}
+			
+					<Link to = "/quizpage" >
+						<button className="button2 btn-primary" type="submit" onClick={handleSubmit}>Click here to add questions</button>
+					</Link>
+			
+			</div>
 			<Footer />
 		</div>
 	);

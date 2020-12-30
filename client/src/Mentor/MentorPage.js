@@ -10,12 +10,18 @@ const MentorPage = () => {
 		<div>
 			<Header />
 			<MentorStyle />
-			<Link to = "/quizname">
-				<Button buttontext = 'Click to create a Quiz' />
-			</Link>
-			<Link to = "/mentorresults">
-				<Button buttontext = 'Click to see the results' />
-			</Link>
+			<div className="mentor-page-buttons">
+				<div className="mentor-page-button">
+					<Link to = "/quizname">
+						<Button buttontext = 'Click to create a Quiz' />
+					</Link>
+				</div>
+				<div className="mentor-page-button">
+					<Link to = "/mentorresults">
+						<Button buttontext = 'Click to see the results' />
+					</Link>
+				</div>
+			</div>
 			<Footer />
 		</div>
 	);

@@ -2,9 +2,12 @@ import React from "react";
 // import { Link } from "react-router-dom";
 // Probably unneeded
 
-const Button = ({buttontext}) => {
+const Button = ({ buttontext }) => {
 	return (
-		<button className="button1 btn-primary">{buttontext}</button>
+		<div className="col mx-auto">
+			<button className="button2 btn-primary btn-lg">{buttontext}</button>
+		</div>
+
 	);
 };
 
