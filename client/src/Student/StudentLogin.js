@@ -68,7 +68,7 @@ const StudentLogin = () => {
 
 
 	return (
-		<div>
+		<div className="container">
 			<Header />
 			<div>
 				<form>
@@ -108,7 +108,7 @@ const StudentLogin = () => {
 					<Button buttontext = 'Log on to Student Page' />
 				</Link>
 			</div>
-<Footer />
+			<Footer />
 		</div>
 	);
 };

@@ -92,8 +92,8 @@ const QuizQuestion = () => {
 
 
 	return (
-		<div>
-		<Header />
+		<div className="container">
+			<Header />
 			<select name= "id" onBlur= {handleChange}>
 				{quiz.map((q) =>{
 					return (<option key={q.id} value={q.id} >{q.quiz_name}</option>);

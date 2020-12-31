@@ -16,7 +16,7 @@ const StudentResults = () => {
 	}, []);
 
 	return (
-		<div>
+		<div className="container">
 			<Header />
 			<StudentStyle />
 			<h2>Your quiz results:</h2>

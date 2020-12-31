@@ -54,7 +54,7 @@ const QuizName =()=> {
 	}
 
 	return (
-		<div>
+		<div className="container">
 			<Header />
 			<MentorStyle />
 			<br />
