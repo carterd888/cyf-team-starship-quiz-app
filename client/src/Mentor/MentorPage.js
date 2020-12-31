@@ -7,7 +7,7 @@ import Footer from "../GeneralPages/Footer";
 
 const MentorPage = () => {
 	return (
-		<div>
+		<div className="container">
 			<Header />
 			<MentorStyle />
 			<div className="mentor-page-buttons">

@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const StudentScore = ({params}) => {
     return (
-      <div>
+      <div className="container">
         <Header />
         <StudentStyle />
         <h1>Your score is: {params}</h1>

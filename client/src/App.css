@@ -1,3 +1,10 @@
+.container {
+    min-height: 100%;
+    position: relative;
+    min-width: 100%;
+    padding: 0;
+} 
+
 /* Header Component */
 
 .Header {
@@ -40,41 +47,38 @@ a:link {
 /* Home Page Component */
 .welcome-text-h1 {
     font-weight: 800;
-    font-size: 3rem;
-    color: white;
+    font-size: 6vw;
+    color: black;
     padding-top: 1rem;
     padding-bottom: 1rem;
+}
+
+.welcome-image {
+    height: 20rem; /* need to fix this to be responsive */
+    background-image: url("./images/welcome-background.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-bottom: 8rem;
+  /*   overflow-x: hidden; */
 }
 
 .welcome-text {
     /* align-content: flex-end; */
     /* margin-left: 5rem; */
     font-weight: 800;
-    font-size: 3rem;
+    font-size: 4vw;
     color: #8E0D19;
-
-}
-
-.welcome-text-h2{
-    display:inline-flex;
-    flex-direction: column;
-    width:100%;
-    align-content:space-between;
+    
+    margin: 5%;
+    opacity: 1.0;
 }
 
 .img-text-container{
     display:block;
     flex-wrap: wrap;
 }
-.welcome-image {
-    height: 800px; /* need to fix this to be responsive */
-    background-image: url("./images/welcome-background.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    opacity:0.4;
-  /*   overflow-x: hidden; */
-}
+
 
 /* Button Component */
 
@@ -95,17 +99,28 @@ a:link {
 /* Footer */
 
 .Footer {
-    margin-top: 5rem;
-    background-color: white;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    bottom: 0;
+    position: absolute;
     width: 100%;
-    height: 8rem;
-    /* flex-shrink: 0; */
-    position: fixed; /* need to fix this to be responsive */
-    z-index: -1; 
+    margin-top: 5rem;
+    background-color: gray;
+    padding: 8px 0 8px 0;
+    font-size: 3vw;   
+}
+
+.footer-links-div {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 5% 0 5%;
+    max-width: 400px;
+}
+
+.Footer h4 {
+    font-size: 4vw;
+    
+}
+
+.copyright {
+    margin-left: 5%;
 }
 
 .footer-links {
@@ -160,3 +175,21 @@ $color-table-yellow: #FCE8B2;
 .false-answer {
     background-color: #DC3545;
 }
+
+@media screen and (min-width: 400px) {
+    .Footer {
+        font-size: 12px;
+    }
+
+    .Footer h4 {
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    .welcome-text{
+       font-size: 28px;
+    }
+
+    
+  }

@@ -16,7 +16,7 @@ const MentorResults = () => {
 	}, []);
 
 	return (
-		<div>
+		<div className="container">
 			<Header />
 			<MentorStyle />
 			<h2>Students quiz results:</h2>

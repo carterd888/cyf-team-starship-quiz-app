@@ -1,13 +1,20 @@
 // globalStyles.js
 import { createGlobalStyle } from "styled-components";
 
-const GlobalStyle = createGlobalStyle`
-  body {
-    position: relative;
+/*
     margin: 0;
     padding: 0;
-    min-height: 100%;
-    background:  #787878;
+    height: 100%;
+    width: 100%;
+
+*/
+
+const GlobalStyle = createGlobalStyle`
+  html, body {
+    margin:0;
+    padding:0;
+    height:100%;
+    background: white;
     font-family: 'Roboto', sans-serif;
   }
 `;

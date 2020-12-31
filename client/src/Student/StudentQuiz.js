@@ -86,7 +86,7 @@ const StudentQuiz = () => {
 	}
 
 	return (
-		<div>
+		<div className="container">
 			<Header />
 			<StudentStyle />
 			<div>

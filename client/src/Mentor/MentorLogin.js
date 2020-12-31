@@ -34,7 +34,7 @@ const MentorLogin = () => {
 	}
 
 	return (
-		<div>
+		<div className="container">
 			<Header />
 			<MentorStyle />
 			<div className="mentor-login-form-div">

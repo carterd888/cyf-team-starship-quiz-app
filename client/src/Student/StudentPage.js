@@ -9,10 +9,10 @@ import Footer from "../GeneralPages/Footer";
 const StudentPage = (props) => {
 	console.log(props);
 	return (
-		<div>
+		<div className="container">
 			<Header />
 			<StudentStyle />
-		{/* 	<StudentId studentId={studentId} /> */}
+			{/* <StudentId studentId={studentId} /> */}
 			{/* <h1>Student id is : {props.location.studentPageProps.id}</h1> */}
 			<Link to = "/studentquiz">
 				<Button buttontext = 'Click to take a Quiz' />
