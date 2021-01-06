@@ -1,33 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Button from "../GeneralPages/Button";
 import Header from "../GeneralPages/Header";
 import Footer from "../GeneralPages/Footer";
 
-const QuizQuestion = ({ newQuiz }) => {
+const QuizEdit =(props)=>{
+	console.log(props.location.state.q);
+	const questionObj =props.location.state.q;
+	const quizName = questionObj.quiz_id;
 
-	const [correctAnswer, setCorrectAnswer]= useState("");
-	const [wrongAnswer1, setWrongAnswer1] = useState("");
-	const [wrongAnswer2, setWrongAnswer2] = useState("");
-	const [wrongAnswer3, setWrongAnswer3] = useState("");
-	const [wrongAnswer4, setWrongAnswer4] = useState("");
-	const [wrongAnswer5, setWrongAnswer5] = useState("");
-	const [question, setQuestion] = useState("");
-	const [quizName, setQuizName] = useState(0);
+	const [correctAnswer, setCorrectAnswer]= useState(questionObj.correct_answer);
+	const [wrongAnswer1, setWrongAnswer1] = useState(questionObj.wrong_answer_1);
+	const [wrongAnswer2, setWrongAnswer2] = useState(questionObj.wrong_answer_2);
+	const [wrongAnswer3, setWrongAnswer3] = useState(questionObj.wrong_answer_3);
+	const [wrongAnswer4, setWrongAnswer4] = useState(questionObj.wrong_answer_4);
+	const [wrongAnswer5, setWrongAnswer5] = useState(questionObj.wrong_answer_5);
+	const [question, setQuestion] = useState(questionObj.question);
 
-	console.log (newQuiz);
-
-	const [quiz, setQuiz] = useState([]);
-
-	useEffect(() => {
-		fetch(`http://localhost:3100/api/quiz/${newQuiz}`) // Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/studentresults
-			.then((data) => data.json())
-			.then((jsonData) => setQuizName(jsonData[0].id))
-			.catch((e) => console.log(e));
-	}, []);
-
-
-	function handleChange(e) {
+    	function handleChange(e) {
 		if (e.target.name === "question") {
 			setQuestion(e.target.value);
 			//console.log(question);
@@ -53,12 +42,12 @@ const QuizQuestion = ({ newQuiz }) => {
 	}
 
 	function handleSubmit (e) {
-		e.preventDefault();
-		console.log(`Id is ${quizName} question is: ${question} correct answer: ${correctAnswer}, first wrong answer: ${wrongAnswer1} , second wrong answer: ${wrongAnswer2}, `
+		/* e.preventDefault(); */
+		console.log(`question is: ${question} correct answer: ${correctAnswer}, first wrong answer: ${wrongAnswer1} , second wrong answer: ${wrongAnswer2}, `
 			+ `, third wrong answer: ${wrongAnswer3}, , fourth wrong answer: ${wrongAnswer4}, , fifth wrong answer: ${wrongAnswer5} `);
 
-		fetch("http://localhost:3100/api/quiz", {
-			method: "POST",
+		fetch(`http://localhost:3100/api/questions/${questionObj.id}`, {
+			method: "PUT",
 			body: JSON.stringify({
 				question: question,
 				correct_answer:correctAnswer,
@@ -67,7 +56,7 @@ const QuizQuestion = ({ newQuiz }) => {
 				wrong_answer_3: wrongAnswer3,
 				wrong_answer_4: wrongAnswer4,
 				wrong_answer_5: wrongAnswer5,
-				quiz_id:quizName,
+				quiz_id:questionObj.quiz_id,
 			}),
 			headers: {
 				"Content-Type": "application/json",
@@ -84,11 +73,11 @@ const QuizQuestion = ({ newQuiz }) => {
 		setWrongAnswer5("");
 	}
 
-
 	return (
-		<div className="container">
-			<Header />
 
+		<div>
+			<Header />
+			<h1>Edit Questions</h1>
 			<form >
 				<label htmlFor="question ">Enter the question below:</label>
 				<br />
@@ -162,19 +151,19 @@ const QuizQuestion = ({ newQuiz }) => {
 						onChange={handleChange} />
 				</div>
 				<br />
-				<button className="submit-button" type="submit" onClick = {handleSubmit}>click here to submit the questions</button>
-				<Link to = {{
-					pathname:"/quizsummary",
-					state: {quizName}
+
+				<Link to={{
+					pathname: "/quizsummary",
+					state: { quizName },
 				}}>
-					<Button buttontext ='View quiz summary ' />
+					<button className="submit-button" type="submit" onClick = {handleSubmit}>click here to submit the change</button>
 				</Link>
-				<Link to = "/mentorpage">
-					<Button buttontext ='Go back to Mentor Page' />
-				</Link>
+
 			</form>
 			<Footer />
 		</div>
 	);
+
 };
-export default QuizQuestion;
+
+export default QuizEdit;

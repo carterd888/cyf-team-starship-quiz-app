@@ -5,7 +5,11 @@ import Button from "../GeneralPages/Button";
 import StudentStyle from "./StudentStyle";
 import Footer from "../GeneralPages/Footer";
 
-const StudentResults = () => {
+const StudentResults = (props) => {
+
+	console.log(props.location.state.studentId);
+	const studentId = props.location.state.studentId;
+
 	let [results, setResults] = useState([]);
 
 	useEffect(() => {

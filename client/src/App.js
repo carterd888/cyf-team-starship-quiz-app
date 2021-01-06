@@ -14,6 +14,9 @@ import StudentLogin from "./Student/StudentLogin";
 import MentorLogin from "./Mentor/MentorLogin";
 import QuizName from "./Mentor/QuizName";
 import StudentScore from "./Student/StudentScore";
+import QuizSummary from "./Mentor/QuizSummary";
+import QuizEdit from "./Mentor/QuizEdit";
+import StudentWelcome  from "./Student/StudentWelcome";
 
 export function App() {
 
@@ -27,9 +30,12 @@ export function App() {
 					<Route path="/mentorpage" component={MentorPage} />
 					<Route path="/quizname" component={QuizName} />
 					<Route path="/quizpage" component={QuizPage} />
+					<Route path="/quizsummary" component={QuizSummary} />
+					<Route path="/quizedit" component={QuizEdit} />
 					<Route path="/mentorresults" component={MentorResults} />
 
 					<Route path="/studentlogin" component={StudentLogin} />
+					<Route path="/studentwelcome" component={StudentWelcome} />
 					<Route path="/studentpage" component={StudentPage} />
 					<Route path="/studentquiz" component={StudentQuiz} />
 					<Route path="/studentscore" component={StudentScore} />

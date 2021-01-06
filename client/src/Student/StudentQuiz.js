@@ -5,15 +5,17 @@ import Button from "../GeneralPages/Button";
 import StudentStyle from "./StudentStyle";
 import Footer from "../GeneralPages/Footer";
 
-const StudentQuiz = () => {
-
+const StudentQuiz = (props) => {
+	console.log(props.location.state.studentId);
+	const studentId = props.location.state.studentId;
+	
 	const [quizQuestions, setQuizQuestions]= useState([]);
 	const [quizList, setQuizList] = useState([]);
 	const [quizId, setQuizId] = useState(0);
 	const quizAnswers = [];
 
 	useEffect(() => {
-		fetch("http://localhost:3100/api/quiz") // Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/quiz
+		fetch("http://localhost:3100/api/quizlist") // Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/quiz
 			.then((data) => data.json())
 			.then((jsonData) => setQuizList(jsonData))
 			.catch((e) => console.log(e));
@@ -59,23 +61,32 @@ const StudentQuiz = () => {
 		console.log(quizAnswers);
 	}
 
+	const[studentScore, setStudentScore]= useState("");
+	
+	async function handleStudentScore (e){
+		setStudentScore(e);
+	};
+	
 	function submitFunction(e) {
-		let score = 0;
+		let totalScore = 0;
 		for (let i = 1; i < quizAnswers.length; ++i) {
 			if (quizAnswers[i]) {
-				++score;
+				++totalScore;
 			}
 		}
 
-		const studentScore = `your score is ${score} / ${quizQuestions.length}`;
+		handleStudentScore (`your score is ${totalScore} / ${quizQuestions.length}`);
+		/* setStudentScore =`your score is ${totalScore} / ${quizQuestions.length}`; */
+		/* console.log(`your score is ${totalScore} / ${quizQuestions.length}`); */
+		
 		console.log(studentScore);
 
 		fetch("http://localhost:3100/api/results", {
 			method: "POST",
 			body: JSON.stringify({
 				quiz_id: quizId,
-				student_id: 1,
-				score: score,
+				student_id: studentId,
+				score: totalScore,
 				quiz_length: quizQuestions.length,
 			}),
 			headers: {
@@ -120,7 +131,9 @@ const StudentQuiz = () => {
 					);
 				})}
 				<br />
-				<Link to = "/studentscore" params ={{ score: "test" }}>
+				<Link to = {{
+					pathname: "/studentscore",
+					state: { studentScore } }}>
 					<button onClick={submitFunction}>Submit the answers!</button>
 				</Link>
 			</form>
