@@ -49,7 +49,10 @@ const MentorLogin = () => {
 					<br />
 					<div>
 						{mentorEmail && (
-							<Link to = "/mentorpage">
+							<Link to = {{
+								pathname: "/mentorpage",
+								state: { mentorEmail },
+							}}>
 						   <input className="submit-button button2 btn-primary" type="submit" value="Submit" onClick={handleSubmit} />
 							</Link>
 						)}

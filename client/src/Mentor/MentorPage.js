@@ -5,11 +5,14 @@ import { Link } from "react-router-dom";
 import MentorStyle from "./MentorStyle";
 import Footer from "../GeneralPages/Footer";
 
-const MentorPage = () => {
+const MentorPage = (props) => {
+	console.log(props.location.state.mentorEmail);
+	const mentorDetail = props.location.state.mentorEmail;
 	return (
 		<div className="container">
 			<Header />
 			<MentorStyle />
+			<h1>You are logged in as {mentorDetail}</h1>
 			<div className="mentor-page-buttons">
 				<div className="mentor-page-button">
 					<Link to = "/quizname">

@@ -13,7 +13,21 @@ router.get("/", (_, res, next) => {
 	});
 });
 
-router.get("/quiz", function (req, res, next) {
+router.get("/quiz/:name", function (req, res, next) {
+	Connection.connect((err, pool) => {
+		if (err) {
+			return next(err);
+		}
+
+		const name =req.params.name;
+
+		pool.query("SELECT id FROM quiz WHERE quiz_name= $1 ", [name])
+			.then((result) => res.json(result.rows))
+			.catch((e) => console.error(e));
+	});
+});
+
+router.get("/quizlist", function (req, res, next) {
 	Connection.connect((err, pool) => {
 		if (err) {
 			return next(err);
@@ -38,18 +52,54 @@ router.get("/questions/:id", function (req, res, next) {
 	});
 });
 
-router.get("/students/:studentEmail", function (req, res, next) {
-  Connection.connect((err, pool) => {
-    if (err) {
-      return next(err);
-    }
+router.put("/questions/:id", function (req, res, next) {
+	Connection.connect((err, pool) => {
+		if (err) {
+			return next(err);
+		}
 
-    const studentEmail = req.params.student_email;
-    pool
-      .query("SELECT id FROM students WHERE student_email = $1", [studentEmail])
-      .then((result) => res.json(result.rows))
-      .catch((e) => console.error(e));
-  });
+		const id = req.params.id;
+		const question = req.body.question;
+		const correctAnswer = req.body.correct_answer;
+		const wrongAnswer1 = req.body.wrong_answer_1;
+		const wrongAnswer2 = req.body.wrong_answer_2;
+		const wrongAnswer3 = req.body.wrong_answer_3;
+		const wrongAnswer4 = req.body.wrong_answer_4;
+		const wrongAnswer5 = req.body.wrong_answer_5;
+
+
+		pool.query("UPDATE quiz_questions SET question=$1, correct_answer=$2, wrong_answer_1=$3, wrong_answer_2=$4, wrong_answer_3=$5, wrong_answer_4=$6, wrong_answer_5=$7 WHERE id=$8", [question, correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3, wrongAnswer4, wrongAnswer5, id ])
+			.then((result) => res.json(result.rows))
+			.catch((e) => console.error(e));
+	});
+});
+
+router.delete("/questions/:id", function (req, res, next) {
+	Connection.connect((err, pool) => {
+		if (err) {
+			return next(err);
+		}
+
+		const id = req.params.id;
+
+		pool.query("DELETE FROM  quiz_questions WHERE id=$1", [ id ])
+			.then((result) => res.json(result.rows))
+			.catch((e) => console.error(e));
+	});
+});
+
+router.get("/students/:studentEmail", function (req, res, next) {
+	Connection.connect((err, pool) => {
+		if (err) {
+			return next(err);
+		}
+
+		const studentEmail = req.params.studentEmail;
+		pool
+			.query("SELECT id FROM students WHERE student_email = $1", [studentEmail])
+			.then((result) => res.json(result.rows))
+			.catch((e) => console.error(e));
+	});
 });
 
 
@@ -103,29 +153,29 @@ router.post("/quiz", function (req, res, next) {
 
 
 router.post("/results", function (req, res, next) {
-  Connection.connect((err, pool) => {
-    if (err) {
-      return next(err);
-    }
+	Connection.connect((err, pool) => {
+		if (err) {
+			return next(err);
+		}
 
-    const quizId = req.body.quiz_id;
-    const studentId = req.body.student_id;
-    const score = req.body.score;
-    const quizLength = req.body.quiz_length;
+		const quizId = req.body.quiz_id;
+		const studentId = req.body.student_id;
+		const score = req.body.score;
+		const quizLength = req.body.quiz_length;
 
-    const query =
-	  "INSERT INTO results (quiz_id, student_id, score, quiz_length) VALUES ($1, $2, $3, $4)";
-    pool
-      .query(query, [
-        quizId,
-        studentId,
-        score,
-        quizLength,
- 
-      ])
-      .then(() => res.send("Results added!"))
-      .catch((e) => console.error(e));
-  });
+		const query
+	  = "INSERT INTO results (quiz_id, student_id, score, quiz_length) VALUES ($1, $2, $3, $4)";
+		pool
+			.query(query, [
+				quizId,
+				studentId,
+				score,
+				quizLength,
+
+			])
+			.then(() => res.send("Results added!"))
+			.catch((e) => console.error(e));
+	});
 });
 
 

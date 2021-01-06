@@ -18,7 +18,7 @@ const QuizName =()=> {
 		console.log(quizName);
 	}
 
-	function handleSubmit (e) {
+	function handleSubmit () {
 		// e.preventDefault();
 		console.log(`Quiz name is: ${quizName}`);
 
@@ -35,7 +35,7 @@ const QuizName =()=> {
 			});
 
 			alert("The Quiz name has been submitted.");
-			setQuizName("");
+			/* setQuizName(""); */
 		}
 
 		fetch("http://localhost:3100/api/quizname", {
@@ -49,7 +49,7 @@ const QuizName =()=> {
 		});
 
 		alert("The Quiz name has been submitted.");
-		setQuizName("");
+		/* setQuizName(""); */
 
 	}
 
@@ -60,22 +60,25 @@ const QuizName =()=> {
 			<br />
 			<div className="quiz-name-form row g-3">
 				{/* <div className="col-auto"> */}
-					<label htmlFor="quizName" className="quiz-name-label" > Enter the new Quiz name: </label>
-{/* 				</div> */}
-			{/* 	<div className="col-auto"> */}
-					<input
-						className="quiz-name-input"
-						type="text"
-						name="quizName"
-						placeholder= {formattedDate}
-						value={quizName}
-						onChange={handleChange} />
-			{/* 	</div> */}
-			
-					<Link to = "/quizpage" >
-						<button className="button2 btn-primary" type="submit" onClick={handleSubmit}>Click here to add questions</button>
-					</Link>
-			
+				<label htmlFor="quizName" className="quiz-name-label" > Enter the new Quiz name: </label>
+				{/* 				</div> */}
+				{/* 	<div className="col-auto"> */}
+				<input
+					className="quiz-name-input"
+					type="text"
+					name="quizName"
+					placeholder= {formattedDate}
+					value={quizName}
+					onChange={handleChange} />
+				{/* 	</div> */}
+
+				<Link to ={{
+					pathname:"/quizpage",
+					state: { quizName },
+				}} >
+					<button className="button2 btn-primary" type="submit" onClick={handleSubmit}>Click here to create the quiz name.</button>
+				</Link>
+
 			</div>
 			<Footer />
 		</div>
