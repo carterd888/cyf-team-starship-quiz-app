@@ -85,6 +85,14 @@ ${"" /* MentorPage */}
   border-radius:5px;
 }
 
+.table {
+  margin-top: 40px;
+  margin-left: 20px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+
+}
+
 
 `;
 

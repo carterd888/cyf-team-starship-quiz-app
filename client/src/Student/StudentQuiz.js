@@ -132,8 +132,8 @@ const StudentQuiz = (props) => {
 				})}
 				<br />
 				<Link to = {{
-					pathname: "/studentscore",
-					state: { studentScore } }}>
+					pathname: "/studentscoresubmit",
+					state: { studentId } }}>
 					<button onClick={submitFunction}>Submit the answers!</button>
 				</Link>
 			</form>

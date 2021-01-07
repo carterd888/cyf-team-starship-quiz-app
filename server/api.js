@@ -192,6 +192,24 @@ router.get("/studentresults", function (req, res, next) {
 	});
 });
 
+router.get("/studentresults/:id", function (req, res, next) {
+  Connection.connect((err, pool) => {
+    if (err) {
+      return next(err);
+    }
+
+	
+		const id = req.params.id;
+
+    pool
+      .query(
+        "SELECT * FROM results WHERE student_id = $1 ORDER BY id DESC LIMIT 1", [id]
+      )
+      .then((result) => res.json(result.rows))
+      .catch((e) => console.error(e));
+  });
+});
+
 router.get("/mentorresults", function (req, res, next) {
 	Connection.connect((err, pool) => {
 		if (err) {
@@ -204,6 +222,25 @@ router.get("/mentorresults", function (req, res, next) {
 			.then((result) => res.json(result.rows))
 			.catch((e) => console.error(e));
 	});
+});
+
+router.get("/mentorresults/:id", function (req, res, next) {
+  Connection.connect((err, pool) => {
+    if (err) {
+      return next(err);
+    }
+
+		const id = req.params.id;
+
+    pool
+      .query(
+        "SELECT results.id, quiz.quiz_name, students.student_name, results.score FROM results" +
+          " INNER JOIN students ON students.id = results.student_id INNER JOIN quiz ON results.quiz_id = quiz.id" +
+          " WHERE results.quiz_id = $1 ORDER BY results.score", [id]
+      )
+      .then((result) => res.json(result.rows))
+      .catch((e) => console.error(e));
+  });
 });
 
 

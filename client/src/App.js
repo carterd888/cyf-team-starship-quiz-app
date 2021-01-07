@@ -17,33 +17,37 @@ import StudentScore from "./Student/StudentScore";
 import QuizSummary from "./Mentor/QuizSummary";
 import QuizEdit from "./Mentor/QuizEdit";
 import StudentWelcome  from "./Student/StudentWelcome";
+import StudentScoreSubmit from "./Student/StudentScoreSubmit";
+import MentorQuizList from "./Mentor/MentorQuizList";
 
 export function App() {
 
 	return (
-		<Router>
-			<div className="App">
-				<GlobalStyle />
-				<Route path="/" exact component={HomePage} />
-				<Switch>
-					<Route path="/mentorlogin" component={MentorLogin} />
-					<Route path="/mentorpage" component={MentorPage} />
-					<Route path="/quizname" component={QuizName} />
-					<Route path="/quizpage" component={QuizPage} />
-					<Route path="/quizsummary" component={QuizSummary} />
-					<Route path="/quizedit" component={QuizEdit} />
-					<Route path="/mentorresults" component={MentorResults} />
+    <Router>
+      <div className="App">
+        <GlobalStyle />
+        <Route path="/" exact component={HomePage} />
+        <Switch>
+          <Route path="/mentorlogin" component={MentorLogin} />
+          <Route path="/mentorpage" component={MentorPage} />
+          <Route path="/quizname" component={QuizName} />
+          <Route path="/quizpage" component={QuizPage} />
+          <Route path="/quizsummary" component={QuizSummary} />
+          <Route path="/quizedit" component={QuizEdit} />
+          <Route path="/mentorquizlist" component={MentorQuizList} />
+          <Route path="/mentorresults" component={MentorResults} />
 
-					<Route path="/studentlogin" component={StudentLogin} />
-					<Route path="/studentwelcome" component={StudentWelcome} />
-					<Route path="/studentpage" component={StudentPage} />
-					<Route path="/studentquiz" component={StudentQuiz} />
-					<Route path="/studentscore" component={StudentScore} />
-					<Route path="/studentresults" component={StudentResults} />
-				</Switch>
-			</div>
-		</Router>
-	);
+          <Route path="/studentlogin" component={StudentLogin} />
+          <Route path="/studentwelcome" component={StudentWelcome} />
+          <Route path="/studentpage" component={StudentPage} />
+          <Route path="/studentquiz" component={StudentQuiz} />
+          <Route path="/studentscore" component={StudentScore} />
+          <Route path="/studentscoresubmit" component={StudentScoreSubmit} />
+          <Route path="/studentresults" component={StudentResults} />
+        </Switch>
+      </div>
+    </Router>
+  );
 }
 
 export default App;

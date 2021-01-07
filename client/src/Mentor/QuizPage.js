@@ -8,6 +8,7 @@ import MentorStyle from "./MentorStyle";
 const QuizPage =(props)=> {
 
 	console.log(props.location.state.quizName);
+	const mentorEmail = props.location.state.mentorEmail;
 
 	function handleSubmit (e){
 		e.preventDefault();
@@ -16,12 +17,16 @@ const QuizPage =(props)=> {
 	}
 
 	return (
-		<div>
-			<MentorStyle />
-			<QuizQuestion newQuiz={props.location.state.quizName} handleSubmit={handleSubmit} />
-			{/* <SubmitButton  handleSubmit={handleSubmit} /> */}
-		</div>
-	);
+    <div>
+      <MentorStyle />
+      <QuizQuestion
+        mentorEmail={mentorEmail}
+        newQuiz={props.location.state.quizName}
+        handleSubmit={handleSubmit}
+      />
+      {/* <SubmitButton  handleSubmit={handleSubmit} /> */}
+    </div>
+  );
 };
 
 
