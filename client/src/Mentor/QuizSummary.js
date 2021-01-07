@@ -5,8 +5,10 @@ import Footer from "../GeneralPages/Footer";
 
 const QuizSummary =(props)=>{
 
+	const mentorEmail = props.location.state.mentorEmail;
+	
 	console.log(props.location.state.quizName);
-
+console.log(props.location.state.mentorEmail);
 
 	const [quizQuestions, setQuizQuestions] = useState([]);
 	const [deleteId, setDeleteId] = useState("");
@@ -43,51 +45,46 @@ const QuizSummary =(props)=>{
 	}
 
 	return (
-		<div>
-			<Header />
-			<h1>Quiz summary</h1>
-			{quizQuestions.map((q)=>{
-				return (
-					<div>
-						<ul key={q.id}>{q.question}
-							<li >
-								{q.correct_answer}
-							</li>
+    <div>
+      <Header />
+      <h1>Quiz summary</h1>
+      {quizQuestions.map((q) => {
+        return (
+          <div>
+            <ul key={q.id}>
+              {q.question}
+              <li>{q.correct_answer}</li>
 
-							<li>
-								{q.wrong_answer_1}
-							</li>
-                            		<li>
-								{q.wrong_answer_2}
-							</li>
-                            		<li>
-								{q.wrong_answer_3}
-							</li>
-                            		<li>
-								{q.wrong_answer_4}
-							</li>
-                            		<li>
-								{q.wrong_answer_5}
-							</li>
-						</ul>
-						<Link to = {{
-							pathname:"/quizedit",
-							state: { q },
-						}}>
-							<button>Edit</button>
-						</Link>
+              <li>{q.wrong_answer_1}</li>
+              <li>{q.wrong_answer_2}</li>
+              <li>{q.wrong_answer_3}</li>
+              <li>{q.wrong_answer_4}</li>
+              <li>{q.wrong_answer_5}</li>
+            </ul>
+            <Link
+              to={{
+                pathname: "/quizedit",
+                state: { q, mentorEmail },
+              }}
+            >
+              <button>Edit</button>
+            </Link>
 
-						<button onClick={()=> handleDelete(q.id)}>Delete</button>
-
-					</div>
-				);
-			})}
-			<Link to="/mentorpage">
-				<button onClick={handleRedirect}>Submit</button>
-			</Link>
-			<Footer />
-		</div>
-	);
+            <button onClick={() => handleDelete(q.id)}>Delete</button>
+          </div>
+        );
+      })}
+      <Link
+        to={{
+          pathname: "/mentorpage",
+          state: { mentorEmail },
+        }}
+      >
+        <button onClick={handleRedirect}>Submit</button>
+      </Link>
+      <Footer />
+    </div>
+  );
 };
 
 export default QuizSummary;

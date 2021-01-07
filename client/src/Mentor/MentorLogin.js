@@ -53,14 +53,11 @@ const MentorLogin = () => {
 								pathname: "/mentorpage",
 								state: { mentorEmail },
 							}}>
-						   <input className="submit-button button2 btn-primary" type="submit" value="Submit" onClick={handleSubmit} />
+						   <input className="submit-button button2 btn-primary" type="submit" value="Login" onClick={handleSubmit} />
 							</Link>
 						)}
 					</div>
 				</form>
-				<Link to = "/mentorpage">
-					<Button buttontext = 'Log on to Mentor Page' />
-				</Link>
 			</div>
 			<Footer />
 		</div>

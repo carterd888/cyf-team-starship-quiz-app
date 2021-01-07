@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import MentorStyle from "./MentorStyle";
 import Footer from "../GeneralPages/Footer";
 
-const QuizName =()=> {
-
+const QuizName =(props)=> {
+const mentorEmail = props.location.state.mentorEmail;
 	const thisDate = new Date();
 	const formattedDate = moment(thisDate).format("MMMM Do YYYY, h:mm:ss");
 
@@ -54,35 +54,46 @@ const QuizName =()=> {
 	}
 
 	return (
-		<div className="container">
-			<Header />
-			<MentorStyle />
-			<br />
-			<div className="quiz-name-form row g-3">
-				{/* <div className="col-auto"> */}
-				<label htmlFor="quizName" className="quiz-name-label" > Enter the new Quiz name: </label>
-				{/* 				</div> */}
-				{/* 	<div className="col-auto"> */}
-				<input
-					className="quiz-name-input"
-					type="text"
-					name="quizName"
-					placeholder= {formattedDate}
-					value={quizName}
-					onChange={handleChange} />
-				{/* 	</div> */}
+    <div className="container">
+      <Header />
+      <MentorStyle />
+      <br />
+      <div className="quiz-name-form row g-3">
+        {/* <div className="col-auto"> */}
+        <label htmlFor="quizName" className="quiz-name-label">
+          {" "}
+          Enter the new Quiz name:{" "}
+        </label>
+        {/* 				</div> */}
+        {/* 	<div className="col-auto"> */}
+        <input
+          className="quiz-name-input"
+          type="text"
+          name="quizName"
+          placeholder={formattedDate}
+          value={quizName}
+          onChange={handleChange}
+        />
+        {/* 	</div> */}
 
-				<Link to ={{
-					pathname:"/quizpage",
-					state: { quizName },
-				}} >
-					<button className="button2 btn-primary" type="submit" onClick={handleSubmit}>Click here to create the quiz name.</button>
-				</Link>
-
-			</div>
-			<Footer />
-		</div>
-	);
+        <Link
+          to={{
+            pathname: "/quizpage",
+            state: { quizName, mentorEmail },
+          }}
+        >
+          <button
+            className="button2 btn-primary"
+            type="submit"
+            onClick={handleSubmit}
+          >
+            Click here to create the quiz name.
+          </button>
+        </Link>
+      </div>
+      <Footer />
+    </div>
+  );
 };
 
 

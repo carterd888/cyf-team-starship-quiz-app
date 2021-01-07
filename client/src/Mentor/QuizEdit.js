@@ -4,6 +4,8 @@ import Header from "../GeneralPages/Header";
 import Footer from "../GeneralPages/Footer";
 
 const QuizEdit =(props)=>{
+
+	const mentorEmail = props.location.state.mentorEmail;
 	console.log(props.location.state.q);
 	const questionObj =props.location.state.q;
 	const quizName = questionObj.quiz_id;
@@ -154,7 +156,7 @@ const QuizEdit =(props)=>{
 
 				<Link to={{
 					pathname: "/quizsummary",
-					state: { quizName },
+					state: { quizName, mentorEmail },
 				}}>
 					<button className="submit-button" type="submit" onClick = {handleSubmit}>click here to submit the change</button>
 				</Link>

@@ -3,6 +3,7 @@ import Header from "../GeneralPages/Header";
 import Button from "../GeneralPages/Button";
 import { Link } from "react-router-dom";
 import Footer from "../GeneralPages/Footer";
+import StudentStyle from "./StudentStyle";
 
 const StudentWelcome=(props)=>{
 	console.log(props.location.state.studentEmail);
@@ -25,6 +26,7 @@ const StudentWelcome=(props)=>{
 	return (
 		<div>
 			<Header />
+			<StudentStyle />
 			<h1>You are logged in as {studentName}</h1>
 			<Link to = {{
 				pathname:"/studentpage",
