@@ -8,22 +8,20 @@ import Footer from "../GeneralPages/Footer";
 const StudentPage = (props) => {
 	console.log(props.location.state.studentId);
 	const studentId = props.location.state.studentId;
-	/* 		console.log(props.location.state.studentName);
-		console.log(props.location.state.studentEmail); */
+	const studentName = props.location.state.studentName;
+
 	return (
 		<div className="container">
 			<Header />
 			<StudentStyle />
-			{/* <StudentId studentId={studentId} /> */}
-			{/* <h1>Student id is : {props.location.studentPageProps.id}</h1> */}
 			<Link to = {{
 				pathname: "/studentquiz",
-				state: { studentId } }}>
+				state: { studentId, studentName } }}>
 				<Button buttontext = 'Click to take a Quiz' />
 			</Link>
 			<Link to = {{
 				pathname: "/studentresults",
-				state: { studentId } }}>
+				state: { studentId, studentName } }}>
 				<Button buttontext = 'Click to see your Quiz results' />
 			</Link>
 			<Footer />

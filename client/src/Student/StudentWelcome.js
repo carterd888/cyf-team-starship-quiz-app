@@ -10,7 +10,8 @@ const StudentWelcome=(props)=>{
 	console.log(props.location.state.studentName);
 
 	const studentEmail = props.location.state.studentEmail;
-	const studentName = props.location.state.studentName;
+    const studentName = props.location.state.studentName;
+    
 	const [studentId, setStudentId] = useState(0);
 
 
@@ -30,7 +31,7 @@ const StudentWelcome=(props)=>{
 			<h1>You are logged in as {studentName}</h1>
 			<Link to = {{
 				pathname:"/studentpage",
-				state: { studentId },
+				state: { studentId, studentName },
 			}}>
 				<Button buttontext = 'Click to continue to Student Page' />
 			</Link>

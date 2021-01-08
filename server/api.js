@@ -192,6 +192,23 @@ router.get("/studentresults", function (req, res, next) {
 	});
 });
 
+router.get("/studentresults/student/:id", function (req, res, next) {
+  Connection.connect((err, pool) => {
+    if (err) {
+      return next(err);
+    }
+		const id = req.params.id;
+
+    pool
+      .query(
+        "SELECT students.student_name, quiz.quiz_name, results.score FROM results INNER JOIN students ON students.id = results.student_id INNER JOIN quiz ON results.quiz_id = quiz.id WHERE student_id = $1 ORDER BY results.id DESC", [id]
+      )
+      .then((result) => res.json(result.rows))
+      .catch((e) => console.error(e));
+  });
+});
+
+
 router.get("/studentresults/:id", function (req, res, next) {
   Connection.connect((err, pool) => {
     if (err) {
@@ -209,6 +226,7 @@ router.get("/studentresults/:id", function (req, res, next) {
       .catch((e) => console.error(e));
   });
 });
+
 
 router.get("/mentorresults", function (req, res, next) {
 	Connection.connect((err, pool) => {

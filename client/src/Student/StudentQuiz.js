@@ -8,7 +8,8 @@ import Footer from "../GeneralPages/Footer";
 const StudentQuiz = (props) => {
 	console.log(props.location.state.studentId);
 	const studentId = props.location.state.studentId;
-	
+	const studentName = props.location.state.studentName;
+
 	const [quizQuestions, setQuizQuestions]= useState([]);
 	const [quizList, setQuizList] = useState([]);
 	const [quizId, setQuizId] = useState(0);
@@ -133,12 +134,15 @@ const StudentQuiz = (props) => {
 				<br />
 				<Link to = {{
 					pathname: "/studentscoresubmit",
-					state: { studentId } }}>
+					state: { studentId, studentName } }}>
 					<button onClick={submitFunction}>Submit the answers!</button>
 				</Link>
 			</form>
 
-			<Link to = "/studentpage">
+			<Link to = {{
+				pathname: "/studentpage",
+				state: {studentId, studentName}
+				}}>
 				<Button buttontext ='Go back to Student Page' />
 			</Link>
 			<Footer />

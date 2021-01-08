@@ -71,7 +71,9 @@ const StudentLogin = () => {
                     	</Link>
                     )}
 					</div>
+
 				</form>
+
 			</div>
 			<Footer />
 		</div>
