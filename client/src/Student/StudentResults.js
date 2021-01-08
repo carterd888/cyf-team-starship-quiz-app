@@ -14,7 +14,7 @@ const StudentResults = (props) => {
 	let [results, setResults] = useState([]);
 
 	useEffect(() => {
-		fetch(`http://localhost:3100/api/studentresults/student/${studentId}`) // Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/studentresults
+		fetch(`http://localhost:3100/api/studentresults/student/${studentId}`) // Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/studentresults/student/${studentId}
 			.then((data) => data.json())
 			.then((jsonData) => setResults(jsonData))
 			.catch((e) => console.log(e));

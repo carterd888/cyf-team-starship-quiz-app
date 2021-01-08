@@ -28,20 +28,6 @@ const MentorStyle = createGlobalStyle`
     text-align: center;
   }
 
-  .button2 {
-    background-color:#8E0D19;
-    align-self:center;
-    margin-left:25%;
-    margin-right:25%;
-    width:50%;
-    border-radius:5px;
-  }
-
-  .submit-button {
-    width:100%;
-    margin-left:0;
-  }
-
   ${"" /* MentorPage */}
 
   .mentor-page-buttons {
@@ -87,6 +73,54 @@ const MentorStyle = createGlobalStyle`
     margin-right: 10px;
     margin-bottom: 20px;
   }
+
+
+  ${"" /* buttons */}
+  .mentor-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .mentor-link, .question-submit-button {
+    margin: auto;
+    margin-top: 16px;
+    margin-botton: 16px;
+    width: 30%;
+  }
+
+  .quiz-create-button {
+    width: 100%;
+  }
+
+  ${"" /* QuizQuestion */}
+  .question-input-area, .question-box, .answer-box {
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
+  }
+ 
+  .question-input-area {
+    width: 50%;
+    margin: auto;
+    align-items: center;
+    margin-bottom: 32px;
+  }
+
+  .question-box {
+    width: 100%;
+    align-items: center;
+  }
+
+  .question-box > textarea, .answer-box > input {
+    width: 100%;
+  }
+
+  .answer-box {
+    width: 100%;
+    align-items: center;
+  }
+
 `;
 
 export default MentorStyle;

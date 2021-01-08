@@ -12,7 +12,7 @@ const StudentWelcome=(props)=>{
 	const [studentId, setStudentId] = useState(0);
 
 	useEffect(() =>{
-		fetch(`http://localhost:3100/api/students/${studentEmail}`)
+		fetch(`http://localhost:3100/api/students/${studentEmail}`)	// Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/students/${studentEmail}
 			.then((data) => data.json())
 			.then((jsonData) => setStudentId(jsonData[0].id))
 			.catch((e) => console.log(e));
