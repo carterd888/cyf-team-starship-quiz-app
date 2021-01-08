@@ -12,7 +12,7 @@ const StudentScoreSubmit = (props) => {
 	const [studentResult, setStudentResult] = useState([]);
 
 	useEffect(() => {
-		fetch(`http://localhost:3100/api/studentresults/${studentId}`) // Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/quiz
+		fetch(`http://localhost:3100/api/studentresults/${studentId}`) // Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/studentresults/${studentId}
 			.then((data) => data.json())
 			.then((jsonData) => setStudentResult([jsonData[0].score, jsonData[0].quiz_length]))
 			.catch((e) => console.log(e));

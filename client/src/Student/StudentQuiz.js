@@ -16,7 +16,7 @@ const StudentQuiz = (props) => {
 	const quizAnswers = [];
 
 	useEffect(() => {
-		fetch("http://localhost:3100/api/quizlist") // Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/quiz
+		fetch("http://localhost:3100/api/quizlist") // Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/quizlist
 			.then((data) => data.json())
 			.then((jsonData) => setQuizList(jsonData))
 			.catch((e) => console.log(e));
@@ -68,7 +68,7 @@ const StudentQuiz = (props) => {
 		}
 		handleStudentScore (`your score is ${totalScore} / ${quizQuestions.length}`);
 
-		fetch("http://localhost:3100/api/results", {
+		fetch("http://localhost:3100/api/results", {	// Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/results
 			method: "POST",
 			body: JSON.stringify({
 				quiz_id: quizId,
@@ -88,6 +88,7 @@ const StudentQuiz = (props) => {
 		<div className="container">
 			<Header />
 			<StudentStyle />
+
 			<div>
 				<select name="id" onChange = {handleChange}>
 					{quizList.map((q) =>{
@@ -135,7 +136,7 @@ const StudentQuiz = (props) => {
 					<Button buttontext ='Go back to Student Page' />
 				</Link>
 			</div>
-			
+
 			<Footer />
 		</div>
 	);

@@ -8,30 +8,25 @@ import Footer from "../GeneralPages/Footer";
 const MentorResults = (props) => {
 
 	const mentorEmail = props.location.state.mentorEmail;
-	console.log(props.location.state.quizId);
-	console.log(props.location.state.mentorEmail);
-
 	const quizId = props.location.state.quizId;
-	let [results, setResults] = useState([]);
+	const [results, setResults] = useState([]);
+	const [search, setSearch]= useState("");
 
 	useEffect(() => {
-		fetch(`http://localhost:3100/api/mentorresults/${quizId}`) // Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/mentorresults
+		fetch(`http://localhost:3100/api/mentorresults/${quizId}`) // Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/mentorresults/${quizId}
 			.then((data) => data.json())
 			.then((jsonData) => setResults(jsonData))
 			.catch((e) => console.log(e));
-	}, []);
+	}, [quizId]);
 
-	const [search, setSearch]= useState("");
-
-	function handleChange(e){
-		console.log(e);
+	function handleChange(e) {
 		setSearch(
 			results.filter((student) =>
 				student.student_name.toLowerCase().includes(e.target.value)
 			)
 		);
-
 	}
+
 
 	return (
 		<div className="container">
@@ -78,14 +73,14 @@ const MentorResults = (props) => {
 					</tbody>
 				</table>
 			</div>
-			<Link
-				to={{
+			<div className="mentor-buttons">
+				<Link className="mentor-link" to={{
 					pathname: "/mentorpage",
 					state: { mentorEmail },
-				}}
-			>
-				<Button buttontext="Go back to Mentor Page" />
-			</Link>
+				}}>
+					<Button buttontext="Go back to Mentor Page" />
+				</Link>
+			</div>
 			<Footer />
 		</div>
 	);

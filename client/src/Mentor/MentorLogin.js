@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Header from "../GeneralPages/Header";
-import Button from "../GeneralPages/Button";
 import { Link } from "react-router-dom";
 import Footer from "../GeneralPages/Footer";
 import MentorStyle from "./MentorStyle";
@@ -10,18 +9,13 @@ const MentorLogin = () => {
 
 	const [mentorEmail, setMentorEmail] = useState("");
 
-
 	function handleChange(e) {
 		setMentorEmail(e.target.value);
 		console.log(mentorEmail);
 	}
 
-
 	function handleSubmit (e) {
-		// e.preventDefault(); // has to be deleted later
-		console.log(`Mentor email is: ${mentorEmail} `);
-
-		fetch("http://localhost:3100/api/mentors", {
+		fetch("http://localhost:3100/api/mentors", {	// Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/mentors
 			method: "POST",
 			body: JSON.stringify({
 				mentor_email: mentorEmail,
@@ -32,6 +26,7 @@ const MentorLogin = () => {
 		});
 		alert("The details have been submitted.");
 	}
+
 
 	return (
 		<div className="container">
