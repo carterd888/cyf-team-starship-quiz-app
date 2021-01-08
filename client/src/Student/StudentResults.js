@@ -9,6 +9,7 @@ const StudentResults = (props) => {
 
 	console.log(props.location.state.studentId);
 	const studentId = props.location.state.studentId;
+	const studentName = props.location.state.studentName;
 
 	let [results, setResults] = useState([]);
 
@@ -49,9 +50,15 @@ const StudentResults = (props) => {
 					</tbody>
 				</table>
 			</div>
-			<Link to = "/studentpage">
-				<Button buttontext ='Go back to Student Page' />
-			</Link>
+			<div className="student-buttons">
+				<Link className="student-link" to = {{
+					pathname: "/studentpage",
+					state: { studentId, studentName },
+				}}
+				>
+					<Button buttontext ='Go back to Student Page' />
+				</Link>
+			</div>
 			<Footer />
 		</div>
 	);

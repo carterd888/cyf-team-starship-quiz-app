@@ -39,21 +39,17 @@ const MentorLogin = () => {
 			<MentorStyle />
 			<div className="mentor-login-form-div">
 				<form className="mentor-login-form mx-auto input-group-lg">
-					<div className="mentor-login-input-label">
-						<label className="mentor-login-label">
-                            Enter Your Email:
-							<br />
-							<input type="email" className="mentor-login-email form-control " name="mentorEmail"  value={mentorEmail} onChange={handleChange} required />
-						</label>
+					<div className="mentor-login-input">
+						<label htmlFor="mentorEmail">Enter Your Email:</label>
+						<input type="email" className="mentor-login-email form-control " name="mentorEmail"  value={mentorEmail} onChange={handleChange} required />
 					</div>
-					<br />
 					<div>
 						{mentorEmail && (
 							<Link to = {{
 								pathname: "/mentorpage",
 								state: { mentorEmail },
 							}}>
-						   <input className="submit-button button2 btn-primary" type="submit" value="Login" onClick={handleSubmit} />
+						   		<input className="submit-button button2 btn-primary" type="submit" value="Login" onClick={handleSubmit} />
 							</Link>
 						)}
 					</div>

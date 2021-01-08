@@ -22,14 +22,12 @@ const MentorResults = (props) => {
 	}, []);
 
 	const [search, setSearch]= useState("");
-	const[inputText, setInputText] = useState("");
 
 	function handleChange(e){
 		console.log(e);
-    setInputText(e.target.value);
 		setSearch(
 			results.filter((student) =>
-				student.student_name.toLowerCase().includes(inputText)
+				student.student_name.toLowerCase().includes(e.target.value)
 			)
 		);
 
@@ -41,8 +39,10 @@ const MentorResults = (props) => {
 			<MentorStyle />
 			<h2>Students quiz results:</h2>
 			<p>results are in reverse order, lowest score first.</p>
-      <label for="student-filter" >Search for student name</label>
-			<input type="text" className="student-filter" name="student-filter"  value ={inputText} onChange={handleChange} required />
+			<div>
+				<label htmlFor="student-filter">Search for student name</label>
+				<input type="text" className="student-filter" name="student-filter" onChange={handleChange} required />
+			</div>
 			<div>
 				<table className="table">
 					<thead>

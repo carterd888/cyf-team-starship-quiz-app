@@ -6,11 +6,11 @@ import StudentStyle from "./StudentStyle";
 import Footer from "../GeneralPages/Footer";
 
 const StudentQuiz = (props) => {
-	console.log(props.location.state.studentId);
+
 	const studentId = props.location.state.studentId;
 	const studentName = props.location.state.studentName;
-
-	const [quizQuestions, setQuizQuestions]= useState([]);
+	const [studentScore, setStudentScore] = useState("");
+	const [quizQuestions, setQuizQuestions] = useState([]);
 	const [quizList, setQuizList] = useState([]);
 	const [quizId, setQuizId] = useState(0);
 	const quizAnswers = [];
@@ -45,42 +45,28 @@ const StudentQuiz = (props) => {
 		q.answers.sort(() => Math.random() - 0.5);
 	});
 
-	/* DELETE THESE LATER */
-	console.log("quiz questions array: ");
-	console.log(quizQuestions);
-	console.log("quiz answers array: ");
-	console.log(quizAnswers);
-
 	function checkAnswer (e) {
-
 		const question = e.target.value.split(",");		//index 0 = correct/wrong answer, index 1 = question content, index 2 = question id
+
 		if(question[0] == "correct_answer") {
 			quizAnswers[question[2]] = true;
 		} else {
 			quizAnswers[question[2]] = false;
 		}
-		console.log(quizAnswers);
 	}
 
-	const[studentScore, setStudentScore]= useState("");
-	
-	async function handleStudentScore (e){
+	async function handleStudentScore (e) {
 		setStudentScore(e);
-	};
-	
-	function submitFunction(e) {
+	}
+
+	function submitFunction() {
 		let totalScore = 0;
 		for (let i = 1; i < quizAnswers.length; ++i) {
 			if (quizAnswers[i]) {
 				++totalScore;
 			}
 		}
-
 		handleStudentScore (`your score is ${totalScore} / ${quizQuestions.length}`);
-		/* setStudentScore =`your score is ${totalScore} / ${quizQuestions.length}`; */
-		/* console.log(`your score is ${totalScore} / ${quizQuestions.length}`); */
-		
-		console.log(studentScore);
 
 		fetch("http://localhost:3100/api/results", {
 			method: "POST",
@@ -96,6 +82,7 @@ const StudentQuiz = (props) => {
 		});
 		alert("The quiz has been submitted.");
 	}
+
 
 	return (
 		<div className="container">
@@ -132,19 +119,23 @@ const StudentQuiz = (props) => {
 					);
 				})}
 				<br />
-				<Link to = {{
-					pathname: "/studentscoresubmit",
-					state: { studentId, studentName } }}>
-					<button onClick={submitFunction}>Submit the answers!</button>
-				</Link>
+				<div className="student-buttons">
+					<Link className="student-link" to = {{
+						pathname: "/studentscoresubmit",
+						state: { studentId, studentName } }}>
+						<button className="quiz-submit-button btn-danger btn-lg" onClick={submitFunction}>Submit the answers!</button>
+					</Link>
+				</div>
 			</form>
-
-			<Link to = {{
-				pathname: "/studentpage",
-				state: {studentId, studentName}
+			<div className="student-buttons">
+				<Link className="student-link" to = {{
+					pathname: "/studentpage",
+					state: { studentId, studentName },
 				}}>
-				<Button buttontext ='Go back to Student Page' />
-			</Link>
+					<Button buttontext ='Go back to Student Page' />
+				</Link>
+			</div>
+			
 			<Footer />
 		</div>
 	);
