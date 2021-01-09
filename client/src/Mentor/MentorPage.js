@@ -1,9 +1,7 @@
 import React  from "react";
-import Header from "../GeneralPages/Header";
 import Button from "../GeneralPages/Button";
 import { Link } from "react-router-dom";
 import MentorStyle from "./MentorStyle";
-import Footer from "../GeneralPages/Footer";
 
 const MentorPage = (props) => {
 
@@ -12,7 +10,6 @@ const MentorPage = (props) => {
 
 	return (
 		<div className="container">
-			<Header />
 			<MentorStyle />
 			<h1>You are logged in as {mentorEmail}</h1>
 			<div className="mentor-page-buttons">
@@ -33,7 +30,6 @@ const MentorPage = (props) => {
 					</Link>
 				</div>
 			</div>
-			<Footer />
 		</div>
 	);
 };

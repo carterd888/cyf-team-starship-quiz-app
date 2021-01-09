@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Header from "../GeneralPages/Header";
 import Button from "../GeneralPages/Button";
 import StudentStyle from "./StudentStyle";
-import Footer from "../GeneralPages/Footer";
 
 const StudentResults = (props) => {
 
@@ -22,7 +20,6 @@ const StudentResults = (props) => {
 
 	return (
 		<div className="container">
-			<Header />
 			<StudentStyle />
 			<h2>Your quiz results:</h2>
 			<div>
@@ -59,7 +56,6 @@ const StudentResults = (props) => {
 					<Button buttontext ='Go back to Student Page' />
 				</Link>
 			</div>
-			<Footer />
 		</div>
 	);
 };

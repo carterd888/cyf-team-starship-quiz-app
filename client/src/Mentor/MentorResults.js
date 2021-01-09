@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Header from "../GeneralPages/Header";
 import Button from "../GeneralPages/Button";
 import MentorStyle from "./MentorStyle";
-import Footer from "../GeneralPages/Footer";
+
 
 const MentorResults = (props) => {
 
@@ -30,7 +29,6 @@ const MentorResults = (props) => {
 
 	return (
 		<div className="container">
-			<Header />
 			<MentorStyle />
 			<h2>Students quiz results:</h2>
 			<p>results are in reverse order, lowest score first.</p>
@@ -81,7 +79,6 @@ const MentorResults = (props) => {
 					<Button buttontext="Go back to Mentor Page" />
 				</Link>
 			</div>
-			<Footer />
 		</div>
 	);
 };

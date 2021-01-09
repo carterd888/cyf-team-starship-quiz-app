@@ -1,12 +1,8 @@
 import React from "react";
-import Header from "./Header";
-import Footer from "./Footer";
-
 
 const HomePage = () => {
 	return (
 		<div className="container">
-			<Header />
 			<div>
 				<h1 className="welcome-text-h1 text-center">Welcome to CYF Quiz App</h1>
 				<div className="welcome-image">
@@ -19,7 +15,6 @@ const HomePage = () => {
 					</h2>
 				</div>
 			</div>
-			<Footer />
 		</div>
 	);
 };

@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import Header from "../GeneralPages/Header";
 import { Link } from "react-router-dom";
-import Footer from "../GeneralPages/Footer";
 import MentorStyle from "./MentorStyle";
 
 
@@ -30,7 +28,6 @@ const MentorLogin = () => {
 
 	return (
 		<div className="container">
-			<Header />
 			<MentorStyle />
 			<div className="mentor-login-form-div">
 				<form className="mentor-login-form mx-auto input-group-lg">
@@ -50,7 +47,6 @@ const MentorLogin = () => {
 					</div>
 				</form>
 			</div>
-			<Footer />
 		</div>
 	);
 };

@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Header from "../GeneralPages/Header";
 import Button from "../GeneralPages/Button";
 import StudentStyle from "./StudentStyle";
-import Footer from "../GeneralPages/Footer";
 
 const StudentQuiz = (props) => {
 
@@ -86,7 +84,6 @@ const StudentQuiz = (props) => {
 
 	return (
 		<div className="container">
-			<Header />
 			<StudentStyle />
 
 			<div>
@@ -136,8 +133,6 @@ const StudentQuiz = (props) => {
 					<Button buttontext ='Go back to Student Page' />
 				</Link>
 			</div>
-
-			<Footer />
 		</div>
 	);
 };

@@ -3,7 +3,13 @@
     position: relative;
     min-width: 100%;
     padding: 0;
-} 
+}
+
+.App {
+    position: relative;
+    min-height: 100vh;
+
+}
 
 /* Header Component */
 
@@ -14,7 +20,7 @@
     padding: 1rem 5rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
     margin-bottom: 4px;
-    margin-top:0;
+    margin-top: 0;
 }
 
 .Logo {
@@ -54,13 +60,14 @@ a:link {
 }
 
 .welcome-image {
-    height: 20rem; /* need to fix this to be responsive */
+    height: 20rem;
+    /* need to fix this to be responsive */
     background-image: url("./images/welcome-background.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     padding-bottom: 8rem;
-  /*   overflow-x: hidden; */
+    /*   overflow-x: hidden; */
 }
 
 .welcome-text {
@@ -69,20 +76,21 @@ a:link {
     font-weight: 800;
     font-size: 4vw;
     color: #8E0D19;
-    
+
     margin: 5%;
     opacity: 1.0;
 }
 
-.img-text-container{
-    display:block;
+.img-text-container {
+    display: block;
     flex-wrap: wrap;
 }
 
 
 /* Button Component */
 
-.button-component, .quiz-submit-button {
+.button-component,
+.quiz-submit-button {
     width: 100%;
 }
 
@@ -103,12 +111,14 @@ a:link {
 /* Footer */
 
 .Footer {
-    position: absolute;
-    width: 100%;
-    margin-top: 5rem;
     background-color: gray;
     padding: 8px 0 8px 0;
-    font-size: 3vw;   
+    font-size: 3vw;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
 }
 
 .footer-links-div {
@@ -120,7 +130,7 @@ a:link {
 
 .Footer h4 {
     font-size: 4vw;
-    
+
 }
 
 .copyright {
@@ -191,9 +201,9 @@ $color-table-yellow: #FCE8B2;
 }
 
 @media screen and (min-width: 700px) {
-    .welcome-text{
-       font-size: 28px;
+    .welcome-text {
+        font-size: 28px;
     }
 
-    
-  }
+
+}
