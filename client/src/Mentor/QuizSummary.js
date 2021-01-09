@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Header from "../GeneralPages/Header";
-import Footer from "../GeneralPages/Footer";
 
 const QuizSummary =(props)=>{
 
@@ -46,7 +44,6 @@ console.log(props.location.state.mentorEmail);
 
 	return (
     <div>
-      <Header />
       <h1>Quiz summary</h1>
       {quizQuestions.map((q) => {
         return (
@@ -82,7 +79,6 @@ console.log(props.location.state.mentorEmail);
       >
         <button onClick={handleRedirect}>Submit</button>
       </Link>
-      <Footer />
     </div>
   );
 };

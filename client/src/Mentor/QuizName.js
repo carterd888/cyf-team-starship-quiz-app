@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import Header from "../GeneralPages/Header";
 import moment from "moment";
 import { Link } from "react-router-dom";
-import MentorStyle from "./MentorStyle";
-import Footer from "../GeneralPages/Footer";
 
 const QuizName =(props)=> {
 	const mentorEmail = props.location.state.mentorEmail;
@@ -44,7 +41,6 @@ const QuizName =(props)=> {
 
 	return (
 		<div className="container">
-			<Header />
 			<MentorStyle />
 			<div className="quiz-name-form row g-3">
 				<label htmlFor="quizName" className="quiz-name-label">
@@ -74,7 +70,6 @@ const QuizName =(props)=> {
 					</Link>
 				</div>
 			</div>
-			<Footer />
 		</div>
 	);
 };

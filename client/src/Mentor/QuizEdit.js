@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Header from "../GeneralPages/Header";
-import Footer from "../GeneralPages/Footer";
 
 const QuizEdit =(props)=>{
 
@@ -78,7 +76,6 @@ const QuizEdit =(props)=>{
 	return (
 
 		<div>
-			<Header />
 			<h1>Edit Questions</h1>
 			<form >
 				<label htmlFor="question ">Enter the question below:</label>
@@ -162,7 +159,6 @@ const QuizEdit =(props)=>{
 				</Link>
 
 			</form>
-			<Footer />
 		</div>
 	);
 

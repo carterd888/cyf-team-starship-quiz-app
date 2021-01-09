@@ -1,9 +1,7 @@
 import React from "react";
-import Header from "../GeneralPages/Header";
 import Button from "../GeneralPages/Button";
 import { Link } from "react-router-dom";
 import StudentStyle from "./StudentStyle";
-import Footer from "../GeneralPages/Footer";
 
 const StudentPage = (props) => {
 
@@ -12,7 +10,6 @@ const StudentPage = (props) => {
 
 	return (
 		<div className="container">
-			<Header />
 			<StudentStyle />
 			<div className="student-page-div">
 				<h1>Welcome, {studentName}</h1>
@@ -29,7 +26,6 @@ const StudentPage = (props) => {
 					</Link>
 				</div>
 			</div>
-			<Footer />
 		</div>
 	);
 };

@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Header from "../GeneralPages/Header";
 import Button from "../GeneralPages/Button";
 import { Link } from "react-router-dom";
-import Footer from "../GeneralPages/Footer";
 import StudentStyle from "./StudentStyle";
 
 const StudentWelcome=(props)=>{
@@ -21,7 +19,6 @@ const StudentWelcome=(props)=>{
 
 	return (
 		<div>
-			<Header />
 			<StudentStyle />
 			<div className="student-welcome-div">
 				<h1>You are logged in as: {studentName}</h1>
@@ -34,7 +31,6 @@ const StudentWelcome=(props)=>{
 					</Link>
 				</div>
 			</div>
-			<Footer />
 		</div>
 	);
 };

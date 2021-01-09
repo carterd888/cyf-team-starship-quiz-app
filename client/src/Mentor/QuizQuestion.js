@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Button from "../GeneralPages/Button";
-import Header from "../GeneralPages/Header";
-import Footer from "../GeneralPages/Footer";
 
 const QuizQuestion = ({ mentorEmail, newQuiz }) => {
 
@@ -73,8 +71,6 @@ const QuizQuestion = ({ mentorEmail, newQuiz }) => {
 
 	return (
 		<div className="container">
-			<Header />
-
 			<form>
 				<div className="question-input-area">
 					<div className="question-box">
@@ -185,7 +181,6 @@ const QuizQuestion = ({ mentorEmail, newQuiz }) => {
 					</Link>
 				</div>
 			</form>
-			<Footer />
 		</div>
 	);
 };

@@ -19,12 +19,15 @@ import QuizEdit from "./Mentor/QuizEdit";
 import StudentWelcome  from "./Student/StudentWelcome";
 import StudentScoreSubmit from "./Student/StudentScoreSubmit";
 import MentorQuizList from "./Mentor/MentorQuizList";
+import Footer from "./GeneralPages/Footer";
+import Header from "./GeneralPages/Header";
 
 export function App() {
 
 	return (
     <Router>
       <div className="App">
+        <Header />
         <GlobalStyle />
         <Route path="/" exact component={HomePage} />
         <Switch>
@@ -45,6 +48,7 @@ export function App() {
           <Route path="/studentscoresubmit" component={StudentScoreSubmit} />
           <Route path="/studentresults" component={StudentResults} />
         </Switch>
+        <Footer />
       </div>
     </Router>
   );

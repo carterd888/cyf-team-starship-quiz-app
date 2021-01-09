@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import Header from "../GeneralPages/Header";
 import { Link } from "react-router-dom";
-import Footer from "../GeneralPages/Footer";
 import StudentStyle from "./StudentStyle";
 
 
@@ -36,7 +34,6 @@ const StudentLogin = () => {
 
 	return (
 		<div className="container">
-			<Header />
 			<StudentStyle />
 			<div className="student-login-form-div">
 				<form className="student-login-form mx-auto input-group-lg">
@@ -63,7 +60,6 @@ const StudentLogin = () => {
 					</div>
 				</form>
 			</div>
-			<Footer />
 		</div>
 	);
 };

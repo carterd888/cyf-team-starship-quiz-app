@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Header from "../GeneralPages/Header";
 import Button from "../GeneralPages/Button";
 import MentorStyle from "./MentorStyle";
-import Footer from "../GeneralPages/Footer";
 
 const MentorQuizList = (props) => {
 
@@ -25,7 +23,6 @@ const MentorQuizList = (props) => {
 
 	return (
 		<div>
-			<Header />
 			<MentorStyle />
 			<div>
 				<h1>Please select a quiz from the list:</h1>
@@ -48,7 +45,6 @@ const MentorQuizList = (props) => {
 					</Link>
 				</div>
 			</div>
-			<Footer />
 		</div>
 	);
 };
