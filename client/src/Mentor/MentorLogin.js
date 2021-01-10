@@ -22,7 +22,6 @@ const MentorLogin = () => {
 				"Content-Type": "application/json",
 			},
 		});
-		alert("The details have been submitted.");
 	}
 
 
@@ -35,13 +34,13 @@ const MentorLogin = () => {
 						<label htmlFor="mentorEmail">Enter Your Email:</label>
 						<input type="email" className="mentor-login-email form-control " name="mentorEmail"  value={mentorEmail} onChange={handleChange} required />
 					</div>
-					<div>
+					<div className="submit-button">
 						{mentorEmail && (
 							<Link to = {{
 								pathname: "/mentorpage",
 								state: { mentorEmail },
 							}}>
-						   		<input className="submit-button button2 btn-primary" type="submit" value="Login" onClick={handleSubmit} />
+						   		<input className="btn-primary mentor-submit-button btn-lg" type="submit" value="Login" onClick={handleSubmit} />
 							</Link>
 						)}
 					</div>

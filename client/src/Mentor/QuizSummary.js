@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import MentorStyle from "./MentorStyle";
 
 const QuizSummary =(props)=>{
 
@@ -34,7 +35,7 @@ console.log(props.location.state.mentorEmail);
 			},
 		});
 
-		alert("The question has been deleted.");
+		alert("The question has been deleted."); // look into using conformation box
 
 	}
 
@@ -43,20 +44,20 @@ console.log(props.location.state.mentorEmail);
 	}
 
 	return (
-    <div>
-      <h1>Quiz summary</h1>
+    <div className="container">
+    <MentorStyle />
+      <h1 className="quiz-summary-title">Quiz summary</h1>
       {quizQuestions.map((q) => {
         return (
-          <div>
-            <ul key={q.id}>
+          <div className="question-input-area">
+            <ul className="question-box" key={q.id}>
               {q.question}
-              <li>{q.correct_answer}</li>
-
-              <li>{q.wrong_answer_1}</li>
-              <li>{q.wrong_answer_2}</li>
-              <li>{q.wrong_answer_3}</li>
-              <li>{q.wrong_answer_4}</li>
-              <li>{q.wrong_answer_5}</li>
+              <li className="answer-box">{q.correct_answer}</li>
+              <li className="answer-box">{q.wrong_answer_1}</li>
+              <li className="answer-box">{q.wrong_answer_2}</li>
+              <li className="answer-box">{q.wrong_answer_3}</li>
+              <li className="answer-box">{q.wrong_answer_4}</li>
+              <li className="answer-box">{q.wrong_answer_5}</li>
             </ul>
             <Link
               to={{

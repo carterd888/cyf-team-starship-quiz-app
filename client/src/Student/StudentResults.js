@@ -26,8 +26,6 @@ const StudentResults = (props) => {
 				<table className="table">
 					<thead>
 						<tr>
-							<th scope="col">#</th>
-							<th scope="col">Student Name</th>
 							<th scope="col">Quiz Name</th>
 							<th scope="col">Score</th>
 						</tr>
@@ -37,8 +35,6 @@ const StudentResults = (props) => {
 							results.map((r) => {
 								return (
 									<tr key={r.id}>
-										<th scope="row">{r.id}</th>
-										<td>{r.student_name}</td>
 										<td>{r.quiz_name}</td>
 										<td>{r.score}</td>
 									</tr>);

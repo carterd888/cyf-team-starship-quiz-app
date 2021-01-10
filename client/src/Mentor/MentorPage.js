@@ -18,7 +18,7 @@ const MentorPage = (props) => {
 						pathname: "/quizname",
 						state: { mentorEmail },
 					}}>
-						<Button buttontext="Click to create a Quiz" />
+						<Button buttontext="Create a Quiz" />
 					</Link>
 				</div>
 				<div className="mentor-buttons">
@@ -26,7 +26,7 @@ const MentorPage = (props) => {
 						pathname: "/mentorquizlist",
 						state: { mentorEmail },
 					}}>
-						<Button buttontext="Click to select a quiz and view results" />
+						<Button buttontext="Select a quiz and view results" />
 					</Link>
 				</div>
 			</div>

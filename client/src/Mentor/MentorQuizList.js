@@ -41,7 +41,7 @@ const MentorQuizList = (props) => {
 						pathname: "/mentorresults",
 						state: { quizId, mentorEmail },
 					}}>
-						<Button buttontext="Click to see the quiz results" />
+						<Button buttontext="See the quiz results" />
 					</Link>
 				</div>
 			</div>

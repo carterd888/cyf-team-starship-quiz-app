@@ -28,7 +28,6 @@ const StudentLogin = () => {
 				"Content-Type": "application/json",
 			},
 		});
-		alert("The details have been submitted.");
 	}
 
 
@@ -54,7 +53,7 @@ const StudentLogin = () => {
 								pathname:"/studentwelcome",
 								state: { studentEmail, studentName },
 							}}>
-								<input type="submit" value="Login" onClick={handleSubmit} />
+								<input className="btn-primary btn-lg" type="submit" value="Login" onClick={handleSubmit} />
 							</Link>
 						)}
 					</div>
