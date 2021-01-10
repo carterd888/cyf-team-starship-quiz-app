@@ -159,7 +159,7 @@ router.get("/studentresults/student/:id", function (req, res, next) {
 
     pool
       .query(
-        "SELECT students.student_name, quiz.quiz_name, results.score FROM results INNER JOIN students ON students.id = results.student_id INNER JOIN quiz ON results.quiz_id = quiz.id WHERE student_id = $1 ORDER BY results.id DESC",
+        "SELECT quiz.quiz_name, results.score FROM results INNER JOIN students ON students.id = results.student_id INNER JOIN quiz ON results.quiz_id = quiz.id WHERE student_id = $1 ORDER BY results.score",
         [id]
       )
       .then((result) => res.json(result.rows))

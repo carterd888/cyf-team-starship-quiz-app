@@ -25,7 +25,6 @@ const QuizName =(props)=> {
 					"Content-Type": "application/json",
 				},
 			});
-			alert("The Quiz name has been submitted.");
 		}
 
 		fetch("http://localhost:3100/api/quizname", {   // Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/quizname
@@ -37,7 +36,6 @@ const QuizName =(props)=> {
 				"Content-Type": "application/json",
 			},
 		});
-		alert("The Quiz name has been submitted.");
 	}
 
 	return (

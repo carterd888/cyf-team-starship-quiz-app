@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const QuizEdit =(props)=>{
@@ -19,25 +19,19 @@ const QuizEdit =(props)=>{
     	function handleChange(e) {
 		if (e.target.name === "question") {
 			setQuestion(e.target.value);
-			//console.log(question);
 		} else if (e.target.name === "correctAnswer") {
 			setCorrectAnswer(e.target.value);
-			//console.log(correctAnswer);
 		} else if (e.target.name === "wrongAnswer1") {
 			setWrongAnswer1(e.target.value);
-			//console.log(wrongAnswer1);
 		} else if (e.target.name === "wrongAnswer2") {
 			setWrongAnswer2(e.target.value);
-			//console.log(wrongAnswer2);
 		} else if (e.target.name === "wrongAnswer3") {
 			setWrongAnswer3(e.target.value);
-			//console.log(wrongAnswer3);
 		} else if (e.target.name === "wrongAnswer4") {
 			setWrongAnswer4(e.target.value);
-			//console.log(wrongAnswer4);
 		} else if (e.target.name === "wrongAnswer5") {
 			setWrongAnswer5(e.target.value);
-			//console.log(wrongAnswer5);
+
 		}
 	}
 

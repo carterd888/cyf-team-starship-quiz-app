@@ -80,7 +80,6 @@ const StudentQuiz = (props) => {
 				"Content-Type": "application/json",
 			},
 		});
-		alert("The quiz has been submitted.");
 	}
 
 

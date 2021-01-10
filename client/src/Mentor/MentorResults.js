@@ -40,7 +40,6 @@ const MentorResults = (props) => {
 				<table className="table">
 					<thead>
 						<tr>
-							<th scope="col">#</th>
 							<th scope="col">Quiz Name</th>
 							<th scope="col">Student Name</th>
 							<th scope="col">Student Score</th>
@@ -50,7 +49,6 @@ const MentorResults = (props) => {
 						{search ? (search.map((r) => {
 							return (
 								<tr key={r.id}>
-									<th scope="row">{r.id}</th>
 									<td>{r.quiz_name}</td>
 									<td>{r.student_name}</td>
 									<td>{r.score}</td>
@@ -60,7 +58,6 @@ const MentorResults = (props) => {
 						) : (results.map((r) => {
 							return (
 								<tr key={r.id}>
-									<th scope="row">{r.id}</th>
 									<td>{r.quiz_name}</td>
 									<td>{r.student_name}</td>
 									<td>{r.score}</td>

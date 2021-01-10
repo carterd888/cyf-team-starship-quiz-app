@@ -182,13 +182,7 @@ $color-table-yellow: #FCE8B2;
 */
 
 
-.true-answer {
-    background-color: #28A745;
-}
 
-.false-answer {
-    background-color: #DC3545;
-}
 
 @media screen and (min-width: 400px) {
     .Footer {

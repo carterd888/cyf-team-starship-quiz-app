@@ -27,7 +27,7 @@ const StudentWelcome=(props)=>{
 						pathname:"/studentpage",
 						state: { studentId, studentName },
 					}}>
-						<Button buttontext = 'Click to continue to Student Page' />
+						<Button buttontext = 'Continue to Student Page' />
 					</Link>
 				</div>
 			</div>

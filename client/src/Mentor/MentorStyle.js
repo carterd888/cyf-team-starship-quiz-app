@@ -2,7 +2,6 @@ import { createGlobalStyle } from "styled-components";
 
 const MentorStyle = createGlobalStyle`
   body {
-    background: brown;
     font-family: 'Roboto', sans-serif;
   }
 
@@ -19,14 +18,21 @@ const MentorStyle = createGlobalStyle`
     margin-bottom:50px;
     flex-direction: column;
     justify-content: center;
-    
   }
 
   .mentor-login-input {
-    color: white;
+    color: black;
     margin-top: 50px;
     text-align: center;
   }
+
+   .submit-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 2rem;
+  } 
 
   ${"" /* MentorPage */}
 
@@ -120,6 +126,21 @@ const MentorStyle = createGlobalStyle`
     width: 100%;
     align-items: center;
   }
+
+  .true-answer {
+    
+}
+
+.false-answer {
+    
+}
+/* Quiz Summary Page */
+
+.quiz-summary-title {
+ margin: auto;
+ font-weight: 900;
+ text-align: center;
+}
 
 `;
 
