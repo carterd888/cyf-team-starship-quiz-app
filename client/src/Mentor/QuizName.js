@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import moment from "moment";
 import { Link } from "react-router-dom";
+import MentorStyle from "./MentorStyle";
 
 const QuizName =(props)=> {
 	const mentorEmail = props.location.state.mentorEmail;
