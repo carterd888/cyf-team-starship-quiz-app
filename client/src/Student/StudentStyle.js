@@ -6,7 +6,6 @@ const StudentStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     min-height: 100%;
-    background: green;
     font-family: 'Roboto', sans-serif;
   }
 
@@ -24,7 +23,6 @@ const StudentStyle = createGlobalStyle`
   }
 
   .student-login-input {
-    color: white;
     margin-bottom: 5%;
     margin-top: 5%;
   }
@@ -46,6 +44,45 @@ const StudentStyle = createGlobalStyle`
     margin-top: 16px;
     margin-botton: 16px;
     width: 30%;
+  }
+
+  ${"" /* StudentQuiz */}
+
+  .quiz-selector {
+    margin: auto;
+    margin-top: 32px;
+    width: 30%;
+  }
+
+  .student-quiz-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    margin: auto;
+  }
+
+  .student-quiz-form > div {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    padding: 1.5rem 0 1.5rem 0;
+  }
+
+  .quiz-answers {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .quiz-answers > div  {
+    margin-left: 1.5rem;
+  }
+
+  .quiz-answers > div > input {
+    margin-right: 8px;
+  }
+
+  .quiz-answers > div > label {
+    font-size: 1.25rem;
   }
 `;
 

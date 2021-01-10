@@ -43,6 +43,8 @@ const StudentQuiz = (props) => {
 		q.answers.sort(() => Math.random() - 0.5);
 	});
 
+	console.log(quizQuestions);
+
 	function checkAnswer (e) {
 		const question = e.target.value.split(",");		//index 0 = correct/wrong answer, index 1 = question content, index 2 = question id
 
@@ -86,45 +88,48 @@ const StudentQuiz = (props) => {
 		<div className="container">
 			<StudentStyle />
 
-			<div>
-				<select name="id" onChange = {handleChange}>
+			<div className="quiz-selector">
+				<select name="id" className="form-select form-select-lg mb-3" onChange = {handleChange}>
+					<option>Select a quiz from the list...</option>
 					{quizList.map((q) =>{
 						return (<option key={q.id} value={q.id} >{q.quiz_name}</option>);
 					})}
 				</select>
 			</div>
 
-			<form>
-				{quizQuestions.map((q) => {
+			<form className="student-quiz-form">
+				{quizQuestions.map((q, index) => {
 					return (
 						<div>
-							<h2>{q.question}</h2>
-							{q.answers.map((ans) => {
-								return (
-									<div>
-										<label>{ans[1]}
+							<h2>{index + 1}) {q.question}</h2>
+							<div className="quiz-answers">
+								{q.answers.map((ans) => {
+									return (
+										<div>
 											<input
 												type="radio"
 												name={ans[2]}
 												value={ans}
 												onChange={checkAnswer}
 											/>
-										</label>
-									</div>
-								);
-							})}
+											<label>{ans[1]}</label>
+										</div>
+									);
+								})}
+							</div>
 						</div>
 					);
 				})}
-				<br />
-				<div className="student-buttons">
-					<Link className="student-link" to = {{
-						pathname: "/studentscoresubmit",
-						state: { studentId, studentName } }}>
-						<button className="quiz-submit-button btn-danger btn-lg" onClick={submitFunction}>Submit the answers!</button>
-					</Link>
-				</div>
 			</form>
+
+			<div className="student-buttons">
+				<Link className="student-link" to = {{
+					pathname: "/studentscoresubmit",
+					state: { studentId, studentName } }}>
+					<button className="quiz-submit-button btn-danger btn-lg" onClick={submitFunction}>Submit the answers!</button>
+				</Link>
+			</div>
+
 			<div className="student-buttons">
 				<Link className="student-link" to = {{
 					pathname: "/studentpage",
