@@ -159,7 +159,7 @@ const QuizQuestion = ({ mentorEmail, newQuiz }) => {
 				</div>
 
 				<div className="question-submit-button">
-					<button className="quiz-create-button btn-danger btn-lg" type="submit" onClick={handleSubmit}>
+					<button className="quiz-create-button btn-dark btn-lg" type="submit" onClick={handleSubmit}>
             Submit the question
 					</button>
 				</div>

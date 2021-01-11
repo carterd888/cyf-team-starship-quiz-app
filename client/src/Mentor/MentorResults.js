@@ -30,43 +30,45 @@ const MentorResults = (props) => {
 	return (
 		<div className="container">
 			<MentorStyle />
-			<h2>Students quiz results:</h2>
-			<p>results are in reverse order, lowest score first.</p>
-			<div>
-				<label htmlFor="student-filter">Search for student name</label>
-				<input type="text" className="student-filter" name="student-filter" onChange={handleChange} required />
-			</div>
-			<div>
-				<table className="table">
-					<thead>
-						<tr>
-							<th scope="col">Quiz Name</th>
-							<th scope="col">Student Name</th>
-							<th scope="col">Student Score</th>
-						</tr>
-					</thead>
-					<tbody>
-						{search ? (search.map((r) => {
-							return (
-								<tr key={r.id}>
-									<td>{r.quiz_name}</td>
-									<td>{r.student_name}</td>
-									<td>{r.score}</td>
-								</tr>
-							);
-						})
-						) : (results.map((r) => {
-							return (
-								<tr key={r.id}>
-									<td>{r.quiz_name}</td>
-									<td>{r.student_name}</td>
-									<td>{r.score}</td>
-								</tr>
-							);
-						})
-						)}
-					</tbody>
-				</table>
+			<div className="mentor-results">
+				<h2>Students quiz results:</h2>
+				<p>Results are in reverse order, lowest score first.</p>
+				<div className="mentor-results-search">
+					<label htmlFor="student-filter">Search for student name:</label>
+					<input type="text" className="student-filter" name="student-filter" onChange={handleChange} required />
+				</div>
+				<div>
+					<table className="table">
+						<thead>
+							<tr>
+								<th scope="col">Quiz Name</th>
+								<th scope="col">Student Name</th>
+								<th scope="col">Student Score</th>
+							</tr>
+						</thead>
+						<tbody>
+							{search ? (search.map((r) => {
+								return (
+									<tr key={r.id}>
+										<td>{r.quiz_name}</td>
+										<td>{r.student_name}</td>
+										<td>{r.score}</td>
+									</tr>
+								);
+							})
+							) : (results.map((r) => {
+								return (
+									<tr key={r.id}>
+										<td>{r.quiz_name}</td>
+										<td>{r.student_name}</td>
+										<td>{r.score}</td>
+									</tr>
+								);
+							})
+							)}
+						</tbody>
+					</table>
+				</div>
 			</div>
 			<div className="mentor-buttons">
 				<Link className="mentor-link" to={{

@@ -5,9 +5,9 @@ import MentorStyle from "./MentorStyle";
 const QuizSummary =(props)=>{
 
 	const mentorEmail = props.location.state.mentorEmail;
-	
+
 	console.log(props.location.state.quizName);
-console.log(props.location.state.mentorEmail);
+	console.log(props.location.state.mentorEmail);
 
 	const [quizQuestions, setQuizQuestions] = useState([]);
 	const [deleteId, setDeleteId] = useState("");
@@ -44,44 +44,44 @@ console.log(props.location.state.mentorEmail);
 	}
 
 	return (
-    <div className="container">
-    <MentorStyle />
-      <h1 className="quiz-summary-title">Quiz summary</h1>
-      {quizQuestions.map((q) => {
-        return (
-          <div className="question-input-area">
-            <ul className="question-box" key={q.id}>
-              {q.question}
-              <li className="answer-box">{q.correct_answer}</li>
-              <li className="answer-box">{q.wrong_answer_1}</li>
-              <li className="answer-box">{q.wrong_answer_2}</li>
-              <li className="answer-box">{q.wrong_answer_3}</li>
-              <li className="answer-box">{q.wrong_answer_4}</li>
-              <li className="answer-box">{q.wrong_answer_5}</li>
-            </ul>
-            <Link
-              to={{
-                pathname: "/quizedit",
-                state: { q, mentorEmail },
-              }}
-            >
-              <button>Edit</button>
-            </Link>
+		<div className="container">
+			<MentorStyle />
+			<div className="quiz-summary-container">
+				<h1 className="quiz-summary-title">Quiz summary</h1>
+				{quizQuestions.map((q, index) => {
+					return (
+						<div className="question-summary">
+							<h3 className="question-content-summary">{index + 1}) {q.question}</h3>
+							<ul key={q.id}>
+								<li className="answer-summary correct-answer-summary">Correct answer: {q.correct_answer}</li>
+								<li className="answer-summary">Wrong answer 1: {q.wrong_answer_1}</li>
+								<li className="answer-summary">Wrong answer 2: {q.wrong_answer_2}</li>
+								<li className="answer-summary">Wrong answer 3: {q.wrong_answer_3}</li>
+								<li className="answer-summary">Wrong answer 4: {q.wrong_answer_4}</li>
+								<li className="answer-summary">Wrong answer 5: {q.wrong_answer_5}</li>
+							</ul>
 
-            <button onClick={() => handleDelete(q.id)}>Delete</button>
-          </div>
-        );
-      })}
-      <Link
-        to={{
-          pathname: "/mentorpage",
-          state: { mentorEmail },
-        }}
-      >
-        <button onClick={handleRedirect}>Submit</button>
-      </Link>
-    </div>
-  );
+							<div className="summary-question-buttons">
+								<Link className="summary-edit-link" to={{
+									pathname: "/quizedit",
+									state: { q, mentorEmail },
+								}}>
+									<button className="summary-edit-button btn-dark btn-sm">Edit</button>
+								</Link>
+								<button className="summary-delete-button btn-danger btn-sm" onClick={() => handleDelete(q.id)}>Delete</button>
+							</div>
+						</div>
+					);
+				})}
+				<Link className="summary-quiz-submit" to={{
+					pathname: "/mentorpage",
+					state: { mentorEmail },
+				}}>
+					<button className="btn btn-primary btn-lg"onClick={handleRedirect}>Add the quiz to the database</button>
+				</Link>
+			</div>
+		</div>
+	);
 };
 
 export default QuizSummary;

@@ -36,6 +36,11 @@ const MentorStyle = createGlobalStyle`
 
   ${"" /* MentorPage */}
 
+  .mentor-page-header {
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+
   .mentor-page-buttons {
     display:flex;
     flex-direction: column;
@@ -99,7 +104,19 @@ const MentorStyle = createGlobalStyle`
     width: 100%;
   }
 
-  ${"" /* QuizQuestion */}
+  ${"" /* QuizName and QuizQuestion */}
+
+  .quiz-name-header {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .quiz-name-input {
+    margin: auto;
+    width: 30%
+  }
+
   .question-input-area, .question-box, .answer-box {
     display: flex;
     flex-direction: column;
@@ -134,14 +151,81 @@ const MentorStyle = createGlobalStyle`
 .false-answer {
     
 }
-/* Quiz Summary Page */
 
-.quiz-summary-title {
- margin: auto;
- font-weight: 900;
- text-align: center;
+${"" /* MentorQuizList and MentorResults*/}
+
+.quiz-selector {
+  margin: auto;
+  margin-top: 32px;
+  width: 30%;
 }
 
+.mentor-results {
+  margin: 2rem 5% 5% 5%;
+}
+
+.mentor-results table {
+  margin: 0;
+  margin-top: 1.5rem;
+}
+
+.mentor-results-search {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.mentor-results-search label {
+  margin-right: 1.5rem;
+  padding-top: 0.25rem;
+}
+
+${"" /* QuizSummary */}
+
+.quiz-summary-container {
+  margin: 32px 2% 2% 2%;
+}
+
+.quiz-summary-title {
+  font-weight: 900;
+  margin-bottom: 2rem;
+ }
+
+.question-summary {
+  border: 1px solid black;
+  background-color: #f3f3f3;
+  border-radius: 4px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.question-content-summary {
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+
+.answer-summary {
+  list-style: none;
+}
+
+.correct-answer-summary {
+  font-weight: bold;
+}
+
+.summary-question-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.summary-edit-link, .summary-delete-button {
+  width: 6rem;
+  margin-left: 2rem;
+}
+
+.summary-edit-button {
+  width: 100%;
+}
+  
 `;
 
 export default MentorStyle;

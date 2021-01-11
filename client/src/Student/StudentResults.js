@@ -21,27 +21,29 @@ const StudentResults = (props) => {
 	return (
 		<div className="container">
 			<StudentStyle />
-			<h2>Your quiz results:</h2>
-			<div>
-				<table className="table">
-					<thead>
-						<tr>
-							<th scope="col">Quiz Name</th>
-							<th scope="col">Score</th>
-						</tr>
-					</thead>
-					<tbody>
-						{
-							results.map((r) => {
-								return (
-									<tr key={r.id}>
-										<td>{r.quiz_name}</td>
-										<td>{r.score}</td>
-									</tr>);
-							})
-						}
-					</tbody>
-				</table>
+			<div className="student-results">
+				<h2>Your quiz results:</h2>
+				<div>
+					<table className="table">
+						<thead>
+							<tr>
+								<th scope="col">Quiz Name</th>
+								<th scope="col">Score</th>
+							</tr>
+						</thead>
+						<tbody>
+							{
+								results.map((r) => {
+									return (
+										<tr key={r.id}>
+											<td>{r.quiz_name}</td>
+											<td>{r.score}</td>
+										</tr>);
+								})
+							}
+						</tbody>
+					</table>
+				</div>
 			</div>
 			<div className="student-buttons">
 				<Link className="student-link" to = {{
