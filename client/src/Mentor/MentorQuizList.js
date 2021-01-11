@@ -25,16 +25,18 @@ const MentorQuizList = (props) => {
 		<div>
 			<MentorStyle />
 			<div>
-				<h1>Please select a quiz from the list:</h1>
-				<select name="id" onChange={handleChange}>
-					{quizList.map((q) => {
-						return (
-							<option key={q.id} value={q.id}>
-								{q.quiz_name}
-							</option>
-						);
-					})}
-				</select>
+				<div className="quiz-selector">
+					<select name="id" className="form-select form-select-lg mb-3" onChange={handleChange}>
+						<option>Select a quiz from the list...</option>
+						{quizList.map((q) => {
+							return (
+								<option key={q.id} value={q.id}>
+									{q.quiz_name}
+								</option>
+							);
+						})}
+					</select>
+				</div>
 
 				<div className="mentor-buttons">
 					<Link className="mentor-link" to={{
@@ -42,6 +44,14 @@ const MentorQuizList = (props) => {
 						state: { quizId, mentorEmail },
 					}}>
 						<Button buttontext="See the quiz results" />
+					</Link>
+				</div>
+				<div className="mentor-buttons">
+					<Link className="mentor-link" to={{
+						pathname: "/mentorpage",
+						state: { mentorEmail },
+					}}>
+						<Button buttontext="Go back to Mentor Page" />
 					</Link>
 				</div>
 			</div>

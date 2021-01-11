@@ -84,6 +84,16 @@ const StudentStyle = createGlobalStyle`
   .quiz-answers > div > label {
     font-size: 1.25rem;
   }
+
+  ${"" /* StudentQuiz */}
+
+  .student-results{
+    margin: 2rem 5% 5% 5%;
+  }
+
+  .student-results > h2 {
+    margin-bottom: 1.5rem;
+  }
 `;
 
 export default StudentStyle;

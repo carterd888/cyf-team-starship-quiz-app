@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import moment from "moment";
 import { Link } from "react-router-dom";
 import MentorStyle from "./MentorStyle";
+import Button from "../GeneralPages/Button";
 
 const QuizName =(props)=> {
 	const mentorEmail = props.location.state.mentorEmail;
@@ -41,37 +42,43 @@ const QuizName =(props)=> {
 	return (
 		<div className="container">
 			<MentorStyle />
-			<div className="quiz-name-form row g-3">
-				<label htmlFor="quizName" className="quiz-name-label">
-					{" "}
-          Enter the new Quiz name:{" "}
-				</label>
+			<h1 className="quiz-name-header">Create a new quiz</h1>
+			<div class="quiz-name-input input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text" id="inputGroup-sizing-default">Quiz name:</span>
+				</div>
 				<input
-					className="quiz-name-input"
-					type="text"
+					type="text" 
+					className="form-control"
+					aria-label="Default"
+					aria-describedby="inputGroup-sizing-default"
 					name="quizName"
 					placeholder={formattedDate}
 					value={quizName}
 					onChange={handleChange}
 				/>
-
-				<div className="mentor-buttons">
-					<Link className="mentor-link" to={{
-						pathname: "/quizpage",
-						state: { quizName, mentorEmail },
-					}}>
-						<button
-							className="quiz-create-button btn-danger btn-lg"
-							type="submit"
-							onClick={handleSubmit}
-						>Create the quiz
-						</button>
-					</Link>
-				</div>
+			</div>
+			<div className="mentor-buttons">
+				<Link className="mentor-link" to={{
+					pathname: "/quizpage",
+					state: { quizName, mentorEmail },
+				}}>
+					<button
+						className="quiz-create-button btn-dark btn-lg"
+						type="submit"
+						onClick={handleSubmit}
+					>Create the quiz
+					</button>
+				</Link>
+				<Link className="mentor-link" to={{
+					pathname: "/mentorpage",
+					state: { mentorEmail },
+				}}>
+					<Button buttontext="Go back to Mentor Page" />
+				</Link>
 			</div>
 		</div>
 	);
 };
-
 
 export default QuizName;

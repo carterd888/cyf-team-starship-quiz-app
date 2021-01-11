@@ -3,6 +3,7 @@
     position: relative;
     min-width: 100%;
     padding: 0;
+    padding-bottom: 128px; /*to prevent the footer from overlapping */
 }
 
 .App {
@@ -51,6 +52,12 @@ a:link {
 }
 
 /* Home Page Component */
+
+.homepage {
+    margin: auto;
+    width: 90%;
+}
+
 .welcome-text-h1 {
     font-weight: 800;
     font-size: 6vw;
@@ -59,24 +66,28 @@ a:link {
     padding-bottom: 1rem;
 }
 
-.welcome-image {
-    height: 20rem;
-    /* need to fix this to be responsive */
-    background-image: url("./images/welcome-background.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    padding-bottom: 8rem;
-    /*   overflow-x: hidden; */
+.homepage-access {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.homepage-access > div {
+    border: 2px solid black;
+    margin: 2%;
+}
+
+.homepage-student-access {
+
+}
+
+.homepage-mentor-access {
+
 }
 
 .welcome-text {
-    /* align-content: flex-end; */
-    /* margin-left: 5rem; */
     font-weight: 800;
     font-size: 4vw;
-    color: #8E0D19;
-
     margin: 5%;
     opacity: 1.0;
 }
@@ -114,11 +125,13 @@ a:link {
     background-color: gray;
     padding: 8px 0 8px 0;
     font-size: 3vw;
+    font-weight: 800;
     position: absolute;
     left: 0;
     bottom: 0;
     right: 0;
     width: 100%;
+    max-height: 128px; /*to prevent the footer from overlapping */
 }
 
 .footer-links-div {
