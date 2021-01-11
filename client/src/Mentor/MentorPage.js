@@ -28,6 +28,14 @@ const MentorPage = (props) => {
 					}}>
 						<Button buttontext="Select a quiz and view results" />
 					</Link>
+					<div className="mentor-buttons">
+						<Link className="mentor-link" to={{
+							pathname: "/quizanalytics",
+							state: { mentorEmail },
+						}}>
+							<Button buttontext="Select a quiz and view the analytics" />
+						</Link>
+					</div>
 				</div>
 			</div>
 		</div>
