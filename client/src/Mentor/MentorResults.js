@@ -70,12 +70,12 @@ const MentorResults = (props) => {
 					</table>
 				</div>
 			</div>
-			<div className="mentor-buttons">
+			<div className="mentor-buttons button-padding">
 				<Link className="mentor-link" to={{
 					pathname: "/mentorpage",
 					state: { mentorEmail },
 				}}>
-					<Button buttontext="Go back to Mentor Page" />
+					<Button  buttontext="Go back to Mentor Page" />
 				</Link>
 			</div>
 		</div>

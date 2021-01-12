@@ -41,71 +41,85 @@ const QuizQuestion = ({ mentorEmail, newQuiz }) => {
 	function handleSubmit(e) {
 		e.preventDefault();
 
-		fetch("http://localhost:3100/api/quiz", {  // Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/quiz
-			method: "POST",
-			body: JSON.stringify({
-				question: question,
-				correct_answer: correctAnswer,
-				wrong_answer_1: wrongAnswer1,
-				wrong_answer_2: wrongAnswer2,
-				wrong_answer_3: wrongAnswer3,
-				wrong_answer_4: wrongAnswer4,
-				wrong_answer_5: wrongAnswer5,
-				quiz_id: quizName,
-			}),
-			headers: {
-				"Content-Type": "application/json",
-			},
-		});
+		if(question === "" || correctAnswer === "" || wrongAnswer1 === ""){
+			alert("Please fill out the required fills.");
+		}else{
+			fetch("http://localhost:3100/api/quiz", {  // Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/quiz
+				method: "POST",
+				body: JSON.stringify({
+					question: question,
+					correct_answer: correctAnswer,
+					wrong_answer_1: wrongAnswer1,
+					wrong_answer_2: wrongAnswer2,
+					wrong_answer_3: wrongAnswer3,
+					wrong_answer_4: wrongAnswer4,
+					wrong_answer_5: wrongAnswer5,
+					quiz_id: quizName,
+				}),
+				headers: {
+					"Content-Type": "application/json",
+				},
+			});
 
-		alert("The question has been submitted.");
-		setQuestion("");
-		setCorrectAnswer("");
-		setWrongAnswer1("");
-		setWrongAnswer2("");
-		setWrongAnswer3("");
-		setWrongAnswer4("");
-		setWrongAnswer5("");
+			alert("The question has been submitted.");
+			setQuestion("");
+			setCorrectAnswer("");
+			setWrongAnswer1("");
+			setWrongAnswer2("");
+			setWrongAnswer3("");
+			setWrongAnswer4("");
+			setWrongAnswer5("");
+		}
+
+
 	}
+
 
 
 	return (
 		<div className="container">
-			<form>
+			<form className="question-form needs-validation" noValidate>
 				<div className="question-input-area">
-					<div className="question-box">
+					<div className="question-box was-validated">
 						<label htmlFor="question">Enter the question below:</label>
 						<textarea
+							className="form-control is-invalid"
 							id="question"
 							name="question"
 							rows="8"
 							cols="40"
 							value={question}
 							onChange={handleChange}
+							placeholder="Please fill the question here !"
+							required
 						/>
 					</div>
 
-					<div className="answer-box">
+
+
+					<div className="answer-box was-validated">
 						<label htmlFor="correctAnswer">Answer 1 </label>
 						<input
-							className="true-answer"
+							className="true-answer form-control is-invalid"
 							type="text"
 							name="correctAnswer"
 							placeholder="Enter correct answer here"
 							value={correctAnswer}
 							onChange={handleChange}
+							required
 						/>
 					</div>
 
-					<div className="answer-box">
+					<div className="answer-box was-validated">
 						<label htmlFor="wrongAnswer1">Answer 2 </label>
 						<input
-							className="false-answer"
+							className="false-answer form-control is-invalid"
 							type="text"
 							name="wrongAnswer1"
 							placeholder="Enter wrong answer here"
 							value={wrongAnswer1}
 							onChange={handleChange}
+							required
 						/>
 					</div>
 
@@ -172,7 +186,7 @@ const QuizQuestion = ({ mentorEmail, newQuiz }) => {
 						<Button buttontext="View quiz summary " />
 					</Link>
 				</div>
-				<div className="mentor-buttons">
+				<div className="mentor-buttons button-padding">
 					<Link className="mentor-link" to={{
 						pathname: "/mentorpage",
 						state: { mentorEmail },

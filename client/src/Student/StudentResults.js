@@ -45,7 +45,7 @@ const StudentResults = (props) => {
 					</table>
 				</div>
 			</div>
-			<div className="student-buttons">
+			<div className="student-buttons button-padding">
 				<Link className="student-link" to = {{
 					pathname: "/studentpage",
 					state: { studentId, studentName },
