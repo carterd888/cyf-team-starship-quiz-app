@@ -8,25 +8,20 @@ const QuizName =(props)=> {
 	const mentorEmail = props.location.state.mentorEmail;
 	const thisDate = new Date();
 	const formattedDate = moment(thisDate).format("MMMM Do YYYY, h:mm:ss");
-	const [quizName, setQuizName]= useState(formattedDate);
+	const [quizName, setQuizName]= useState("");
 
 	function handleChange(e) {
 		setQuizName(e.target.value);
 	}
 
-	function handleSubmit () {
-		if(!quizName) {
+	function setName(){
+		if(quizName==="") {
 			setQuizName(formattedDate);
-			fetch("http://localhost:3100/api/quizname", {   // Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/quizname
-				method: "POST",
-				body: JSON.stringify({
-					quiz_name: quizName,
-				}),
-				headers: {
-					"Content-Type": "application/json",
-				},
-			});
 		}
+	}
+	setName();
+
+	function handleSubmit () {
 
 		fetch("http://localhost:3100/api/quizname", {   // Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/quizname
 			method: "POST",
@@ -37,18 +32,20 @@ const QuizName =(props)=> {
 				"Content-Type": "application/json",
 			},
 		});
+
 	}
+
 
 	return (
 		<div className="container">
 			<MentorStyle />
 			<h1 className="quiz-name-header">Create a new quiz</h1>
-			<div class="quiz-name-input input-group mb-3">
-				<div class="input-group-prepend">
-					<span class="input-group-text" id="inputGroup-sizing-default">Quiz name:</span>
+			<div className="quiz-name-input input-group mb-3">
+				<div className="input-group-prepend">
+					<span className="input-group-text" id="inputGroup-sizing-default">Quiz name:</span>
 				</div>
 				<input
-					type="text" 
+					type="text"
 					className="form-control"
 					aria-label="Default"
 					aria-describedby="inputGroup-sizing-default"
@@ -56,6 +53,7 @@ const QuizName =(props)=> {
 					placeholder={formattedDate}
 					value={quizName}
 					onChange={handleChange}
+					required
 				/>
 			</div>
 			<div className="mentor-buttons">

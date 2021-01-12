@@ -103,6 +103,9 @@ const MentorStyle = createGlobalStyle`
   .quiz-create-button {
     width: 100%;
   }
+  .button-padding{
+    margin-bottom:2rem;
+  }
 
   ${"" /* QuizName and QuizQuestion */}
 
@@ -127,8 +130,11 @@ const MentorStyle = createGlobalStyle`
     width: 50%;
     margin: auto;
     align-items: center;
-    margin-bottom: 32px;
-  }
+    margin-top:2rem;
+    margin-bottom: 2rem;
+    padding:1rem;
+    background-color:#b2b0b0;
+  }s
 
   .question-box {
     width: 100%;
@@ -150,6 +156,10 @@ const MentorStyle = createGlobalStyle`
 
 .false-answer {
     
+}
+
+.question-form {
+  
 }
 
 ${"" /* MentorQuizList and MentorResults*/}
@@ -226,6 +236,28 @@ ${"" /* QuizSummary */}
   width: 100%;
 }
   
+ ${""  /*QuizAnalyticsResults */}
+
+
+  .analytics-cover{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin:2rem;
+    border: 1px solid black;
+    background-color: #f3f3f3;
+
+  }
+  .success-rate, .median-score{
+    text-align:left;
+    margin:2rem;  
+  }
+  .progress-bar-success-rate{
+    border:2px solid black;
+  }
+
+
 `;
 
 export default MentorStyle;

@@ -39,6 +39,10 @@ const StudentStyle = createGlobalStyle`
     align-items: stretch;
   }
 
+  .button-padding{
+    margin-bottom:2rem;
+  }
+
   .student-link {
     margin: auto;
     margin-top: 16px;
