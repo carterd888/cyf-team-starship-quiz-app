@@ -5,9 +5,9 @@ import Button from "../GeneralPages/Button";
 
 const QuizEdit = (props) => {
   const mentorEmail = props.location.state.mentorEmail;
-  console.log(props.location.state.q);
+  const quizName = props.location.state.quizName;
+  const quizId = props.location.state.quizId;
   const questionObj = props.location.state.q;
-  const quizName = questionObj.quiz_id;
 
   const [correctAnswer, setCorrectAnswer] = useState(
     questionObj.correct_answer
@@ -84,7 +84,7 @@ const QuizEdit = (props) => {
               id="question"
               name="question"
               rows="8"
-              cols="140"
+              cols="145"
               value={question}
               onChange={handleChange}
               placeholder="Please fill the question here !"
@@ -121,7 +121,7 @@ const QuizEdit = (props) => {
           <div className="answer-box">
             <label htmlFor="wrongAnswer2">Answer 3 (optional) </label>
             <input
-              className="false-answer"
+              className="form-control false-answer"
               type="text"
               name="wrongAnswer2"
               placeholder="Enter wrong answer here"
@@ -133,7 +133,7 @@ const QuizEdit = (props) => {
           <div className="answer-box">
             <label htmlFor="wrongAnswer3">Answer 4 (optional) </label>
             <input
-              className="false-answer"
+              className="form-control false-answer"
               type="text"
               name="wrongAnswer3"
               placeholder="Enter wrong answer here"
@@ -145,7 +145,7 @@ const QuizEdit = (props) => {
           <div className="answer-box">
             <label htmlFor="wrongAnswer4">Answer 5 (optional) </label>
             <input
-              className="false-answer"
+              className="form-control false-answer"
               type="text"
               name="wrongAnswer4"
               placeholder="Enter wrong answer here"
@@ -157,7 +157,7 @@ const QuizEdit = (props) => {
           <div className="answer-box">
             <label htmlFor="wrongAnswer5">Answer 6 (optional) </label>
             <input
-              className="false-answer"
+              className="form-control false-answer"
               type="text"
               name="wrongAnswer5"
               placeholder="Enter wrong answer here"
@@ -170,7 +170,7 @@ const QuizEdit = (props) => {
           <Link
             to={{
               pathname: "/quizsummary",
-              state: { quizName, mentorEmail },
+              state: { quizId, quizName, mentorEmail },
             }}
           >
             <button

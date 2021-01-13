@@ -88,7 +88,7 @@ const QuizQuestion = ({ mentorEmail, quizName }) => {
               id="question"
               name="question"
               rows="8"
-              cols="140"
+              cols="145"
               value={question}
               onChange={handleChange}
               placeholder="Please fill the question here !"
@@ -97,7 +97,7 @@ const QuizQuestion = ({ mentorEmail, quizName }) => {
           </div>
 
           <div className="answer-box was-validated">
-            <label htmlFor="correctAnswer">Answer 1 </label>
+            <label htmlFor="correctAnswer">Correct Answer</label>
             <input
               className="true-answer form-control is-invalid"
               type="text"
@@ -110,7 +110,7 @@ const QuizQuestion = ({ mentorEmail, quizName }) => {
           </div>
 
           <div className="answer-box was-validated">
-            <label htmlFor="wrongAnswer1">Answer 2 </label>
+            <label htmlFor="wrongAnswer1">Wrong Answer</label>
             <input
               className="false-answer form-control is-invalid"
               type="text"
@@ -123,9 +123,9 @@ const QuizQuestion = ({ mentorEmail, quizName }) => {
           </div>
 
           <div className="answer-box">
-            <label htmlFor="wrongAnswer2">Answer 3 (optional) </label>
+            <label htmlFor="wrongAnswer2">Wrong Answer (optional) </label>
             <input
-              className="false-answer"
+              className="false-answer form-control"
               type="text"
               name="wrongAnswer2"
               placeholder="Enter wrong answer here"
@@ -135,9 +135,9 @@ const QuizQuestion = ({ mentorEmail, quizName }) => {
           </div>
 
           <div className="answer-box">
-            <label htmlFor="wrongAnswer3">Answer 4 (optional) </label>
+            <label htmlFor="wrongAnswer3">Wrong Answer (optional) </label>
             <input
-              className="false-answer"
+              className="false-answer form-control"
               type="text"
               name="wrongAnswer3"
               placeholder="Enter wrong answer here"
@@ -147,9 +147,9 @@ const QuizQuestion = ({ mentorEmail, quizName }) => {
           </div>
 
           <div className="answer-box">
-            <label htmlFor="wrongAnswer4">Answer 5 (optional) </label>
+            <label htmlFor="wrongAnswer4">Wrong Answer (optional) </label>
             <input
-              className="false-answer"
+              className="false-answer form-control"
               type="text"
               name="wrongAnswer4"
               placeholder="Enter wrong answer here"
@@ -159,9 +159,9 @@ const QuizQuestion = ({ mentorEmail, quizName }) => {
           </div>
 
           <div className="answer-box">
-            <label htmlFor="wrongAnswer5">Answer 6 (optional) </label>
+            <label htmlFor="wrongAnswer5">Wrong Answer (optional) </label>
             <input
-              className="false-answer"
+              className="false-answer form-control"
               type="text"
               name="wrongAnswer5"
               placeholder="Enter wrong answer here"

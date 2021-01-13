@@ -39,6 +39,7 @@ const QuizName =(props)=> {
 	return (
 		<div className="container">
 			<MentorStyle />
+			<div className="grey-background quiz-name-div">
 			<h1 className="quiz-name-header">Create a new quiz</h1>
 			<div className="quiz-name-input input-group mb-3">
 				<div className="input-group-prepend">
@@ -74,6 +75,7 @@ const QuizName =(props)=> {
 				}}>
 					<Button buttontext="Go back to Mentor Page" />
 				</Link>
+			</div>
 			</div>
 		</div>
 	);

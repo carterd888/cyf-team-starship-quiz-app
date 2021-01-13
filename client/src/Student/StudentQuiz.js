@@ -7,10 +7,9 @@ const StudentQuiz = (props) => {
 
 	const studentId = props.location.state.studentId;
 	const studentName = props.location.state.studentName;
-	const [studentScore, setStudentScore] = useState("");
 	const [quizQuestions, setQuizQuestions] = useState([]);
 	const [quizList, setQuizList] = useState([]);
-	const [quizId, setQuizId] = useState(0);
+	const [quizId, setQuizId] = useState(null);
 	const quizAnswers = [];
 
 	useEffect(() => {
@@ -55,10 +54,6 @@ const StudentQuiz = (props) => {
 		}
 	}
 
-	async function handleStudentScore (e) {
-		setStudentScore(e);
-	}
-
 	function submitFunction() {
 		let totalScore = 0;
 		for (let i = 1; i < quizAnswers.length; ++i) {
@@ -66,7 +61,6 @@ const StudentQuiz = (props) => {
 				++totalScore;
 			}
 		}
-		handleStudentScore (`your score is ${totalScore} / ${quizQuestions.length}`);
 
 		fetch("http://localhost:3100/api/results", {	// Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/results
 			method: "POST",
@@ -103,33 +97,34 @@ const StudentQuiz = (props) => {
           })}
         </select>
       </div>
-
-      <form className="student-quiz-form">
-        {quizQuestions.map((q, index) => {
-          return (
-            <div>
-              <h2>
-                {index + 1}) {q.question}
-              </h2>
-              <div className="quiz-answers">
-                {q.answers.map((ans) => {
-                  return (
-                    <div>
-                      <input
-                        type="radio"
-                        name={ans[2]}
-                        value={ans}
-                        onChange={checkAnswer}
-                      />
-                      <label>{ans[1]}</label>
-                    </div>
-                  );
-                })}
+      {quizId && (
+        <form className="student-quiz-form">
+          {quizQuestions.map((q, index) => {
+            return (
+              <div>
+                <h2>
+                  {index + 1} {q.question}
+                </h2>
+                <div className="quiz-answers">
+                  {q.answers.map((ans) => {
+                    return (
+                      <div>
+                        <input
+                          type="radio"
+                          name={ans[2]}
+                          value={ans}
+                          onChange={checkAnswer}
+                        />
+                        <label>{ans[1]}</label>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-          );
-        })}
-      </form>
+            );
+          })}
+        </form>
+      )}
 
       <div className="student-buttons">
         <Link

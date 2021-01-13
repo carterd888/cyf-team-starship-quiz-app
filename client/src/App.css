@@ -3,7 +3,8 @@
     position: relative;
     min-width: 100%;
     padding: 0;
-    padding-bottom: 128px; /*to prevent the footer from overlapping */
+    padding-bottom: 128px;
+    /*to prevent the footer from overlapping */
 }
 
 .App {
@@ -72,18 +73,14 @@ a:link {
     justify-content: center;
 }
 
-.homepage-access > div {
+.homepage-access>div {
     border: 2px solid black;
     margin: 2%;
 }
 
-.homepage-student-access {
+.homepage-student-access {}
 
-}
-
-.homepage-mentor-access {
-
-}
+.homepage-mentor-access {}
 
 .welcome-text {
     font-weight: 800;
@@ -131,7 +128,8 @@ a:link {
     bottom: 0;
     right: 0;
     width: 100%;
-    max-height: 128px; /*to prevent the footer from overlapping */
+    max-height: 128px;
+    /*to prevent the footer from overlapping */
 }
 
 .footer-links-div {
@@ -193,8 +191,6 @@ $color-table-green: #B7E1CD;
 $color-table-red: #F4C7C3;
 $color-table-yellow: #FCE8B2;
 */
-
-
 
 
 @media screen and (min-width: 400px) {

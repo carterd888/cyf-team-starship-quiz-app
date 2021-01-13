@@ -12,7 +12,7 @@ const QuizSummary = (props) => {
   const [deleteId, setDeleteId] = useState("");
 
   useEffect(() => {
-    fetch(`http://localhost:3100/api/questions/${props.location.state.quizId}`) // Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/questions/${e.target.value}
+    fetch(`http://localhost:3100/api/questions/${quizId}`) // Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/questions/${e.target.value}
       .then((data) => data.json())
       .then((jsonData) => setQuizQuestions(jsonData))
       .catch((e) => console.log(e));
@@ -94,7 +94,7 @@ const QuizSummary = (props) => {
                   className="summary-edit-link"
                   to={{
                     pathname: "/quizedit",
-                    state: { q, mentorEmail },
+                    state: { quizName, quizId, q, mentorEmail },
                   }}
                 >
                   <button className="summary-edit-button btn-dark btn-sm">

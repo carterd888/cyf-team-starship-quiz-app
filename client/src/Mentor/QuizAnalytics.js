@@ -20,31 +20,42 @@ const QuizAnalytics = (props) => {
 		setQuizId(e.target.value);
 	}
 	return (
-		<div className="container">
-			<MentorStyle />
-			<h1>Select the quiz from the list to check the analytics.</h1>
-			<div className="quiz-selector">
-				<select name="id" className="form-select form-select-lg mb-3" onChange={handleChange}>
-					<option>Select a quiz from the list...</option>
-					{quizList.map((q) => {
-						return (
-							<option key={q.id} value={q.id}>
-								{q.quiz_name}
-							</option>
-						);
-					})}
-				</select>
-			</div>
-            <div className="mentor-buttons">
-				<Link className="mentor-link" to={{
-					pathname: "/quizanalyticsresults",
-					state: { quizId, mentorEmail },
-				}}>
-					<Button buttontext="See the quiz analytics results" />
-				</Link>
-			</div>
-		</div>
-	);
+    <div className="container ">
+      <MentorStyle />
+      <div className="grey-background quiz-analytics-container">
+        <h1 className="quiz-analytics-header">
+          Select the quiz from the list to check the analytics.
+        </h1>
+        <div className="quiz-selector ">
+          <select
+            name="id"
+            className="form-select form-select-lg mb-3"
+            onChange={handleChange}
+          >
+            <option>Select a quiz from the list...</option>
+            {quizList.map((q) => {
+              return (
+                <option key={q.id} value={q.id}>
+                  {q.quiz_name}
+                </option>
+              );
+            })}
+          </select>
+        </div>
+        <div className="mentor-buttons button-padding">
+          <Link
+            className="mentor-link"
+            to={{
+              pathname: "/quizanalyticsresults",
+              state: { quizId, mentorEmail },
+            }}
+          >
+            <Button buttontext="See the quiz analytics results" />
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default QuizAnalytics;

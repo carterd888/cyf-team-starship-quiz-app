@@ -3,6 +3,7 @@ import { createGlobalStyle } from "styled-components";
 const MentorStyle = createGlobalStyle`
   body {
     font-family: 'Roboto', sans-serif;
+    font-size: 1.25rem;
   }
 
   ${"" /* Mentor Login page */}
@@ -11,6 +12,9 @@ const MentorStyle = createGlobalStyle`
     display:flex;
     flex-direction: column;
     justify-content: center;
+    margin: auto;
+    margin-top: 2rem;
+    width: 50%;
   }
 
   .mentor-login-form {
@@ -35,6 +39,15 @@ const MentorStyle = createGlobalStyle`
   } 
 
   ${"" /* MentorPage */}
+
+    .mentor-page-div {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    margin-top: 2rem;
+    width: 50%;
+  }
 
   .mentor-page-header {
     text-align: center;
@@ -109,6 +122,9 @@ const MentorStyle = createGlobalStyle`
 
   ${"" /* QuizName and QuizQuestion */}
 
+  .quiz-name-div{
+
+  }
   .quiz-name-header {
     text-align: center;
     font-size: 2.5rem;
@@ -181,7 +197,7 @@ ${"" /* MentorQuizList and MentorResults*/}
 .quiz-selector {
   margin: auto;
   margin-top: 32px;
-  width: 30%;
+  width:30%;
 }
 
 .mentor-results {
@@ -216,7 +232,7 @@ ${"" /* QuizSummary */}
 
 .question-summary {
   border: 1px solid black;
-  background-color: #f3f3f3;
+  background-color:#b2b0b0;
   border-radius: 4px;
   padding: 2rem;
   margin-bottom: 2rem;
@@ -260,7 +276,7 @@ ${"" /* QuizSummary */}
     flex-wrap: wrap;
     margin:2rem;
     border: 1px solid black;
-    background-color: #f3f3f3;
+    background-color:#b2b0b0;
 
   }
   .success-rate, .median-score{
@@ -270,6 +286,22 @@ ${"" /* QuizSummary */}
   .progress-bar-success-rate{
     border:2px solid black;
   }
+
+
+.quiz-analytics-header {
+  margin-top: 2rem;
+  text-align: center;
+}
+.quiz-analytics-container{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  margin-top: 2rem;
+  width: 50%;
+}
+
+  
 
 
 `;
