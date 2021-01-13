@@ -7,6 +7,7 @@ const StudentStyle = createGlobalStyle`
     padding: 0;
     min-height: 100%;
     font-family: 'Roboto', sans-serif;
+    font-size: 1.25rem;
   }
 
   .student-login-form-div {
@@ -63,6 +64,8 @@ const StudentStyle = createGlobalStyle`
     flex-direction: column;
     max-width: 1000px;
     margin: auto;
+    padding: 1rem;
+    background-color:#b2b0b0;
   }
 
   .student-quiz-form > div {

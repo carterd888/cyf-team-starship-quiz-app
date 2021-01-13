@@ -5,6 +5,7 @@ import MentorStyle from "./MentorStyle";
 const QuizPage =(props)=> {
 
 	const mentorEmail = props.location.state.mentorEmail;
+	const quizName = props.location.state.quizName;
 
 
 	return (
@@ -12,7 +13,7 @@ const QuizPage =(props)=> {
 			<MentorStyle />
 			<QuizQuestion
 				mentorEmail={mentorEmail}
-				newQuiz={props.location.state.quizName}
+				quizName={quizName}
 			/>
 		</div>
 	);

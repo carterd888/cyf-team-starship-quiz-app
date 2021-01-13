@@ -7,10 +7,9 @@ const StudentQuiz = (props) => {
 
 	const studentId = props.location.state.studentId;
 	const studentName = props.location.state.studentName;
-	const [studentScore, setStudentScore] = useState("");
 	const [quizQuestions, setQuizQuestions] = useState([]);
 	const [quizList, setQuizList] = useState([]);
-	const [quizId, setQuizId] = useState(0);
+	const [quizId, setQuizId] = useState(null);
 	const quizAnswers = [];
 
 	useEffect(() => {
@@ -55,10 +54,6 @@ const StudentQuiz = (props) => {
 		}
 	}
 
-	async function handleStudentScore (e) {
-		setStudentScore(e);
-	}
-
 	function submitFunction() {
 		let totalScore = 0;
 		for (let i = 1; i < quizAnswers.length; ++i) {
@@ -66,7 +61,6 @@ const StudentQuiz = (props) => {
 				++totalScore;
 			}
 		}
-		handleStudentScore (`your score is ${totalScore} / ${quizQuestions.length}`);
 
 		fetch("http://localhost:3100/api/results", {	// Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/results
 			method: "POST",
@@ -84,61 +78,84 @@ const StudentQuiz = (props) => {
 
 
 	return (
-		<div className="container">
-			<StudentStyle />
+    <div className="container">
+      <StudentStyle />
 
-			<div className="quiz-selector">
-				<select name="id" className="form-select form-select-lg mb-3" onChange = {handleChange}>
-					<option>Select a quiz from the list...</option>
-					{quizList.map((q) =>{
-						return (<option key={q.id} value={q.id} >{q.quiz_name}</option>);
-					})}
-				</select>
-			</div>
+      <div className="quiz-selector">
+        <select
+          name="id"
+          className="form-select form-select-lg mb-3"
+          onChange={handleChange}
+        >
+          <option>Select a quiz from the list...</option>
+          {quizList.map((q) => {
+            return (
+              <option key={q.id} value={q.id}>
+                {q.quiz_name}
+              </option>
+            );
+          })}
+        </select>
+      </div>
+      {quizId && (
+        <form className="student-quiz-form">
+          {quizQuestions.map((q, index) => {
+            return (
+              <div>
+                <h2>
+                  {index + 1} {q.question}
+                </h2>
+                <div className="quiz-answers">
+                  {q.answers.map((ans) => {
+                    return (
+                      <div>
+                        <input
+                          type="radio"
+                          name={ans[2]}
+                          value={ans}
+                          onChange={checkAnswer}
+                        />
+                        <label>{ans[1]}</label>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })}
+        </form>
+      )}
 
-			<form className="student-quiz-form">
-				{quizQuestions.map((q, index) => {
-					return (
-						<div>
-							<h2>{index + 1}) {q.question}</h2>
-							<div className="quiz-answers">
-								{q.answers.map((ans) => {
-									return (
-										<div>
-											<input
-												type="radio"
-												name={ans[2]}
-												value={ans}
-												onChange={checkAnswer}
-											/>
-											<label>{ans[1]}</label>
-										</div>
-									);
-								})}
-							</div>
-						</div>
-					);
-				})}
-			</form>
+      <div className="student-buttons">
+        <Link
+          className="student-link"
+          to={{
+            pathname: "/studentscoresubmit",
+            state: { studentId, studentName },
+          }}
+        >
+          <button
+            className="quiz-submit-button btn-dark btn-lg"
+            onClick={submitFunction}
+          >
+            Submit the answers!
+          </button>
+        </Link>
+      </div>
 
-			<div className="student-buttons">
-				<Link className="student-link" to = {{
-					pathname: "/studentscoresubmit",
-					state: { studentId, studentName } }}>
-					<button className="quiz-submit-button btn-danger btn-lg" onClick={submitFunction}>Submit the answers!</button>
-				</Link>
-			</div>
-
-			<div className="student-buttons button-padding">
-				<Link className="student-link" to = {{
-					pathname: "/studentpage",
-					state: { studentId, studentName },
-				}}>
-					<Button buttontext ='Go back to Student Page' />
-				</Link>
-			</div>
-		</div>
-	);
+      <div className="student-buttons button-padding">
+        <Link
+          className="student-link"
+          to={{
+            pathname: "/studentpage",
+            state: { studentId, studentName },
+          }}
+        >
+          <Button buttontext="Go back to Student Page" />
+        </Link>
+      </div>
+    </div>
+  );
 };
 
 export default StudentQuiz;

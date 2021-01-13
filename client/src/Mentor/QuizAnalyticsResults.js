@@ -85,6 +85,7 @@ const QuizAnalyticsResults = (props) => {
 				/></span> </h2>
 
 				<h2 className="median-score">The median score of right answers is  {medianScore}</h2>
+				<h3 className="median-score">This quiz has {len[0]} questions</h3>
 			</div>
 
 			<div className="mentor-buttons">
