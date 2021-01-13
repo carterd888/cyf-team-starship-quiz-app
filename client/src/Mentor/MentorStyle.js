@@ -120,10 +120,17 @@ const MentorStyle = createGlobalStyle`
     width: 30%
   }
 
+  .quiz-question-header{
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+
   .question-input-area, .question-box, .answer-box {
     display: flex;
     flex-direction: column;
     margin-top: 16px;
+    text-align: center;
+    font-size: 1.5rem;
   }
  
   .question-input-area {
@@ -139,6 +146,7 @@ const MentorStyle = createGlobalStyle`
   .question-box {
     width: 100%;
     align-items: center;
+    margin: auto;
   }
 
   .question-box > textarea, .answer-box > input {
@@ -161,6 +169,12 @@ const MentorStyle = createGlobalStyle`
 .question-form {
   
 }
+{""/* Quiz Edit*/}
+
+.quiz-edit-page-header {
+    text-align: center;
+    margin-top: 1.5rem;
+  }
 
 ${"" /* MentorQuizList and MentorResults*/}
 
@@ -236,7 +250,7 @@ ${"" /* QuizSummary */}
   width: 100%;
 }
   
- ${""  /*QuizAnalyticsResults */}
+ ${"" /*QuizAnalyticsResults */}
 
 
   .analytics-cover{
