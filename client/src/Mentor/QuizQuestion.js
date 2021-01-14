@@ -78,7 +78,7 @@ const QuizQuestion = ({ mentorEmail, quizName }) => {
 
 	return (
     <div className="container">
-      <h1 className="quiz-question-header">Create a question:</h1>
+      <h1 className="mentor-header">Create a question:</h1>
       <form className="question-form needs-validation" noValidate>
         <div className="question-input-area">
           <div className="question-box was-validated">

@@ -49,9 +49,9 @@ const MentorStyle = createGlobalStyle`
     width: 50%;
   }
 
-  .mentor-page-header {
+  .mentor-header {
     text-align: center;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
   }
 
   .mentor-page-buttons {
@@ -110,35 +110,25 @@ const MentorStyle = createGlobalStyle`
     margin: auto;
     margin-top: 16px;
     margin-botton: 16px;
-    width: 30%;
+    width: 90%;
+    max-width: 450px;
   }
 
-  .quiz-create-button {
+  .quiz-create-button, .quiz-add-button {
     width: 100%;
   }
+
   .button-padding{
     margin-bottom:2rem;
   }
 
   ${"" /* QuizName and QuizQuestion */}
 
-  .quiz-name-div{
-
-  }
-  .quiz-name-header {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-  }
-
   .quiz-name-input {
     margin: auto;
-    width: 30%
-  }
-
-  .quiz-question-header{
-    text-align: center;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
+    width: 90%;
+    max-width: 450px;
   }
 
   .question-input-area, .question-box, .answer-box {
@@ -149,15 +139,21 @@ const MentorStyle = createGlobalStyle`
     font-size: 1.5rem;
   }
  
+  .question-input-area label {
+    font-size: 1.25rem;
+  }
+
   .question-input-area {
-    width: 50%;
+    width: 90%;
+    max-width: 1000px;
     margin: auto;
     align-items: center;
     margin-top:2rem;
     margin-bottom: 2rem;
-    padding:1rem;
-    background-color:#b2b0b0;
-  }s
+    padding: 2rem;
+    background-color: #b0b0b0;
+    border-radius: 4px;
+  }
 
   .question-box {
     width: 100%;
@@ -167,6 +163,7 @@ const MentorStyle = createGlobalStyle`
 
   .question-box > textarea, .answer-box > input {
     width: 100%;
+    border-color: #777;
   }
 
   .answer-box {
@@ -174,136 +171,115 @@ const MentorStyle = createGlobalStyle`
     align-items: center;
   }
 
-  .true-answer {
-    
-}
+  ${"" /* Quiz Edit*/}
 
-.false-answer {
-    
-}
+  .quiz-edit-page-header {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
 
-.question-form {
-  
-}
-{""/* Quiz Edit*/}
+  ${"" /* MentorQuizList and MentorResults*/}
 
-.quiz-edit-page-header {
-    text-align: center;
+  .quiz-selector {
+    margin: auto;
+    margin-top: 32px;
+    width: 90%;
+    max-width: 450px;
+  }
+
+  .mentor-results {
+    margin: 2rem 5% 5% 5%;
+  }
+
+  .mentor-results table {
+    margin: 0;
     margin-top: 1.5rem;
   }
 
-${"" /* MentorQuizList and MentorResults*/}
+  .mentor-results-search {
+    display: flex;
+    flex-wrap: wrap;
+  }
 
-.quiz-selector {
-  margin: auto;
-  margin-top: 32px;
-  width:30%;
-}
+  .mentor-results-search label {
+    margin-right: 1.5rem;
+    padding-top: 0.25rem;
+  }
 
-.mentor-results {
-  margin: 2rem 5% 5% 5%;
-}
+  .mentor-results-search input {
+    max-width: 256px;
+  }
 
-.mentor-results table {
-  margin: 0;
-  margin-top: 1.5rem;
-}
+  ${"" /* QuizSummary */}
 
-.mentor-results-search {
-  display: flex;
-  flex-wrap: wrap;
-}
+  .quiz-summary-container {
+    margin-top: 2rem;
+  }
 
-.mentor-results-search label {
-  margin-right: 1.5rem;
-  padding-top: 0.25rem;
-}
+  .question-summary {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    border: 1px solid #777;
+    background-color:#b2b0b0;
+    border-radius: 4px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
 
-${"" /* QuizSummary */}
+  .question-content-summary {
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+  }
 
-.quiz-summary-container {
-  margin: 32px 2% 2% 2%;
-}
+  .answer-summary {
+    list-style: none;
+    font-size: 1rem;
+  }
 
-.quiz-summary-title {
-  font-weight: 900;
-  margin-bottom: 2rem;
- }
+  .correct-answer-summary {
+    font-weight: bold;
+  }
 
-.question-summary {
-  border: 1px solid black;
-  background-color:#b2b0b0;
-  border-radius: 4px;
-  padding: 2rem;
-  margin-bottom: 2rem;
-}
+  .summary-question-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+  }
 
-.question-content-summary {
-  font-weight: 400;
-  margin-bottom: 1.5rem;
-}
+  .summary-edit-link, .summary-delete-button {
+    width: 6rem;
+    margin-left: 2rem;
+  }
 
-.answer-summary {
-  list-style: none;
-}
-
-.correct-answer-summary {
-  font-weight: bold;
-}
-
-.summary-question-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 1.5rem;
-}
-
-.summary-edit-link, .summary-delete-button {
-  width: 6rem;
-  margin-left: 2rem;
-}
-
-.summary-edit-button {
-  width: 100%;
-}
+  .summary-edit-button {
+    width: 100%;
+  }
   
  ${"" /*QuizAnalyticsResults */}
 
 
-  .analytics-cover{
+  .analytics-cover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    flex-wrap: wrap;
-    margin:2rem;
-    border: 1px solid black;
+    margin: 2rem auto 2rem auto;
+    width: 90%;
+    max-width: 1000px;
+    border: 1px solid #777;
+    border-radius: 4px;
     background-color:#b2b0b0;
 
   }
-  .success-rate, .median-score{
-    text-align:left;
-    margin:2rem;  
+  .analytics-cover h2 {
+    text-align: left;
+    margin: 2rem;
+    font-size: 1.5rem;  
   }
+
   .progress-bar-success-rate{
     border:2px solid black;
   }
-
-
-.quiz-analytics-header {
-  margin-top: 2rem;
-  text-align: center;
-}
-.quiz-analytics-container{
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: auto;
-  margin-top: 2rem;
-  width: 50%;
-}
-
-  
-
-
 `;
 
 export default MentorStyle;

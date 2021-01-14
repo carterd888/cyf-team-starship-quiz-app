@@ -178,7 +178,7 @@ const QuizEdit = (props) => {
               type="submit"
               onClick={handleSubmit}
             >
-              click here to submit the change
+              Submit the change
             </button>
           </Link>
         </div>

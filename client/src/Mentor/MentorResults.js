@@ -35,7 +35,7 @@ const MentorResults = (props) => {
 				<p>Results are in reverse order, lowest score first.</p>
 				<div className="mentor-results-search">
 					<label htmlFor="student-filter">Search for student name:</label>
-					<input type="text" className="student-filter" name="student-filter" onChange={handleChange} required />
+					<input type="text" className="form-control" name="student-filter" onChange={handleChange} required />
 				</div>
 				<div>
 					<table className="table">

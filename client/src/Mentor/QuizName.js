@@ -4,18 +4,18 @@ import { Link } from "react-router-dom";
 import MentorStyle from "./MentorStyle";
 import Button from "../GeneralPages/Button";
 
-const QuizName =(props)=> {
+const QuizName = (props) => {
 	const mentorEmail = props.location.state.mentorEmail;
 	const thisDate = new Date();
 	const formattedDate = moment(thisDate).format("MMMM Do YYYY, h:mm:ss");
-	const [quizName, setQuizName]= useState("");
+	const [quizName, setQuizName] = useState("");
 
 	function handleChange(e) {
 		setQuizName(e.target.value);
 	}
 
 	function setName(){
-		if(quizName==="") {
+		if(quizName === "") {
 			setQuizName(formattedDate);
 		}
 	}
@@ -39,8 +39,7 @@ const QuizName =(props)=> {
 	return (
 		<div className="container">
 			<MentorStyle />
-			<div className="grey-background quiz-name-div">
-			<h1 className="quiz-name-header">Create a new quiz</h1>
+			<h1 className="mentor-header">Create a new quiz</h1>
 			<div className="quiz-name-input input-group mb-3">
 				<div className="input-group-prepend">
 					<span className="input-group-text" id="inputGroup-sizing-default">Quiz name:</span>
@@ -75,7 +74,6 @@ const QuizName =(props)=> {
 				}}>
 					<Button buttontext="Go back to Mentor Page" />
 				</Link>
-			</div>
 			</div>
 		</div>
 	);

@@ -11,9 +11,8 @@ const MentorPage = (props) => {
 	return (
 		<div className="container">
 			<MentorStyle />
-			<div className="grey-background mentor-page-div">
-
-			<h1 className="mentor-page-header">You are logged in as {mentorEmail}</h1>
+			
+			<h1 className="mentor-header">You are logged in as {mentorEmail}</h1>
 			<div className="mentor-page-buttons">
 				<div className="mentor-buttons">
 					<Link className="mentor-link" to={{
@@ -40,7 +39,7 @@ const MentorPage = (props) => {
 					</div>
 				</div>
 			</div>
-			</div>
+			
 		</div>
 	);
 };

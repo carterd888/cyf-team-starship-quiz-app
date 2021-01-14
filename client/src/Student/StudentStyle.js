@@ -48,7 +48,13 @@ const StudentStyle = createGlobalStyle`
     margin: auto;
     margin-top: 16px;
     margin-botton: 16px;
-    width: 30%;
+    width: 90%;
+    max-width: 450px;
+  }
+
+  .student-header {
+    margin-top: 2rem;
+    text-align: center;
   }
 
   ${"" /* StudentQuiz */}
@@ -56,16 +62,20 @@ const StudentStyle = createGlobalStyle`
   .quiz-selector {
     margin: auto;
     margin-top: 32px;
-    width: 30%;
+    width: 90%;
+    max-width: 450px;
   }
 
   .student-quiz-form {
     display: flex;
     flex-direction: column;
+    width: 90%;
     max-width: 1000px;
-    margin: auto;
-    padding: 1rem;
+    margin: 2rem auto 2rem auto;
+    padding: 2rem;
     background-color:#b2b0b0;
+    border: 1px solid #777;
+    border-radius: 4px;
   }
 
   .student-quiz-form > div {
@@ -73,6 +83,10 @@ const StudentStyle = createGlobalStyle`
     flex-direction: column;
     align-content: flex-start;
     padding: 1.5rem 0 1.5rem 0;
+  }
+
+  .student-quiz-form h2 {
+    font-size: 1.5rem;
   }
 
   .quiz-answers {

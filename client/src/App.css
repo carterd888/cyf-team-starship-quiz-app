@@ -3,14 +3,12 @@
     position: relative;
     min-width: 100%;
     padding: 0;
-    padding-bottom: 128px;
-    /*to prevent the footer from overlapping */
+    padding-bottom: 5rem; /*to prevent the footer from overlapping */
 }
 
 .App {
     position: relative;
     min-height: 100vh;
-
 }
 
 /* Header Component */
@@ -36,7 +34,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-
 }
 
 .header-link-item {
@@ -98,7 +95,8 @@ a:link {
 /* Button Component */
 
 .button-component,
-.quiz-submit-button {
+.quiz-submit-button,
+.submit-quiz-button {
     width: 100%;
 }
 
@@ -119,38 +117,54 @@ a:link {
 /* Footer */
 
 .Footer {
-    background-color: gray;
-    padding: 8px 0 8px 0;
-    font-size: 3vw;
-    font-weight: 800;
+    background-color: #f3f3f3;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.25);
+    padding: 4px 0 4px 0;
+    font-size: 8px;
     position: absolute;
     left: 0;
     bottom: 0;
     right: 0;
     width: 100%;
-    max-height: 128px;
-    /*to prevent the footer from overlapping */
+    display: flex;
+    justify-content: space-between;
+    max-height: 5rem; /*to prevent the footer from overlapping */
 }
 
 .footer-links-div {
     display: flex;
-    justify-content: space-between;
-    margin: 0 5% 0 5%;
+    margin-left: 8px;
     max-width: 400px;
 }
 
-.Footer h4 {
-    font-size: 4vw;
-
+.footer-links-div p {
+    margin: 0;
+    padding: 2px 0 2px 0;
 }
 
 .copyright {
-    margin-left: 5%;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.copyright p{
+    margin-bottom: 4px;
 }
 
 .footer-links {
     list-style: none;
+    margin-bottom: 4px;
+    padding: 0;
+    margin-right: 16px;
+    
 }
+
+.footer-links li {
+    white-space: nowrap;
+    margin-right: 16px;
+    padding: 1px;
+}
+
 
 
 /* .message {
@@ -192,15 +206,16 @@ $color-table-red: #F4C7C3;
 $color-table-yellow: #FCE8B2;
 */
 
-
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 650px) {
     .Footer {
         font-size: 12px;
+        display: block;
     }
-
-    .Footer h4 {
-        font-size: 16px;
+    
+    .footer-links {
+        display: flex;
     }
+    
 }
 
 @media screen and (min-width: 700px) {

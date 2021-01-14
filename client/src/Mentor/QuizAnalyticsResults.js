@@ -72,20 +72,21 @@ const QuizAnalyticsResults = (props) => {
 
 
 	return(
-		<div className="container analytics-container">
+		<div className="container">
 			<MentorStyle />
 			<div className="analytics-cover">
-				<h2 className="success-rate">The success rate for this Quiz is: <span><Progress
-					type="circle"
-					strokeColor={{
-						"0%": "#108ee9",
-						"100%": "#87d068",
-					}}
-					percent={successRateQuiz}
-				/></span> </h2>
-
-				<h2 className="median-score">The median score of right answers is  {medianScore}</h2>
-				<h3 className="median-score">This quiz has {len[0]} questions</h3>
+				<h2>Quiz success rate:{" "}
+					<span><Progress
+						type="circle"
+						strokeColor={{
+							"0%": "#108ee9",
+							"100%": "#87d068",
+						}}
+						percent={successRateQuiz}
+					/></span>
+				</h2>
+				<h2>Median Score: {medianScore}</h2>
+				<h2>This quiz has {len[0]} questions</h2>
 			</div>
 
 			<div className="mentor-buttons">

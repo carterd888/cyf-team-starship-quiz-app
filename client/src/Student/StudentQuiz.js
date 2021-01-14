@@ -103,7 +103,7 @@ const StudentQuiz = (props) => {
             return (
               <div>
                 <h2>
-                  {index + 1} {q.question}
+                  {index + 1}) {q.question}
                 </h2>
                 <div className="quiz-answers">
                   {q.answers.map((ans) => {

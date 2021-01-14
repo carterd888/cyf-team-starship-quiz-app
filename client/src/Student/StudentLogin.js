@@ -39,12 +39,12 @@ const StudentLogin = () => {
 					<br />
 					<div className="student-login-input">
                 	    <label>Enter Your Name:</label>
-						<input type="text" className="student-login-name" name="studentName"  value={studentName} onChange={handleChange} required />
+						<input type="text" className="form-control student-login-name" name="studentName"  value={studentName} onChange={handleChange} required />
 					</div>
 					<br />
 					<div className="student-login-input">
                     	<label>Enter Your Email:</label>
-						<input type="email" className="student-login-email" name="studentEmail"  value={studentEmail} onChange={handleChange} required />
+						<input type="email" className="form-control student-login-email" name="studentEmail"  value={studentEmail} onChange={handleChange} required />
 					</div>
 					<br />
 					<div className="submit-button">

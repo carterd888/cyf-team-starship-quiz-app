@@ -20,7 +20,7 @@ const StudentScoreSubmit = (props) => {
 	return (
 		<div>
 			<StudentStyle />
-			<h1>Your score is: {studentResult[0]} / {studentResult[1]}</h1>
+			<h1 className="student-header">Your score is: {studentResult[0]} / {studentResult[1]}</h1>
 			<div className="student-buttons">
 				<Link className="student-link" to={{
 					pathname: "/studentpage",

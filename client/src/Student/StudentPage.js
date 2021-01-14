@@ -12,7 +12,7 @@ const StudentPage = (props) => {
 		<div className="container">
 			<StudentStyle />
 			<div className="student-page-div">
-				<h1>Welcome, {studentName}</h1>
+				<h1 className="student-header">Welcome, {studentName}</h1>
 				<div className="student-buttons">
 					<Link className="student-link" to={{
 						pathname: "/studentquiz",
