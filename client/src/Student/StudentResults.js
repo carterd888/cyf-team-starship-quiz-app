@@ -3,20 +3,20 @@ import { Link } from "react-router-dom";
 import Button from "../GeneralPages/Button";
 import StudentStyle from "./StudentStyle";
 
+
 const StudentResults = (props) => {
 
-	console.log(props.location.state.studentId);
 	const studentId = props.location.state.studentId;
 	const studentName = props.location.state.studentName;
-
 	let [results, setResults] = useState([]);
 
 	useEffect(() => {
-		fetch(`http://localhost:3100/api/studentresults/student/${studentId}`) // Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/studentresults/student/${studentId}
+		fetch(`https://cyf-team-starship-quiz-app.herokuapp.com/api/studentresults/student/${studentId}`)
 			.then((data) => data.json())
 			.then((jsonData) => setResults(jsonData))
 			.catch((e) => console.log(e));
-	}, []);
+	}, [studentId]);
+
 
 	return (
 		<div className="container">

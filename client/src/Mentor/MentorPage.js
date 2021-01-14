@@ -3,6 +3,7 @@ import Button from "../GeneralPages/Button";
 import { Link } from "react-router-dom";
 import MentorStyle from "./MentorStyle";
 
+
 const MentorPage = (props) => {
 
 	const mentorEmail = props.location.state.mentorEmail;
@@ -11,7 +12,6 @@ const MentorPage = (props) => {
 	return (
 		<div className="container">
 			<MentorStyle />
-			
 			<h1 className="mentor-header">You are logged in as {mentorEmail}</h1>
 			<div className="mentor-page-buttons">
 				<div className="mentor-buttons">
@@ -29,8 +29,8 @@ const MentorPage = (props) => {
 					}}>
 						<Button buttontext="Select a quiz and view results" />
 					</Link>
-					<div className="mentor-buttons">
-						<Link className="mentor-link button-padding"  to={{
+					<div className="mentor-buttons button-padding">
+						<Link className="mentor-link"  to={{
 							pathname: "/quizanalytics",
 							state: { mentorEmail },
 						}}>
@@ -39,7 +39,6 @@ const MentorPage = (props) => {
 					</div>
 				</div>
 			</div>
-			
 		</div>
 	);
 };

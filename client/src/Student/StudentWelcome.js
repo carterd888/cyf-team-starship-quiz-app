@@ -3,14 +3,15 @@ import Button from "../GeneralPages/Button";
 import { Link } from "react-router-dom";
 import StudentStyle from "./StudentStyle";
 
-const StudentWelcome=(props)=>{
+
+const StudentWelcome = (props) => {
 
 	const studentEmail = props.location.state.studentEmail;
 	const studentName = props.location.state.studentName;
 	const [studentId, setStudentId] = useState(0);
 
-	useEffect(() =>{
-		fetch(`http://localhost:3100/api/students/${studentEmail}`)	// Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/students/${studentEmail}
+	useEffect(() => {
+		fetch(`https://cyf-team-starship-quiz-app.herokuapp.com/api/students/${studentEmail}`)
 			.then((data) => data.json())
 			.then((jsonData) => setStudentId(jsonData[0].id))
 			.catch((e) => console.log(e));
