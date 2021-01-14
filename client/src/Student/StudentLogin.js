@@ -18,9 +18,9 @@ const StudentLogin = () => {
 	}
 
 	function handleSubmit () {
-		fetch("http://localhost:3100/api/students", {	// Change to "https://cyf-team-starship-quiz-app.herokuapp.com/api/students"
+		fetch("https://cyf-team-starship-quiz-app.herokuapp.com/api/students", {
 			method: "POST",
-			body: JSON.stringify({
+			body: JSON.stringify ({
 				student_name: studentName,
 				student_email: studentEmail,
 			}),

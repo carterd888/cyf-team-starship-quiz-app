@@ -12,14 +12,14 @@ const MentorResults = (props) => {
 	const [search, setSearch]= useState("");
 
 	useEffect(() => {
-		fetch(`http://localhost:3100/api/mentorresults/${quizId}`) // Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/mentorresults/${quizId}
+		fetch(`https://cyf-team-starship-quiz-app.herokuapp.com/api/mentorresults/${quizId}`)
 			.then((data) => data.json())
 			.then((jsonData) => setResults(jsonData))
 			.catch((e) => console.log(e));
 	}, [quizId]);
 
 	function handleChange(e) {
-		setSearch(
+		setSearch (
 			results.filter((student) =>
 				student.student_name.toLowerCase().includes(e.target.value)
 			)

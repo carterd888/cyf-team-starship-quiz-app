@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import MentorStyle from "./MentorStyle";
 import Button from "../GeneralPages/Button";
 
+
 const QuizName = (props) => {
 	const mentorEmail = props.location.state.mentorEmail;
 	const thisDate = new Date();
@@ -19,11 +20,11 @@ const QuizName = (props) => {
 			setQuizName(formattedDate);
 		}
 	}
+
 	setName();
 
 	function handleSubmit () {
-
-		fetch("http://localhost:3100/api/quizname", {   // Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/quizname
+		fetch("https://cyf-team-starship-quiz-app.herokuapp.com/api/quizname", {
 			method: "POST",
 			body: JSON.stringify({
 				quiz_name: quizName,
@@ -32,7 +33,6 @@ const QuizName = (props) => {
 				"Content-Type": "application/json",
 			},
 		});
-
 	}
 
 
@@ -56,7 +56,7 @@ const QuizName = (props) => {
 					required
 				/>
 			</div>
-			<div className="mentor-buttons">
+			<div className="mentor-buttons button-padding">
 				<Link className="mentor-link" to={{
 					pathname: "/quizpage",
 					state: { quizName, mentorEmail },

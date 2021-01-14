@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Button from "../GeneralPages/Button";
 import MentorStyle from "./MentorStyle";
 
+
 const MentorQuizList = (props) => {
 
 	const mentorEmail = props.location.state.mentorEmail;
@@ -10,7 +11,7 @@ const MentorQuizList = (props) => {
 	const [quizId, setQuizId] = useState(0);
 
 	useEffect(() => {
-		fetch("http://localhost:3100/api/quizlist") // Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/quizlist
+		fetch("https://cyf-team-starship-quiz-app.herokuapp.com/api/quizlist")
 			.then((data) => data.json())
 			.then((jsonData) => setQuizList(jsonData))
 			.catch((e) => console.log(e));
@@ -46,7 +47,7 @@ const MentorQuizList = (props) => {
 						<Button buttontext="See the quiz results" />
 					</Link>
 				</div>
-				<div className="mentor-buttons">
+				<div className="mentor-buttons button-padding">
 					<Link className="mentor-link" to={{
 						pathname: "/mentorpage",
 						state: { mentorEmail },

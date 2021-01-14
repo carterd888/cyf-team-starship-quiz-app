@@ -1,4 +1,3 @@
-/* eslint-disable linebreak-style */
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import HomePage from "./GeneralPages/HomePage";
@@ -22,6 +21,7 @@ import Footer from "./GeneralPages/Footer";
 import Header from "./GeneralPages/Header";
 import QuizAnalytics from "./Mentor/QuizAnalytics";
 import QuizAnalyticsResults from "./Mentor/QuizAnalyticsResults";
+
 
 export function App() {
 

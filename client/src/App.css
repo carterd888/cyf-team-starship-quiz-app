@@ -3,7 +3,7 @@
     position: relative;
     min-width: 100%;
     padding: 0;
-    padding-bottom: 5rem; /*to prevent the footer from overlapping */
+    padding-bottom: 7rem; /*to prevent the footer from overlapping */
 }
 
 .App {
@@ -17,23 +17,24 @@
     background-color: white;
     display: flex;
     justify-content: space-between;
-    padding: 1rem 5rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
     margin-bottom: 4px;
     margin-top: 0;
 }
 
 .Logo {
-    width: 15rem;
+    width: 10rem;
+    margin: 0.5rem 0 0.5rem 2rem;
 }
 
-.header-links {
+/* .header-links {
     flex-grow: 2;
     list-style-type: none;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
+    margin-bottom: 0;
 }
 
 .header-link-item {
@@ -43,13 +44,17 @@
     color: white;
     border-radius: 1rem;
     padding: 0.5rem;
-}
+} */
 
 a:link {
     text-decoration: none;
 }
 
 /* Home Page Component */
+
+.homepage-student-access {}
+
+.homepage-mentor-access {}
 
 .homepage {
     margin: auto;
@@ -74,10 +79,6 @@ a:link {
     border: 2px solid black;
     margin: 2%;
 }
-
-.homepage-student-access {}
-
-.homepage-mentor-access {}
 
 .welcome-text {
     font-weight: 800;
@@ -165,15 +166,6 @@ a:link {
     padding: 1px;
 }
 
-
-
-/* .message {
-    color: blue;
-}
-
-.message:hover {
-    background-color: yellow;
-} */
 /*
 $color-primary: #ED4343;
 
@@ -214,14 +206,11 @@ $color-table-yellow: #FCE8B2;
     
     .footer-links {
         display: flex;
-    }
-    
+    }   
 }
 
 @media screen and (min-width: 700px) {
     .welcome-text {
         font-size: 28px;
     }
-
-
 }

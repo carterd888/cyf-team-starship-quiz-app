@@ -9,11 +9,10 @@ const MentorLogin = () => {
 
 	function handleChange(e) {
 		setMentorEmail(e.target.value);
-		console.log(mentorEmail);
 	}
 
 	function handleSubmit (e) {
-		fetch("http://localhost:3100/api/mentors", {	// Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/mentors
+		fetch("https://cyf-team-starship-quiz-app.herokuapp.com/api/mentors", {
 			method: "POST",
 			body: JSON.stringify({
 				mentor_email: mentorEmail,

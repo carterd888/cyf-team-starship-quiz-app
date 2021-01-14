@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Button from "../GeneralPages/Button";
 
+
 const QuizQuestion = ({ mentorEmail, quizName }) => {
 
 	const [correctAnswer, setCorrectAnswer] = useState("");
@@ -14,11 +15,11 @@ const QuizQuestion = ({ mentorEmail, quizName }) => {
 	const [quizId, setQuizId] = useState(0);
 
 	useEffect(() => {
-		fetch(`http://localhost:3100/api/quiz/${quizName}`) // Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/quiz/${quizName}
+		fetch(`https://cyf-team-starship-quiz-app.herokuapp.com/api/quiz/${quizName}`)
 			.then((data) => data.json())
 			.then((jsonData) => setQuizId(jsonData[0].id))
 			.catch((e) => console.log(e));
-	}, [quizId]);
+	}, [quizName]);
 
 	function handleChange(e) {
 		if (e.target.name === "question") {
@@ -41,12 +42,12 @@ const QuizQuestion = ({ mentorEmail, quizName }) => {
 	function handleSubmit(e) {
 		e.preventDefault();
 
-		if(question === "" || correctAnswer === "" || wrongAnswer1 === ""){
+		if(question === "" || correctAnswer === "" || wrongAnswer1 === "") {
 			alert("Please fill out the required fills.");
-		}else{
-			fetch("http://localhost:3100/api/quiz", {  // Change to https://cyf-team-starship-quiz-app.herokuapp.com/api/quiz
+		} else {
+			fetch("https://cyf-team-starship-quiz-app.herokuapp.com/api/quiz", {
 				method: "POST",
-				body: JSON.stringify({
+				body: JSON.stringify ({
 					question: question,
 					correct_answer: correctAnswer,
 					wrong_answer_1: wrongAnswer1,
@@ -70,141 +71,138 @@ const QuizQuestion = ({ mentorEmail, quizName }) => {
 			setWrongAnswer4("");
 			setWrongAnswer5("");
 		}
-
-
 	}
 
 
-
 	return (
-    <div className="container">
-      <h1 className="mentor-header">Create a question:</h1>
-      <form className="question-form needs-validation" noValidate>
-        <div className="question-input-area">
-          <div className="question-box was-validated">
-            <label htmlFor="question">Enter the question below:</label>
-            <textarea
-              className="form-control is-invalid"
-              id="question"
-              name="question"
-              rows="8"
-              cols="145"
-              value={question}
-              onChange={handleChange}
-              placeholder="Please fill the question here !"
-              required
-            />
-          </div>
+		<div className="container">
+			<h1 className="mentor-header">Create a question:</h1>
+			<form className="question-form needs-validation" noValidate>
+				<div className="question-input-area">
+					<div className="question-box was-validated">
+						<label htmlFor="question">Enter the question below:</label>
+						<textarea
+							className="form-control is-invalid"
+							id="question"
+							name="question"
+							rows="8"
+							cols="145"
+							value={question}
+							onChange={handleChange}
+							placeholder="Please fill the question here !"
+							required
+						/>
+					</div>
 
-          <div className="answer-box was-validated">
-            <label htmlFor="correctAnswer">Correct Answer</label>
-            <input
-              className="true-answer form-control is-invalid"
-              type="text"
-              name="correctAnswer"
-              placeholder="Enter correct answer here"
-              value={correctAnswer}
-              onChange={handleChange}
-              required
-            />
-          </div>
+					<div className="answer-box was-validated">
+						<label htmlFor="correctAnswer">Correct Answer</label>
+						<input
+							className="true-answer form-control is-invalid"
+							type="text"
+							name="correctAnswer"
+							placeholder="Enter correct answer here"
+							value={correctAnswer}
+							onChange={handleChange}
+							required
+						/>
+					</div>
 
-          <div className="answer-box was-validated">
-            <label htmlFor="wrongAnswer1">Wrong Answer</label>
-            <input
-              className="false-answer form-control is-invalid"
-              type="text"
-              name="wrongAnswer1"
-              placeholder="Enter wrong answer here"
-              value={wrongAnswer1}
-              onChange={handleChange}
-              required
-            />
-          </div>
+					<div className="answer-box was-validated">
+						<label htmlFor="wrongAnswer1">Wrong Answer</label>
+						<input
+							className="false-answer form-control is-invalid"
+							type="text"
+							name="wrongAnswer1"
+							placeholder="Enter wrong answer here"
+							value={wrongAnswer1}
+							onChange={handleChange}
+							required
+						/>
+					</div>
 
-          <div className="answer-box">
-            <label htmlFor="wrongAnswer2">Wrong Answer (optional) </label>
-            <input
-              className="false-answer form-control"
-              type="text"
-              name="wrongAnswer2"
-              placeholder="Enter wrong answer here"
-              value={wrongAnswer2}
-              onChange={handleChange}
-            />
-          </div>
+					<div className="answer-box">
+						<label htmlFor="wrongAnswer2">Wrong Answer (optional) </label>
+						<input
+							className="false-answer form-control"
+							type="text"
+							name="wrongAnswer2"
+							placeholder="Enter wrong answer here"
+							value={wrongAnswer2}
+							onChange={handleChange}
+						/>
+					</div>
 
-          <div className="answer-box">
-            <label htmlFor="wrongAnswer3">Wrong Answer (optional) </label>
-            <input
-              className="false-answer form-control"
-              type="text"
-              name="wrongAnswer3"
-              placeholder="Enter wrong answer here"
-              value={wrongAnswer3}
-              onChange={handleChange}
-            />
-          </div>
+					<div className="answer-box">
+						<label htmlFor="wrongAnswer3">Wrong Answer (optional) </label>
+						<input
+							className="false-answer form-control"
+							type="text"
+							name="wrongAnswer3"
+							placeholder="Enter wrong answer here"
+							value={wrongAnswer3}
+							onChange={handleChange}
+						/>
+					</div>
 
-          <div className="answer-box">
-            <label htmlFor="wrongAnswer4">Wrong Answer (optional) </label>
-            <input
-              className="false-answer form-control"
-              type="text"
-              name="wrongAnswer4"
-              placeholder="Enter wrong answer here"
-              value={wrongAnswer4}
-              onChange={handleChange}
-            />
-          </div>
+					<div className="answer-box">
+						<label htmlFor="wrongAnswer4">Wrong Answer (optional) </label>
+						<input
+							className="false-answer form-control"
+							type="text"
+							name="wrongAnswer4"
+							placeholder="Enter wrong answer here"
+							value={wrongAnswer4}
+							onChange={handleChange}
+						/>
+					</div>
 
-          <div className="answer-box">
-            <label htmlFor="wrongAnswer5">Wrong Answer (optional) </label>
-            <input
-              className="false-answer form-control"
-              type="text"
-              name="wrongAnswer5"
-              placeholder="Enter wrong answer here"
-              value={wrongAnswer5}
-              onChange={handleChange}
-            />
-          </div>
-        </div>
+					<div className="answer-box">
+						<label htmlFor="wrongAnswer5">Wrong Answer (optional) </label>
+						<input
+							className="false-answer form-control"
+							type="text"
+							name="wrongAnswer5"
+							placeholder="Enter wrong answer here"
+							value={wrongAnswer5}
+							onChange={handleChange}
+						/>
+					</div>
+				</div>
 
-        <div className="question-submit-button">
-          <button
-            className="quiz-create-button btn-dark btn-lg"
-            type="submit"
-            onClick={handleSubmit}
-          >
-            Submit the question
-          </button>
-        </div>
+				<div className="question-submit-button">
+					<button
+						className="quiz-create-button btn-dark btn-lg"
+						type="submit"
+						onClick={handleSubmit}
+					>
+            			Submit the question
+					</button>
+				</div>
 
-        <div className="mentor-buttons">
-          <Link
-            className="mentor-link"
-            to={{
-              pathname: "/quizsummary",
-              state: { quizName, quizId, mentorEmail },
-            }}
-          >
-            <Button buttontext="View quiz summary " />
-          </Link>
-        </div>
-        <div className="mentor-buttons button-padding">
-          <Link
-            className="mentor-link"
-            to={{
-              pathname: "/mentorpage",
-              state: { mentorEmail },
-            }}
-          >
-            <Button buttontext="Go back to Mentor Page" />
-          </Link>
-        </div>
-      </form>
-    </div>
-  );
+				<div className="mentor-buttons">
+					<Link
+						className="mentor-link"
+						to={{
+							pathname: "/quizsummary",
+							state: { quizName, quizId, mentorEmail },
+						}}
+					>
+						<Button buttontext="View quiz summary " />
+					</Link>
+				</div>
+				<div className="mentor-buttons button-padding">
+					<Link
+						className="mentor-link"
+						to={{
+							pathname: "/mentorpage",
+							state: { mentorEmail },
+						}}
+					>
+						<Button buttontext="Go back to Mentor Page" />
+					</Link>
+				</div>
+			</form>
+		</div>
+	);
 };
 export default QuizQuestion;

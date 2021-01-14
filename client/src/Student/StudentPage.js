@@ -3,6 +3,7 @@ import Button from "../GeneralPages/Button";
 import { Link } from "react-router-dom";
 import StudentStyle from "./StudentStyle";
 
+
 const StudentPage = (props) => {
 
 	const studentId = props.location.state.studentId;

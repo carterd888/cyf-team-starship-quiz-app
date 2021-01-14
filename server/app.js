@@ -2,14 +2,13 @@ import express from "express";
 import helmet from "helmet";
 import morgan from "morgan";
 import path from "path";
-
 import router from "./api";
 import { httpsOnly, logErrors, pushStateRouting } from "./middleware";
 import cors from "cors";
 
+
 const apiRoot = "/api";
 const staticDir = path.join(__dirname, "static");
-
 const app = express();
 
 app.use(cors());
@@ -24,10 +23,7 @@ if (app.get("env") === "production") {
 }
 
 app.use(apiRoot, router);
-
 app.use(express.static(staticDir));
 app.use(pushStateRouting(apiRoot, staticDir));
-
-
 
 export default app;
