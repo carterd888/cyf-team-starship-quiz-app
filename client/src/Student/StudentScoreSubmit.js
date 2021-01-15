@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Button from "../GeneralPages/Button";
 import { Link } from "react-router-dom";
 import StudentStyle from "./StudentStyle";
@@ -10,13 +10,14 @@ const StudentScoreSubmit = (props) => {
 	const studentName = props.location.state.studentName;
 	const [studentResult, setStudentResult] = useState([]);
 
-	useEffect(() => {
-		fetch(`https://cyf-team-starship-quiz-app.herokuapp.com/api/studentresults/${studentId}`)
+	async function getScore() {
+		await fetch(`https://cyf-team-starship-quiz-app.herokuapp.com/api/studentresults/${studentId}`)
 			.then((data) => data.json())
 			.then((jsonData) => setStudentResult([jsonData[0].score, jsonData[0].quiz_length]))
 			.catch((e) => console.log(e));
-	}, [studentId]);
+		}
 
+	getScore();	
 
 	return (
 		<div>

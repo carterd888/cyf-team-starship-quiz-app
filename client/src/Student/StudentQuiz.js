@@ -11,10 +11,11 @@ const StudentQuiz = (props) => {
 	const [quizQuestions, setQuizQuestions] = useState([]);
 	const [quizList, setQuizList] = useState([]);
 	const [quizId, setQuizId] = useState(null);
-	const quizAnswers = [];
+	let quizAnswers = [];
 
 	useEffect(() => {
 		fetch("https://cyf-team-starship-quiz-app.herokuapp.com/api/quizlist")
+			.then((data) => data.json())
 			.then((jsonData) => setQuizList(jsonData))
 			.catch((e) => console.log(e));
 	}, []);
@@ -44,7 +45,6 @@ const StudentQuiz = (props) => {
 
 	function checkAnswer (e) {
 		const question = e.target.value.split(",");		//index 0 = correct/wrong answer, index 1 = question content, index 2 = question id
-
 		if(question[0] == "correct_answer") {
 			quizAnswers[question[2]] = true;
 		} else {
@@ -55,7 +55,7 @@ const StudentQuiz = (props) => {
 	function submitFunction() {
 		let totalScore = 0;
 		for (let i = 1; i < quizAnswers.length; ++i) {
-			if (quizAnswers[i]) {
+			if (quizAnswers[i] == true) {
 				++totalScore;
 			}
 		}
@@ -72,6 +72,7 @@ const StudentQuiz = (props) => {
 				"Content-Type": "application/json",
 			},
 		});
+		quizAnswers = [];
 	}
 
 
@@ -101,7 +102,7 @@ const StudentQuiz = (props) => {
 						return (
 							<div>
 								<h2>
-									{index + 1}) {q.question}
+									Q{index + 1} {q.question}
 								</h2>
 								<div className="quiz-answers">
 									{q.answers.map((ans) => {
