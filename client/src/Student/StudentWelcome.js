@@ -8,7 +8,7 @@ const StudentWelcome = (props) => {
 
 	const studentEmail = props.location.state.studentEmail;
 	const studentName = props.location.state.studentName;
-	const [studentId, setStudentId] = useState(0);
+	const [studentId, setStudentId] = useState(null);
 
 	useEffect(() => {
 		fetch(`https://cyf-team-starship-quiz-app.herokuapp.com/api/students/${studentEmail}`)

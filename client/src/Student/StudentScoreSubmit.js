@@ -8,7 +8,7 @@ const StudentScoreSubmit = (props) => {
 
 	const studentId = props.location.state.studentId;
 	const studentName = props.location.state.studentName;
-	const [studentResult, setStudentResult] = useState([]);
+	const [studentResult, setStudentResult] = useState(["result"]);
 
 	async function getScore() {
 		await fetch(`https://cyf-team-starship-quiz-app.herokuapp.com/api/studentresults/${studentId}`)
